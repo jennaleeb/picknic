@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  instructions: MyText
+  prep_time: 1
+  meal_type: MyString
+
+two:
+  name: MyString
+  instructions: MyText
+  prep_time: 1
+  meal_type: MyString
