@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :meal_type %><br>
-    <%= f.text_field :meal_type %>
+    <%= f.select :meal_type, options_for_select(["Appetizer", "Entree", "Side", "Dessert"]) %>
   </div>
   <div class="actions">
     <%= f.submit %>

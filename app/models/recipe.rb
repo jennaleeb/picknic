@@ -3,21 +3,22 @@ class Recipe < ActiveRecord::Base
 
 	MEAL_TYPES = ["Appetizer", "Entree", "Side", "Dessert"]
 
-	# def filter_by_prep_time(prep_time)
-	# 	case 
-	# 	when prep_time <= 15
-	# 	  @recipes = Recipe.where(prep_time: 15)
-	# 	when prep_time <= 30
-	# 	  @recipes = Recipe.where(prep_time: (15)..(30))
-	# 	when prep_time <= 60
-	# 	  @recipes = Recipe.where(prep_time: (15)..(60))
-	# 	when prep_time <= 120
-	# 	  @recipes = Recipe.where(prep_time: (15)..(120))
-	# 	when prep_time > 120
-	# 	  @recipes = Recipe.all
-	# 	else
-	# 	  @recipes = Recipe.all
-	# 	end
+	def self.meal_filter(prep_time, meal_type)
+		case 
+		when prep_time <= 15
+		  Recipe.where(prep_time: (0)..(15), meal_type: meal_type)
+		when prep_time <= 30
+		  Recipe.where(prep_time: (0)..(30), meal_type: meal_type)
+		when prep_time <= 60
+		  Recipe.where(prep_time: (0)..(60), meal_type: meal_type)
+		when prep_time <= 120
+		  Recipe.where(prep_time: (0)..(120), meal_type: meal_type)
+		when prep_time > 120
+		  Recipe.where(prep_time: (0)..(300), meal_type: meal_type)
+		else
+		  Recipe.all
+		end
 
-	# end
+	end
+
 end

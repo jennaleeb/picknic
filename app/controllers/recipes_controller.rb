@@ -4,40 +4,13 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+
     if params[:recipe].present?
-     
+
       prep_time = params[:recipe][:prep_time].to_i
-      case 
-      when prep_time <= 15
-        @recipes = Recipe.where(prep_time: 15)
-      when prep_time <= 30
-        @recipes = Recipe.where(prep_time: (15)..(30))
-      when prep_time <= 60
-        @recipes = Recipe.where(prep_time: (15)..(60))
-      when prep_time <= 120
-        @recipes = Recipe.where(prep_time: (15)..(120))
-      when prep_time > 120
-        @recipes = Recipe.all
-      else
-        @recipes = Recipe.all
-      end
-
       meal_type = params[:recipe][:meal_type]
-  
-      case 
-      when meal_type == "Appetizer"
-        @recipes = Recipe.where(meal_type: "Appetizer")
-      when meal_type == "Entree"
-        @recipes = Recipe.where(meal_type: "Entree")
-      when meal_type == "Side"
-        @recipes = Recipe.where(meal_type: "Side")
-      when meal_type == "Dessert"
-        @recipes = Recipe.where(meal_type: "Dessert")
-      else
-        @recipes = Recipe.all
-        
-      end
 
+      @recipes = Recipe.meal_filter(prep_time, meal_type)
     else
       @recipes = Recipe.all
     end

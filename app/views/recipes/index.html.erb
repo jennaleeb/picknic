@@ -15,6 +15,7 @@
       <%= select :recipe, :meal_type, Recipe::MEAL_TYPES, {include_blank: "Meal Type"}, class: "form-control"%>
     </div>
     <%= submit_tag 'Search' , class: "btn btn-default" %>
+    <button class= "btn btn-primary" ><%=link_to("Show All", recipes_path)%></button>
   <% end %>
 
 
@@ -48,6 +49,26 @@
   <br>
 
   <%= link_to 'New Recipe', new_recipe_path %>
+
+
+</div>
+
+<div class="container-fluid">
+  
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="item">
+      <div class="well">
+        <%= image_tag("basil-bucket.jpg", :alt => "") %>
+        <h3><%= recipe.name %></h3> 
+        Prep Time: <%= recipe.prep_time %> min <br>
+        Meal Type: <%= recipe.meal_type %> <br>
+        <%= link_to 'Show', recipe %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
 </div>
 
 
