@@ -4,7 +4,17 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+
+    if params[:recipe].present?
+
+      prep_time = params[:recipe][:prep_time].to_i
+      meal_type = params[:recipe][:meal_type]
+
+      @recipes = Recipe.meal_filter(prep_time, meal_type)
+    else
+      @recipes = Recipe.all
+    end
+
   end
 
   # GET /recipes/1
