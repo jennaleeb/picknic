@@ -6,6 +6,8 @@ class Ingredient < ActiveRecord::Base
 	validates :name, { presence: true }
 	validates :quantity, { presence: true, numericality: { greater_than_or_equal_to: 0 } }
 
+	INGREDIENT_TYPES = ["Vegan", "Dairy"]
+
 	# Scopes
 
 	# Find a list of meat-based ingredients

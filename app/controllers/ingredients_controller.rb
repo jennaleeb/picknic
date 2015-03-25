@@ -4,7 +4,20 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    if params[:ingredient].present? then
+      params_decoded = params[:ingredient][:ingr_type]
+      case 
+        when params_decoded == "Vegan"
+          @ingredients = Ingredient.vegan_ingredients
+        when params_decoded == "Dairy"
+          @ingredients = Ingredient.dairy_ingredients
+        else
+          @ingredients = Ingredient.all
+      end
+    else
+      @ingredients = Ingredient.all
+    end
+    
   end
 
   # GET /ingredients/1

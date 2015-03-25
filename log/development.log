@@ -2634,3 +2634,2787 @@ SQLite3::SQLException: no such column: ingredient_type.name: SELECT "ingredients
   [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
   [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')
   [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:01:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 7821ms (Views: 7792.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:01:43 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 131ms (Views: 129.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:01:43 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:14:12 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  Rendered ingredients/index.html.erb within layouts/application (25.0ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x6075420>:0x8885418>):
+    3: <h1>Listing Ingredients</h1>
+    4: 
+    5: <%= form_tag ingredients_path, method: :get do %>
+    6:   <%= select_tag(params[q], options_for_select([['Vegan', 1], ['Dairy', 2]])) %>
+    7:   <%= submit_tag 'Find Ingredients' %>
+    8: <% end %>
+    9: 
+  app/views/ingredients/index.html.erb:6:in `block in _app_views_ingredients_index_html_erb___819083815_71383344'
+  app/views/ingredients/index.html.erb:5:in `_app_views_ingredients_index_html_erb___819083815_71383344'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.1ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:14:29 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 148ms (Views: 146.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:14:29 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:15:32 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 160ms (Views: 156.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:15:32 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:18:56 -0400
+Processing by IngredientsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `present' for nil:NilClass):
+  app/controllers/ingredients_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (31.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (69.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:19:04 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 172ms (Views: 166.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:04 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:05 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 144ms (Views: 142.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:05 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:06 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:08 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 143ms (Views: 141.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:08 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:09 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 152ms (Views: 152.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:09 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:11 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 149ms (Views: 148.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:11 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:40 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 150ms (Views: 150.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:40 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:41 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:41 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:41 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:41 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:41 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 148ms (Views: 146.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:42 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:45 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 160ms (Views: 157.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:46 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:19:47 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 147ms (Views: 145.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:19:47 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:20:18 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 164ms (Views: 160.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:20:19 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&commit=Find+Ingredients" for ::1 at 2015-03-24 21:20:21 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 146ms (Views: 146.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:20:21 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:21:53 -0400
+Processing by IngredientsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:21:55 -0400
+Processing by IngredientsController#index as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients?q=bleh" for ::1 at 2015-03-24 21:22:12 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"q"=>"bleh"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:28:07 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 188ms (Views: 182.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:28:08 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:28:30 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 154ms (Views: 151.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:28:30 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-24 21:29:04 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 151ms (Views: 147.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:29:04 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-24 21:29:05 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 146ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:29:05 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:30:12 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 144ms (Views: 143.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:30:12 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:30:13 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 152ms (Views: 151.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:30:13 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:32:53 -0400
+Processing by IngredientsController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/ingredients_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (34.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.0ms)
+
+
+Started POST "/console/repl_sessions/91782fd3b0de89b4f40ad0adeb1749d3/trace" for ::1 at 2015-03-24 21:32:57 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:33:18 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 173ms (Views: 166.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:33:19 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:34:07 -0400
+
+SyntaxError (c:/Users/souyouki/Documents/HTML5/_hackerYou/ruby_on_rails/github/ppy2wong_RoR/farm-shop-table/app/controllers/ingredients_controller.rb:86: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/ingredients_controller.rb:86: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (70.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:34:17 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 167ms (Views: 161.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:34:17 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:34:18 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 173ms (Views: 164.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:34:18 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:34:18 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:34:18 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:34:19 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Dairy&commit=Find+Ingredients" for ::1 at 2015-03-24 21:34:20 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Dairy"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" = ?[0m  [["name", "Dairy"]]
+  Rendered ingredients/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 140ms (Views: 139.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:34:20 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:34:20 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:34:20 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:34:21 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Dairy&commit=Find+Ingredients" for ::1 at 2015-03-24 21:36:10 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Dairy"}, "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" = ?  [["name", "Dairy"]]
+  Rendered ingredients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 157ms (Views: 155.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:36:10 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:36:25 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 145ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:36:25 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 153ms (Views: 152.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:36:26 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 147ms (Views: 145.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:36:26 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:36:27 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 150ms (Views: 148.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:36:28 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 154ms (Views: 154.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:36:28 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:37:22 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 151ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:37:23 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:38:02 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 156ms (Views: 155.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:38:02 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:38:14 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 171ms (Views: 170.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:38:14 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:38:14 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:38:15 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:38:24 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 156ms (Views: 154.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:38:24 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:38:34 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 150ms (Views: 149.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:38:35 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-24 21:38:39 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 152ms (Views: 149.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:38:39 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:39:15 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 153ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:39:16 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:40:06 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 159ms (Views: 156.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:40:06 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:40:29 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 170ms (Views: 169.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:40:29 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:30 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:30 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:40:30 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:40:30 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:40:30 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:42:01 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 164ms (Views: 163.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:01 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:09 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:42:20 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 160ms (Views: 159.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:20 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:42:26 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 167ms (Views: 166.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:42:36 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 162ms (Views: 161.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:36 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:36 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:37 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:42:53 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 157ms (Views: 155.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:53 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=&commit=Find+Ingredients" for ::1 at 2015-03-24 21:42:54 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>""}, "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 149ms (Views: 148.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:54 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:42:56 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 158ms (Views: 157.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:56 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Dairy&commit=Find+Ingredients" for ::1 at 2015-03-24 21:42:58 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Dairy"}, "commit"=>"Find Ingredients"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" = ?  [["name", "Dairy"]]
+  Rendered ingredients/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 140ms (Views: 139.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:42:58 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=&commit=Find+Ingredients" for ::1 at 2015-03-24 21:43:01 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>""}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered ingredients/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 167ms (Views: 164.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:43:01 -0400
+
+
+Started GET "/ingredients/new" for ::1 at 2015-03-24 21:43:03 -0400
+Processing by IngredientsController#new as HTML
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT "ingredient_types".* FROM "ingredient_types"
+  Rendered ingredients/_form.html.erb (23.0ms)
+  Rendered ingredients/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 158ms (Views: 158.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ingredients" for ::1 at 2015-03-24 21:43:16 -0400
+Processing by IngredientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSQy38xRAy5gFYU+YkVHixE0KviK8dDnKAYTvvtN3hrQyCvlG7FOfcUcPk05HQ7tPWucogCk/IjwFn48HBqZEA==", "ingredient"=>{"name"=>"Heavy Cream", "quantity"=>"500", "quantity_unit"=>"mL", "ingredient_type_id"=>"4"}, "commit"=>"Create Ingredient"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "ingredients" ("name", "quantity", "quantity_unit", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Heavy Cream"], ["quantity", 500.0], ["quantity_unit", "mL"], ["ingredient_type_id", 4], ["created_at", "2015-03-25 01:43:16.125139"], ["updated_at", "2015-03-25 01:43:16.125139"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/ingredients/13
+Completed 302 Found in 11ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/ingredients/13" for ::1 at 2015-03-24 21:43:16 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered ingredients/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 148ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:43:16 -0400
+
+
+Started GET "/ingredients" for ::1 at 2015-03-24 21:43:18 -0400
+Processing by IngredientsController#index as HTML
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mIngredientType Load (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mIngredientType Load (1.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered ingredients/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 147ms (Views: 145.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Dairy&commit=Find+Ingredients" for ::1 at 2015-03-24 21:43:22 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Dairy"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" = ?[0m  [["name", "Dairy"]]
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered ingredients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 160ms (Views: 159.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:43:22 -0400
+
+
+Started GET "/ingredients?utf8=%E2%9C%93&ingredient%5Bingr_type%5D=Vegan&commit=Find+Ingredients" for ::1 at 2015-03-24 21:43:24 -0400
+Processing by IngredientsController#index as HTML
+  Parameters: {"utf8"=>"✓", "ingredient"=>{"ingr_type"=>"Vegan"}, "commit"=>"Find Ingredients"}
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "ingredient_types" ON "ingredient_types"."id" = "ingredients"."ingredient_type_id" WHERE "ingredient_types"."name" IN ('Vegetable', 'Grain', 'Fruit')[0m
+  [1m[35mIngredientType Load (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 149ms (Views: 147.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/recipes-b9001d2e2a2499e7c0ea79058c0143c7.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/base_styles-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/application-83d579f546270f651362fe5c48a8ebb8.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/ingredients-7748a1bab92cede0b744554141f5d0d6.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/scaffolds-f925cf8894c078023579a525fab8fccf.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/ingredient_types-20a816eb20d6e8932b4e62ba470eff5c.css?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-24 21:43:24 -0400
+
+
+Started GET "/assets/base_styles" for ::1 at 2015-03-24 21:43:24 -0400
