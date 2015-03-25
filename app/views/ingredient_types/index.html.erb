@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ingredient Types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingredient_types.each do |ingredient_type| %>
+      <tr>
+        <td><%= ingredient_type.name %></td>
+        <td><%= link_to 'Show', ingredient_type %></td>
+        <td><%= link_to 'Edit', edit_ingredient_type_path(ingredient_type) %></td>
+        <td><%= link_to 'Destroy', ingredient_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ingredient type', new_ingredient_type_path, { class: 'btn btn-default' } %>
