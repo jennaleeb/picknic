@@ -23,6 +23,10 @@
     <%= f.label :quantity_unit %><br>
     <%= f.text_field :quantity_unit %>
   </div>
+  <div class="field">
+    <%= f.label :ingredient_type_id %><br>
+    <div><%= f.collection_select :ingredient_type_id, IngredientType.all, :id, :name %></div>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
