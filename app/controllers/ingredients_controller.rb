@@ -9,8 +9,14 @@ class IngredientsController < ApplicationController
       case 
         when params_decoded == "Vegan"
           @ingredients = Ingredient.vegan_ingredients
+        when params_decoded == "Vegetarian"
+          @ingredients = Ingredient.ovo_lacto_vegetarian_ingredients
         when params_decoded == "Dairy"
           @ingredients = Ingredient.dairy_ingredients
+        when params_decoded == "Seafood"
+          @ingredients = Ingredient.seafood_ingredients
+        when params_decoded == "Nuts"
+          @ingredients = Ingredient.nut_ingredients
         else
           @ingredients = Ingredient.all
       end
