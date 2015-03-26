@@ -6,7 +6,7 @@ class Ingredient < ActiveRecord::Base
 	validates :name, { presence: true }
 	validates :quantity, { presence: true, numericality: { greater_than_or_equal_to: 0 } }
 
-	INGREDIENT_TYPES = ["Vegan", "Dairy"]
+	INGREDIENT_TYPES = ["Vegan", "Vegetarian", "Dairy", "Seafood", "Nuts"]
 
 	# Scopes
 
@@ -48,7 +48,7 @@ class Ingredient < ActiveRecord::Base
 	# Find a list of seafood ingredients
 	def self.seafood_ingredients
 		joins(:ingredient_type).where(
-			ingredient_types: { name: ['Fish, Shellfish'] }
+			ingredient_types: { name: ['Fish', 'Shellfish'] }
 		)
 	end
 
@@ -67,7 +67,7 @@ class Ingredient < ActiveRecord::Base
 	end
 
 	# Find a list of nut-based ingredients
-	def self.egg_ingredients
+	def self.nut_ingredients
 		joins(:ingredient_type).where(
 			ingredient_types: { name: 'Nuts' }
 		)
