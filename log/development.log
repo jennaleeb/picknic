@@ -12365,3 +12365,272 @@ SQLite3::SQLException: no such column: ingredient_availabilities.name: SELECT  1
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36mSQL (39.0ms)[0m  [1mINSERT INTO "ingredient_availabilities" ("month_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["month_id", 4], ["ingredient_id", 138], ["created_at", "2015-03-29 20:14:31.401489"], ["updated_at", "2015-03-29 20:14:31.401489"]]
   [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mIngredient Load (1.7ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredient Load (0.6ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredient Load (0.7ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months"  ORDER BY "months"."id" ASC LIMIT 1[0m
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ingredient_availabilities" ("ingredient_id", "month_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["ingredient_id", 161], ["month_id", 1], ["created_at", "2015-03-29 20:56:48.267700"], ["updated_at", "2015-03-29 20:56:48.267700"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mIngredientAvailability Load (0.5ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mIngredientAvailability Load (0.6ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mIngredientAvailability Load (0.4ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ingredient_availabilities" ("ingredient_id", "month_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["ingredient_id", 161], ["month_id", 1], ["created_at", "2015-03-29 21:20:41.779505"], ["updated_at", "2015-03-29 21:20:41.779505"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mIngredient Load (0.5ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" DESC LIMIT 1[0m
+  [1m[35mIngredientAvailability Load (0.5ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "ingredient_availabilities" WHERE "ingredient_availabilities"."id" = ?[0m  [["id", 31]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35mIngredientAvailability Load (0.4ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1
+  [1m[36mIngredientAvailability Load (0.5ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35mIngredientAvailability Load (0.6ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35mIngredientAvailability Load (0.4ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" ASC LIMIT 1
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "ingredient_availabilities" WHERE "ingredient_availabilities"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Meat"], ["created_at", "2015-03-29 21:34:45.084565"], ["updated_at", "2015-03-29 21:34:45.084565"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Fish"], ["created_at", "2015-03-29 21:34:45.100128"], ["updated_at", "2015-03-29 21:34:45.100128"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Shellfish"], ["created_at", "2015-03-29 21:34:45.104515"], ["updated_at", "2015-03-29 21:34:45.104515"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Vegetable"], ["created_at", "2015-03-29 21:34:45.108814"], ["updated_at", "2015-03-29 21:34:45.108814"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Grain"], ["created_at", "2015-03-29 21:34:45.112315"], ["updated_at", "2015-03-29 21:34:45.112315"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Fruit"], ["created_at", "2015-03-29 21:34:45.115810"], ["updated_at", "2015-03-29 21:34:45.115810"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dairy"], ["created_at", "2015-03-29 21:34:45.119741"], ["updated_at", "2015-03-29 21:34:45.119741"]]
+  [1m[35m (32.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Egg"], ["created_at", "2015-03-29 21:34:45.156487"], ["updated_at", "2015-03-29 21:34:45.156487"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ingredient_types" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nuts"], ["created_at", "2015-03-29 21:34:45.160978"], ["updated_at", "2015-03-29 21:34:45.160978"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mIngredientType Load (0.3ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1[0m  [["name", "Meat"]]
+  [1m[35mIngredientType Load (0.1ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1  [["name", "Fish"]]
+  [1m[36mIngredientType Load (0.1ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1[0m  [["name", "Shellfish"]]
+  [1m[35mIngredientType Load (0.1ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1  [["name", "Vegetable"]]
+  [1m[36mIngredientType Load (0.1ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1[0m  [["name", "Grain"]]
+  [1m[35mIngredientType Load (0.1ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1  [["name", "Fruit"]]
+  [1m[36mIngredientType Load (0.1ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1[0m  [["name", "Dairy"]]
+  [1m[35mIngredientType Load (0.1ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1  [["name", "Egg"]]
+  [1m[36mIngredientType Load (0.1ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."name" = ? LIMIT 1[0m  [["name", "Nuts"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chicken"], ["ingredient_type_id", 99], ["created_at", "2015-03-29 21:34:45.265197"], ["updated_at", "2015-03-29 21:34:45.265197"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Chuck Roast Beef"], ["ingredient_type_id", 99], ["created_at", "2015-03-29 21:34:45.271134"], ["updated_at", "2015-03-29 21:34:45.271134"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bacon"], ["ingredient_type_id", 99], ["created_at", "2015-03-29 21:34:45.277445"], ["updated_at", "2015-03-29 21:34:45.277445"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Salmon"], ["ingredient_type_id", 100], ["created_at", "2015-03-29 21:34:45.283698"], ["updated_at", "2015-03-29 21:34:45.283698"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cod"], ["ingredient_type_id", 100], ["created_at", "2015-03-29 21:34:45.288513"], ["updated_at", "2015-03-29 21:34:45.288513"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Scallops"], ["ingredient_type_id", 101], ["created_at", "2015-03-29 21:34:45.293709"], ["updated_at", "2015-03-29 21:34:45.293709"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Shrimp"], ["ingredient_type_id", 101], ["created_at", "2015-03-29 21:34:45.298993"], ["updated_at", "2015-03-29 21:34:45.298993"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Lobster"], ["ingredient_type_id", 101], ["created_at", "2015-03-29 21:34:45.304394"], ["updated_at", "2015-03-29 21:34:45.304394"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tomatoes"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.309555"], ["updated_at", "2015-03-29 21:34:45.309555"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Carrots"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.314557"], ["updated_at", "2015-03-29 21:34:45.314557"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Potatoes"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.319227"], ["updated_at", "2015-03-29 21:34:45.319227"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Kale"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.325008"], ["updated_at", "2015-03-29 21:34:45.325008"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Broccoli"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.330009"], ["updated_at", "2015-03-29 21:34:45.330009"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Cauliflower"], ["ingredient_type_id", 102], ["created_at", "2015-03-29 21:34:45.335387"], ["updated_at", "2015-03-29 21:34:45.335387"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Brown Rice"], ["ingredient_type_id", 103], ["created_at", "2015-03-29 21:34:45.340106"], ["updated_at", "2015-03-29 21:34:45.340106"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Quinoa"], ["ingredient_type_id", 103], ["created_at", "2015-03-29 21:34:45.345877"], ["updated_at", "2015-03-29 21:34:45.345877"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Apples"], ["ingredient_type_id", 104], ["created_at", "2015-03-29 21:34:45.351031"], ["updated_at", "2015-03-29 21:34:45.351031"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Oranges"], ["ingredient_type_id", 104], ["created_at", "2015-03-29 21:34:45.356112"], ["updated_at", "2015-03-29 21:34:45.356112"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bartlett Pear"], ["ingredient_type_id", 104], ["created_at", "2015-03-29 21:34:45.361415"], ["updated_at", "2015-03-29 21:34:45.361415"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Milk"], ["ingredient_type_id", 105], ["created_at", "2015-03-29 21:34:45.366529"], ["updated_at", "2015-03-29 21:34:45.366529"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Whipping Cream"], ["ingredient_type_id", 105], ["created_at", "2015-03-29 21:34:45.370884"], ["updated_at", "2015-03-29 21:34:45.370884"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Gruyere Cheese"], ["ingredient_type_id", 105], ["created_at", "2015-03-29 21:34:45.376186"], ["updated_at", "2015-03-29 21:34:45.376186"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Large Eggs"], ["ingredient_type_id", 106], ["created_at", "2015-03-29 21:34:45.380581"], ["updated_at", "2015-03-29 21:34:45.380581"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Egg White"], ["ingredient_type_id", 106], ["created_at", "2015-03-29 21:34:45.385487"], ["updated_at", "2015-03-29 21:34:45.385487"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Almonds"], ["ingredient_type_id", 107], ["created_at", "2015-03-29 21:34:45.390369"], ["updated_at", "2015-03-29 21:34:45.390369"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Pecans"], ["ingredient_type_id", 107], ["created_at", "2015-03-29 21:34:45.395893"], ["updated_at", "2015-03-29 21:34:45.395893"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ingredients" ("name", "ingredient_type_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Nutella"], ["ingredient_type_id", 107], ["created_at", "2015-03-29 21:34:45.399873"], ["updated_at", "2015-03-29 21:34:45.399873"]]
+  [1m[35m (82.9ms)[0m  commit transaction
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Bacon"]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1  [["name", "Cod"]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Scallops"]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1  [["name", "Tomatoes"]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Carrots"]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1  [["name", "Broccoli"]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Cauliflower"]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1  [["name", "Apples"]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Bartlett Pear"]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1  [["name", "Gruyere Cheese"]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT 1[0m  [["name", "Large Eggs"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("name", "instructions", "prep_time", "meal_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Baked Eggs"], ["instructions", "1. Oven"], ["prep_time", 15], ["meal_type", "Appetizer"], ["created_at", "2015-03-29 21:34:45.531165"], ["updated_at", "2015-03-29 21:34:45.531165"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipes" ("name", "instructions", "prep_time", "meal_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Bacon Wrapped Scallop Skewers"], ["instructions", "1. Grill"], ["prep_time", 15], ["meal_type", "Appetizer"], ["created_at", "2015-03-29 21:34:45.540662"], ["updated_at", "2015-03-29 21:34:45.540662"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("name", "instructions", "prep_time", "meal_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ratatouille"], ["instructions", "1. Oven"], ["prep_time", 60], ["meal_type", "Entree"], ["created_at", "2015-03-29 21:34:45.559533"], ["updated_at", "2015-03-29 21:34:45.559533"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipes" ("name", "instructions", "prep_time", "meal_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Cod Meuniere"], ["instructions", "1. Pan Fry"], ["prep_time", 45], ["meal_type", "Entree"], ["created_at", "2015-03-29 21:34:45.563743"], ["updated_at", "2015-03-29 21:34:45.563743"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("name", "instructions", "prep_time", "meal_type", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Apple and Pear Pie"], ["instructions", "1. Oven"], ["prep_time", 30], ["meal_type", "Dessert"], ["created_at", "2015-03-29 21:34:45.568575"], ["updated_at", "2015-03-29 21:34:45.568575"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = ? LIMIT 1[0m  [["name", "Baked Eggs"]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = ? LIMIT 1  [["name", "Bacon Wrapped Scallop Skewers"]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = ? LIMIT 1[0m  [["name", "Ratatouille"]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = ? LIMIT 1  [["name", "Cod Meuniere"]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."name" = ? LIMIT 1[0m  [["name", "Apple and Pear Pie"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 8], ["ingredient_id", 157], ["quantity", 4.0], ["quantity_unit", ""], ["created_at", "2015-03-29 21:34:45.584085"], ["updated_at", "2015-03-29 21:34:45.584085"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 8], ["ingredient_id", 137], ["quantity", 2.0], ["quantity_unit", "pieces"], ["created_at", "2015-03-29 21:34:45.607261"], ["updated_at", "2015-03-29 21:34:45.607261"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 9], ["ingredient_id", 137], ["quantity", 4.0], ["quantity_unit", "pieces"], ["created_at", "2015-03-29 21:34:45.612828"], ["updated_at", "2015-03-29 21:34:45.612828"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 9], ["ingredient_id", 140], ["quantity", 12.0], ["quantity_unit", "large"], ["created_at", "2015-03-29 21:34:45.617926"], ["updated_at", "2015-03-29 21:34:45.617926"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 10], ["ingredient_id", 143], ["quantity", 2.0], ["quantity_unit", ""], ["created_at", "2015-03-29 21:34:45.623282"], ["updated_at", "2015-03-29 21:34:45.623282"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 10], ["ingredient_id", 144], ["quantity", 4.0], ["quantity_unit", ""], ["created_at", "2015-03-29 21:34:45.627695"], ["updated_at", "2015-03-29 21:34:45.627695"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 10], ["ingredient_id", 147], ["quantity", 1.0], ["quantity_unit", "head"], ["created_at", "2015-03-29 21:34:45.633078"], ["updated_at", "2015-03-29 21:34:45.633078"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 10], ["ingredient_id", 148], ["quantity", 1.0], ["quantity_unit", "head"], ["created_at", "2015-03-29 21:34:45.638068"], ["updated_at", "2015-03-29 21:34:45.638068"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 11], ["ingredient_id", 139], ["quantity", 8.0], ["quantity_unit", "oz"], ["created_at", "2015-03-29 21:34:45.642934"], ["updated_at", "2015-03-29 21:34:45.642934"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 11], ["ingredient_id", 156], ["quantity", 100.0], ["quantity_unit", "g"], ["created_at", "2015-03-29 21:34:45.648073"], ["updated_at", "2015-03-29 21:34:45.648073"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["recipe_id", 12], ["ingredient_id", 151], ["quantity", 4.0], ["quantity_unit", "large"], ["created_at", "2015-03-29 21:34:45.652249"], ["updated_at", "2015-03-29 21:34:45.652249"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipe_ingredient_quantities" ("recipe_id", "ingredient_id", "quantity", "quantity_unit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["recipe_id", 12], ["ingredient_id", 153], ["quantity", 4.0], ["quantity_unit", "small"], ["created_at", "2015-03-29 21:34:45.657250"], ["updated_at", "2015-03-29 21:34:45.657250"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMonth Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "months" WHERE "months"."name" = 'Jan' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.3ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Feb' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMonth Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "months" WHERE "months"."name" = 'Mar' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.1ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Apr' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Apr"], ["created_at", "2015-03-29 21:34:45.866646"], ["updated_at", "2015-03-29 21:34:45.866646"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'May' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "May"], ["created_at", "2015-03-29 21:34:45.872148"], ["updated_at", "2015-03-29 21:34:45.872148"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'June' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "June"], ["created_at", "2015-03-29 21:34:45.876921"], ["updated_at", "2015-03-29 21:34:45.876921"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'July' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "July"], ["created_at", "2015-03-29 21:34:45.881545"], ["updated_at", "2015-03-29 21:34:45.881545"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Aug' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Aug"], ["created_at", "2015-03-29 21:34:45.885849"], ["updated_at", "2015-03-29 21:34:45.885849"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.3ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Sept' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sept"], ["created_at", "2015-03-29 21:34:45.890873"], ["updated_at", "2015-03-29 21:34:45.890873"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.3ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Oct' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Oct"], ["created_at", "2015-03-29 21:34:45.895838"], ["updated_at", "2015-03-29 21:34:45.895838"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Nov' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Nov"], ["created_at", "2015-03-29 21:34:45.900390"], ["updated_at", "2015-03-29 21:34:45.900390"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMonth Exists (0.2ms)[0m  SELECT  1 AS one FROM "months" WHERE "months"."name" = 'Dec' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "months" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dec"], ["created_at", "2015-03-29 21:34:45.904950"], ["updated_at", "2015-03-29 21:34:45.904950"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mIngredientAvailability Load (0.5ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35mIngredientAvailability Load (0.3ms)[0m  SELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 141]]
+  [1m[35mMonth Load (0.3ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35mMonth Load (0.3ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 147]]

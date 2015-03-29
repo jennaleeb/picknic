@@ -6,4 +6,5 @@ class Month < ActiveRecord::Base
 	#Validates only one instance for every month
 	validates :name, uniqueness: true
 
+
 end

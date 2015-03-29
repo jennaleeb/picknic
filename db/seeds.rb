@@ -123,3 +123,14 @@ RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_
 
 # Create the months
 Month.create(name: "Jan")
+Month.create(name: "Feb")
+Month.create(name: "Mar")
+Month.create(name: "Apr")
+Month.create(name: "May")
+Month.create(name: "June")
+Month.create(name: "July")
+Month.create(name: "Aug")
+Month.create(name: "Sept")
+Month.create(name: "Oct")
+Month.create(name: "Nov")
+Month.create(name: "Dec")

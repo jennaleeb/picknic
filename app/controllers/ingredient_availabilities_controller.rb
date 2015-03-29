@@ -1,4 +1,6 @@
-class IngredientAvailabilityController < ApplicationController
+class IngredientAvailabilitiesController < ApplicationController
+	before_action :set_ingredient_availability, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@ingredient_availabilities = IngredientAvailability.all
 	end
@@ -11,7 +13,6 @@ class IngredientAvailabilityController < ApplicationController
 		@ingredient_availability = IngredientAvailability.new(ingredient_availability_params)
 		@ingredient_availability.save
 
-		@month = Month.new
 	end
 
 
@@ -29,8 +30,8 @@ class IngredientAvailabilityController < ApplicationController
 
 
 	def ingredient_availability_params
-	  params.require(:ingredient).permit(:name, :ingredient_type_id)
-	  params.require(:month).permit(:name, :month_id)
+	
+	  params.require(:ingredient_availability).permit(:month_id, :ingredient_id)
 
 	end
 
