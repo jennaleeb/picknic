@@ -5,6 +5,10 @@ class Ingredient < ActiveRecord::Base
 	has_many :recipes, through: :recipe_ingredient_quantities
 	# An ingredient can be classified as a single ingredient type
 	belongs_to :ingredient_type
+	# An ingredient has many months where it is available (in season)
+	has_many :ingredient_availabilities
+	has_many :months, through: :ingredient_availabilities
+
 
 	# Validation rules for ingredients - ingredients must have a name
 	validates :name, { presence: true }

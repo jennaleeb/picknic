@@ -120,3 +120,17 @@ RecipeIngredientQuantity.create(recipe_id: recipe_cod_id, ingredient_id: ingredi
 
 RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_apple_id, quantity: 4, quantity_unit: "large")
 RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_bartlett_pear_id, quantity: 4, quantity_unit: "small")
+
+# Create the months
+Month.create(name: "Jan")
+Month.create(name: "Feb")
+Month.create(name: "Mar")
+Month.create(name: "Apr")
+Month.create(name: "May")
+Month.create(name: "June")
+Month.create(name: "July")
+Month.create(name: "Aug")
+Month.create(name: "Sept")
+Month.create(name: "Oct")
+Month.create(name: "Nov")
+Month.create(name: "Dec")

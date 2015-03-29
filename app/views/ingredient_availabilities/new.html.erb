@@ -1,0 +1,18 @@
+<%= form_for(@ingredient_availability) do |f| %>
+
+	<div class="field">
+	  <%= f.label :month_id %><br>
+	  <%= f.select :month_id, options_from_collection_for_select(Month.all, 'id' ,'name' ) %>
+	</div>
+
+	<div class="field">
+		<%= f.label :ingredient_id %><br>
+		<%= f.select :ingredient_id, options_from_collection_for_select(Ingredient.all, 'id' ,'name' ) %>
+	</div>
+
+
+	<div class="actions">
+	  <%= f.submit %>
+	</div>
+<% end %>
+

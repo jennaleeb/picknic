@@ -1,0 +1,23 @@
+<table class="table">
+		<tr>
+			<th>Month</th>
+			<th>Available Ingredients</th>
+		</tr>
+	
+		<% Month.all.each do |month| %>
+			<tr>
+				<td>
+					<%= month.name %>
+				</td>
+
+				<td>
+					<% month.ingredients.each do |ingredient| %>
+						<%= ingredient.name %><br>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+
+
+
+</table>
