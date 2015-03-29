@@ -10676,3 +10676,1460 @@ Started GET "/assets/basil-bucket-91671c01cb9cf659cb27c2701eb5df72.jpg" for ::1 
 
 
 Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-28 14:42:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMonths (20150328205637)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150328205637"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateIngredientAvailabilities (20150328205704)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "ingredient_availabilities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ingredient_id" integer, "month_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_ingredient_availabilities_on_ingredient_id" ON "ingredient_availabilities" ("ingredient_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredient_availabilities_on_ingredient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredient_availabilities_on_ingredient_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_ingredient_availabilities_on_month_id" ON "ingredient_availabilities" ("month_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150328205704"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredient_availabilities_on_month_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredient_availabilities_on_month_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredient_availabilities_on_ingredient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredient_availabilities_on_ingredient_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+[0m
+  [1m[36mMonth Load (31.4ms)[0m  [1mSELECT "months".* FROM "months"[0m
+  [1m[35mMonth Load (0.3ms)[0m  SELECT  "months".* FROM "months"  ORDER BY "months"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "ingredient_availabilities" ("month_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["month_id", 1], ["ingredient_id", 13], ["created_at", "2015-03-29 13:14:56.441479"], ["updated_at", "2015-03-29 13:14:56.441479"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2015-03-29 09:16:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (29.3ms)
+Completed 200 OK in 299ms (Views: 247.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-29 09:16:49 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.7ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mIngredientType Load (0.3ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mIngredientType Load (0.1ms)[0m  SELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mIngredientType Load (0.1ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered ingredients/index.html.erb within layouts/application (339.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 2051ms (Views: 2029.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-29 09:17:39 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (0.2ms)[0m  [1mSELECT  "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered ingredients/index.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (undefined method `month' for #<Ingredient:0x007fe1de0c29a8>):
+    33:         <td><%= ingredient.quantity %></td>
+    34:         <td><%= ingredient.quantity_unit %></td>
+    35:         <td><%= ingredient.ingredient_type.name %></td>
+    36:         <td><%= ingredient.month.name %></td>
+    37:         <td><%= link_to 'Show', ingredient %></td>
+    38:         <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+    39:         <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/ingredients/index.html.erb:36:in `block in _app_views_ingredients_index_html_erb___4593163076130742437_70304021205580'
+  app/views/ingredients/index.html.erb:30:in `_app_views_ingredients_index_html_erb___4593163076130742437_70304021205580'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (189.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (192.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (424.1ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO "ingredient_availabilities" ("month_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["month_id", 1], ["ingredient_id", 13], ["created_at", "2015-03-29 13:20:28.545181"], ["updated_at", "2015-03-29 13:20:28.545181"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mIngredientAvailability Load (0.5ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:24:43 -0400
+
+LoadError (Unable to autoload constant IngredientAvailabilityController, expected /Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/controllers/ingredient_availability_controller.rb to define it):
+  activesupport (4.2.0) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (97.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (269.0ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:25:57 -0400
+
+LoadError (Unable to autoload constant IngredientAvailabilityController, expected /Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/controllers/ingredient_availability_controller.rb to define it):
+  activesupport (4.2.0) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.0) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (94.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (209.3ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:26:25 -0400
+Processing by IngredientAvailabilityController#index as HTML
+Completed 500 Internal Server Error in 13ms
+
+ActionView::MissingTemplate (Missing template ingredient_availability/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (117.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (199.1ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:26:39 -0400
+Processing by IngredientAvailabilityController#index as HTML
+Completed 500 Internal Server Error in 12ms
+
+ActionView::MissingTemplate (Missing template ingredient_availability/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/jenna/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (126.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (94.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (205.4ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:27:00 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 192ms (Views: 190.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:27:00 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:27:00 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:00 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:00 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:27:01 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:27:01 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:01 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:27:01 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:27:18 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 106ms (Views: 104.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:18 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:27:39 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 91ms (Views: 90.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:27:39 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:28:46 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...uffer.new; @availabilities each |availability| do 
+...                               ^
+/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected keyword_do_block
+...bilities each |availability| do 
+...                               ^
+/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:4: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected keyword_do_block
+  app/views/ingredient_availability/index.html.erb:4: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (130.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (121.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (239.0ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:28:54 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 12ms
+
+SyntaxError (/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...uffer.new; @availabilities each do |availability| 
+...                               ^):
+  app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (121.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (91.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (204.4ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:29:11 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  Rendered ingredient_availability/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...uffer.new; @availabilities each |availability| do 
+...                               ^
+/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected keyword_do_block
+...bilities each |availability| do 
+...                               ^
+/Users/jenna/Desktop/Programming/HackerYou/Final-Project/farm-shop-table/app/views/ingredient_availability/index.html.erb:4: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/views/ingredient_availability/index.html.erb:1: syntax error, unexpected keyword_do_block
+  app/views/ingredient_availability/index.html.erb:4: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (118.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (89.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (199.1ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:29:40 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (11.7ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  Rendered ingredient_availability/index.html.erb within layouts/application (28.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 117ms (Views: 103.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:40 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:29:50 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.2ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (45.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 151ms (Views: 148.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:29:50 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:29:54 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 144ms (Views: 142.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:29:54 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:29:55 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:30:09 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (27.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 114ms (Views: 111.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:30:09 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:30:42 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (26.1ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `ingredient' for #<#<Class:0x007fe1dfabab58>:0x007fe1dfd887b8>):
+    1: <% @availabilities.each do |availability| %>
+    2: 	<%= availability.month.name %>
+    3: 	<%= availability.ingredient.name %>
+    4: 	<%= ingredient.month.name %>
+    5: <% end %>
+  app/views/ingredient_availability/index.html.erb:4:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304049926160'
+  app/views/ingredient_availability/index.html.erb:1:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304049926160'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (116.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (88.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (198.2ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:30:50 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.2ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 89ms (Views: 87.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:30:50 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:31:31 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (24.8ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (undefined local variable or method `month' for #<#<Class:0x007fe1dfabab58>:0x007fe1df923a60>):
+    1: <% @availabilities.each do |availability| %>
+    2: 	<%= availability.month.name %>
+    3: 	<%= availability.ingredient.name %>
+    4: 	<%= month.ingredients %>
+    5: <% end %>
+  app/views/ingredient_availability/index.html.erb:4:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304047630680'
+  app/views/ingredient_availability/index.html.erb:1:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304047630680'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (113.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (88.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (198.4ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:33:33 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.2ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 92ms (Views: 90.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:33:34 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:34:39 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 115ms (Views: 112.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:34:39 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:34:55 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.2ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 100ms (Views: 98.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 09:34:55 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:36:23 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (21.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (105.2ms)
+Completed 500 Internal Server Error in 120ms
+
+ActionView::Template::Error (undefined local variable or method `ingredient' for #<#<Class:0x007fe1dc389148>:0x007fe1dbd69808>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304016274080'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304016274080'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (115.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (89.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (198.9ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:36:34 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.2ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (undefined method `ingredient_availability_path' for #<#<Class:0x007fe1dc389148>:0x007fe1e14a6968>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304062057380'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304062057380'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (113.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (89.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (199.6ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:36:58 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (28.4ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.3ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (108.8ms)
+Completed 500 Internal Server Error in 123ms
+
+ActionView::Template::Error (undefined method `ingredient_availability_path' for #<#<Class:0x007fe1dbe6b968>:0x007fe1dc468c80>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304062057380'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304062057380'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (119.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (212.9ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:37:32 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (16.6ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.8ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (108.2ms)
+Completed 500 Internal Server Error in 139ms
+
+ActionView::Template::Error (undefined method `ingredient_availability_path' for #<#<Class:0x007fe1e0991d20>:0x007fe1e095a438>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (122.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (91.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (207.2ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 09:37:41 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.6ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (46.8ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined method `ingredient_availability_path' for #<#<Class:0x007fe1e0c023c0>:0x007fe1e0c52b18>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (116.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (91.0ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (202.8ms)
+
+
+Started PUT "/console/repl_sessions/79d79bb761137b48e1352c80c583150e" for ::1 at 2015-03-29 09:37:57 -0400
+
+
+Started GET "/availability" for ::1 at 2015-03-29 13:45:49 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.3ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (27.4ms)
+Completed 500 Internal Server Error in 73ms
+
+ActionView::Template::Error (undefined method `ingredient_availability_path' for #<#<Class:0x007fe1e0c023c0>:0x007fe1e0fab328>):
+     9: 		<tr>
+    10: 			<td><%= availability.month.name %></td>
+    11: 			<td><%= availability.ingredient.name %></td>
+    12: 			<td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    13: 		</tr>
+    14: 		
+    15: 	<% end %>
+  app/views/ingredient_availability/index.html.erb:12:in `block in _app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+  app/views/ingredient_availability/index.html.erb:8:in `_app_views_ingredient_availability_index_html_erb__3961806514267959579_70304056133880'
+
+
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.9ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (159.8ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (104.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/jenna/.rvm/gems/ruby-2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (283.0ms)
+
+
+Started GET "/availability" for ::1 at 2015-03-29 13:46:23 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mMonth Load (0.1ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 180.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 13:46:23 -0400
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "ingredient_availabilities" WHERE "ingredient_availabilities"."id" = ?[0m  [["id", 4]]
+  [1m[35m (35.6ms)[0m  commit transaction
+
+
+Started GET "/availability" for ::1 at 2015-03-29 13:47:00 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.3ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.1ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (15.5ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (38.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 168ms (Views: 151.2ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 13:47:00 -0400
+  [1m[36mIngredientAvailability Load (0.3ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "ingredient_availabilities" WHERE "ingredient_availabilities"."id" = ?[0m  [["id", 3]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36mIngredientAvailability Load (0.4ms)[0m  [1mSELECT  "ingredient_availabilities".* FROM "ingredient_availabilities"  ORDER BY "ingredient_availabilities"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "ingredient_availabilities" WHERE "ingredient_availabilities"."id" = ?[0m  [["id", 2]]
+  [1m[35m (1.8ms)[0m  commit transaction
+
+
+Started GET "/availability" for ::1 at 2015-03-29 13:47:17 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[35mIngredientAvailability Load (0.2ms)[0m  SELECT "ingredient_availabilities".* FROM "ingredient_availabilities"
+  [1m[36mMonth Load (0.2ms)[0m  [1mSELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 149ms (Views: 147.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 13:47:17 -0400
+  [1m[36mIngredientAvailability Load (0.3ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "ingredient_availabilities" ("month_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["month_id", 1], ["ingredient_id", 8], ["created_at", "2015-03-29 17:48:17.111199"], ["updated_at", "2015-03-29 17:48:17.111199"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+
+
+Started GET "/availability" for ::1 at 2015-03-29 13:48:19 -0400
+Processing by IngredientAvailabilityController#index as HTML
+  [1m[36mIngredientAvailability Load (0.3ms)[0m  [1mSELECT "ingredient_availabilities".* FROM "ingredient_availabilities"[0m
+  [1m[35mMonth Load (0.2ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "months".* FROM "months" WHERE "months"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered ingredient_availability/index.html.erb within layouts/application (17.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 134ms (Views: 132.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/application-8ce5067598cd03bc722b97db5dd776ec.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 13:48:20 -0400
+
+
+Started GET "/assets/application-0117d23bae4128d40d5b00e1ad3e772b.css?body=1" for ::1 at 2015-03-29 13:48:20 -0400
