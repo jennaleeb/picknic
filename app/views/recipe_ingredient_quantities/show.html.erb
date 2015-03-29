@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @recipe_ingredient_quantity.recipe %>
+</p>
+
+<p>
+  <strong>Ingredient:</strong>
+  <%= @recipe_ingredient_quantity.ingredient %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @recipe_ingredient_quantity.quantity %>
+</p>
+
+<p>
+  <strong>Quantity unit:</strong>
+  <%= @recipe_ingredient_quantity.quantity_unit %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_ingredient_quantity_path(@recipe_ingredient_quantity) %> |
+<%= link_to 'Back', recipe_ingredient_quantities_path %>

@@ -5,15 +5,12 @@
   <%= @ingredient.name %>
 </p>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @ingredient.quantity %>
-</p>
 
 <p>
-  <strong>Quantity unit:</strong>
-  <%= @ingredient.quantity_unit %>
+  <strong>Ingredient Type:</strong>
+  <%= @ingredient.ingredient_type.name %>
 </p>
+
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

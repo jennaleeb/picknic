@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recipe Ingredient Quantities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Quantity unit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipe_ingredient_quantities.each do |recipe_ingredient_quantity| %>
+      <tr>
+        <td><%= recipe_ingredient_quantity.recipe %></td>
+        <td><%= recipe_ingredient_quantity.ingredient %></td>
+        <td><%= recipe_ingredient_quantity.quantity %></td>
+        <td><%= recipe_ingredient_quantity.quantity_unit %></td>
+        <td><%= link_to 'Show', recipe_ingredient_quantity %></td>
+        <td><%= link_to 'Edit', edit_recipe_ingredient_quantity_path(recipe_ingredient_quantity) %></td>
+        <td><%= link_to 'Destroy', recipe_ingredient_quantity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe ingredient quantity', new_recipe_ingredient_quantity_path %>

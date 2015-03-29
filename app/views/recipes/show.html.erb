@@ -5,6 +5,16 @@
   <%= @recipe.name %>
 </p>
 
+
+<p>
+	<strong>Ingredients:</strong>
+	<ul>
+	<% @recipe.recipe_ingredient_quantities.each do |recipe_ingredient| %>
+		<li><%= recipe_ingredient.quantity.to_i %> <%= recipe_ingredient.quantity_unit %> <%= recipe_ingredient.ingredient.name %></li>
+	<% end %>
+	</ul>
+</p>
+
 <p>
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>

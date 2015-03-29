@@ -7,21 +7,26 @@ class IngredientsController < ApplicationController
     if params[:ingredient].present? then
       params_decoded = params[:ingredient][:ingr_type]
       case 
+
         when params_decoded == "Vegan"
-          @ingredients = Ingredient.vegan_ingredients
+          @ingredients = Ingredient.vegan_ingredients.includes(:ingredient_type)
         when params_decoded == "Vegetarian"
-          @ingredients = Ingredient.ovo_lacto_vegetarian_ingredients
+          @ingredients = Ingredient.ovo_lacto_vegetarian_ingredients.includes(:ingredient_type)
         when params_decoded == "Dairy"
-          @ingredients = Ingredient.dairy_ingredients
+          @ingredients = Ingredient.dairy_ingredients.includes(:ingredient_type)
+        when params_decoded == "Meat"
+          @ingredients = Ingredient.meat_ingredients.includes(:ingredient_type)
         when params_decoded == "Seafood"
-          @ingredients = Ingredient.seafood_ingredients
+          @ingredients = Ingredient.seafood_ingredients.includes(:ingredient_type)
+        when params_decoded == "Meat and Seafood"
+          @ingredients = Ingredient.meat_and_seafood_ingredients.includes(:ingredient_type)
         when params_decoded == "Nuts"
-          @ingredients = Ingredient.nut_ingredients
+          @ingredients = Ingredient.nut_ingredients.includes(:ingredient_type)
         else
-          @ingredients = Ingredient.all
+          @ingredients = Ingredient.all.includes(:ingredient_type)
       end
     else
-      @ingredients = Ingredient.all
+      @ingredients = Ingredient.all.includes(:ingredient_type)
     end
     
   end

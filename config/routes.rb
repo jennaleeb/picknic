@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :recipe_ingredient_quantities
+
   resources :ingredient_types
 
   resources :ingredients

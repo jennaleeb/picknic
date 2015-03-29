@@ -1,12 +1,15 @@
 class Ingredient < ActiveRecord::Base
+	
+	# An ingredient has many recipes, which is managed through a tracking table of ingredient quanities-per-recipe 
+	has_many :recipe_ingredient_quantities
+	has_many :recipes, through: :recipe_ingredient_quantities
 	# An ingredient can be classified as a single ingredient type
 	belongs_to :ingredient_type
 
-	# Validation rules for ingredients - ingredients must have a name and a quantity
+	# Validation rules for ingredients - ingredients must have a name
 	validates :name, { presence: true }
-	validates :quantity, { presence: true, numericality: { greater_than_or_equal_to: 0 } }
 
-	INGREDIENT_TYPES = ["Vegan", "Vegetarian", "Dairy", "Seafood", "Nuts"]
+	INGREDIENT_TYPES = ["Vegan", "Vegetarian", "Dairy", "Seafood", "Nuts", "Meat", "Meat and Seafood"]
 
 	# Scopes
 
@@ -14,6 +17,13 @@ class Ingredient < ActiveRecord::Base
 	def self.meat_ingredients
 		joins(:ingredient_type).where(
 			ingredient_types: { name: 'Meat' }
+		)
+	end
+
+	# Find a list of meat and seafood based ingredients ingredients
+	def self.meat_and_seafood_ingredients
+		joins(:ingredient_type).where(
+			ingredient_types: { name: ['Meat', 'Fish', 'Shellfish'] }
 		)
 	end
 
