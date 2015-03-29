@@ -4,13 +4,20 @@
 			<th>Available Ingredients</th>
 		</tr>
 	
+		<% Month.all.each do |month| %>
+			<tr>
+				<td>
+					<%= month.name %>
+				</td>
 
-	<% @availabilities.each do |availability| %>
-		<tr>
-			<td><%= availability.month.name %></td>
-			<td><%= availability.ingredient.name %></td>
-		</tr>
-		
-	<% end %>
+				<td>
+					<% month.ingredients.each do |ingredient| %>
+						<%= ingredient.name %><br>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+
+
 
 </table>
