@@ -16559,3 +16559,1184 @@ Processing by RecipesController#index as HTML
   Rendered recipes/index.html.erb within layouts/application (8.0ms)
   Rendered layouts/_header.html.erb (1.0ms)
 Completed 200 OK in 113ms (Views: 112.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateShoppingLists (20150329210929)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "shopping_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150329210929"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateShoppingListItems (20150329211027)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "shopping_list_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "done" boolean, "shopping_list_id" integer, "recipe_ingredient_quantity_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "index_shopping_list_items_on_shopping_list_id" ON "shopping_list_items" ("shopping_list_id")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "index_shopping_list_items_on_recipe_ingredient_quantity_id" ON "shopping_list_items" ("recipe_ingredient_quantity_id")[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150329211027"]]
+  [1m[36m (19.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_recipe_ingredient_quantities_on_ingredient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_recipe_ingredient_quantities_on_ingredient_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_recipe_ingredient_quantities_on_recipe_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_recipe_ingredient_quantities_on_recipe_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shopping_list_items_on_recipe_ingredient_quantity_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shopping_list_items_on_recipe_ingredient_quantity_id' AND type='index'
+
+  [1m[36m (1.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+[0m
+
+
+Started GET "/" for ::1 at 2015-03-29 17:57:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 63ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2015-03-29 17:57:08 -0400
+Processing by IngredientsController#index as HTML
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredientType Load (1.0ms)[0m  [1mSELECT "ingredient_types".* FROM "ingredient_types" WHERE "ingredient_types"."id" IN (99, 100, 101, 102, 103, 104, 105, 106, 107)[0m
+  Rendered ingredients/index.html.erb within layouts/application (75.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 1711ms (Views: 1690.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/recipe_ingredient_quantities-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/shopping_list_items-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/shopping_lists-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/assets/application-d7eca2729d9f3ab230c989ab9b65a7dc.js?body=1" for ::1 at 2015-03-29 17:57:10 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 17:57:11 -0400
+
+SyntaxError (c:/Users/souyouki/Documents/HTML5/_hackerYou/ruby_on_rails/github/ppy2wong_RoR/farm-shop-table/app/controllers/recipes_controller.rb:82: syntax error, unexpected keyword_do_block
+c:/Users/souyouki/Documents/HTML5/_hackerYou/ruby_on_rails/github/ppy2wong_RoR/farm-shop-table/app/controllers/recipes_controller.rb:97: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/recipes_controller.rb:82: syntax error, unexpected keyword_do_block
+  app/controllers/recipes_controller.rb:97: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (47.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (98.1ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 17:57:35 -0400
+
+SyntaxError (c:/Users/souyouki/Documents/HTML5/_hackerYou/ruby_on_rails/github/ppy2wong_RoR/farm-shop-table/app/controllers/recipes_controller.rb:82: syntax error, unexpected keyword_do_block
+c:/Users/souyouki/Documents/HTML5/_hackerYou/ruby_on_rails/github/ppy2wong_RoR/farm-shop-table/app/controllers/recipes_controller.rb:97: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/recipes_controller.rb:82: syntax error, unexpected keyword_do_block
+  app/controllers/recipes_controller.rb:97: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (39.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (97.1ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 17:58:02 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 149ms (Views: 143.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/recipe_ingredient_quantities-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/recipes-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/ingredients-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/shopping_list_items-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/shopping_lists-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/assets/application-d7eca2729d9f3ab230c989ab9b65a7dc.js?body=1" for ::1 at 2015-03-29 17:58:03 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 17:58:39 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 140ms (Views: 135.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 17:58:39 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 17:58:39 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:58:39 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 17:58:39 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 17:58:39 -0400
+
+
+Started GET "/shopping_list_item" for ::1 at 2015-03-29 17:59:18 -0400
+
+ActionController::RoutingError (No route matches [GET] "/shopping_list_item"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.1ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.0ms)
+
+
+Started GET "/shopping_list_items" for ::1 at 2015-03-29 17:59:21 -0400
+Processing by ShoppingListItemsController#index as HTML
+  [1m[35mShoppingListItem Load (1.0ms)[0m  SELECT "shopping_list_items".* FROM "shopping_list_items"
+  Rendered shopping_list_items/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 133ms (Views: 128.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 17:59:22 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 17:59:22 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 17:59:22 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 17:59:22 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 17:59:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNameToShoppingLists (20150329220141)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "shopping_lists" ADD "name" varchar[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150329220141"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_ingredients_on_ingredient_type_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_recipe_ingredient_quantities_on_ingredient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_recipe_ingredient_quantities_on_ingredient_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_recipe_ingredient_quantities_on_recipe_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_recipe_ingredient_quantities_on_recipe_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shopping_list_items_on_recipe_ingredient_quantity_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shopping_list_items_on_recipe_ingredient_quantity_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_shopping_list_items_on_shopping_list_id' AND type='index'
+[0m
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:03:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (35.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 304ms (Views: 279.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:03:23 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:03:23 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:03:23 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:03:23 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:03:23 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:03:24 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:03:24 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:03:24 -0400
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:09:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (34.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 270ms (Views: 247.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:09:19 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:09:19 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:09:19 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:09:19 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:09:19 -0400
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:09:22 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (0.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 157]]
+  [1m[35mIngredient Load (1.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (51.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 180ms (Views: 162.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:09:24 -0400
+
+ActionController::RoutingError (uninitialized constant RecipeController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.1ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (34.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (74.0ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:09:25 -0400
+
+ActionController::RoutingError (uninitialized constant RecipeController):
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.0) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:59:in `controller'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:38:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (72.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (72.0ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:11:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (33.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 266ms (Views: 241.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:11:02 -0400
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:11:05 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (0.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 157]]
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (51.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 182ms (Views: 166.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:11:06 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/recipes_controller.rb:82:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (71.1ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:11:06 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/recipes_controller.rb:82:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (72.0ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:12:34 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 152ms (Views: 147.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:12:34 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:12:34 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:12:35 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:12:35 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:12:35 -0400
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:12:38 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (0.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 157]]
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (24.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 143ms (Views: 140.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:12:40 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/recipes_controller.rb:86:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.0ms)
+
+
+Started GET "/make_shopping_list" for ::1 at 2015-03-29 18:12:40 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/recipes_controller.rb:86:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (38.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (77.1ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:14:11 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (23.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 171ms (Views: 160.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:14:11 -0400
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:14:14 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (1.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 157]]
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (24.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 145ms (Views: 139.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:14:16 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+Completed 500 Internal Server Error in 12ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'name' for ShoppingListItem.):
+  app/controllers/recipes_controller.rb:89:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (38.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (79.1ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:14:16 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'name' for ShoppingListItem.):
+  app/controllers/recipes_controller.rb:89:in `generate_shopping_list'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.0ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:14:33 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/index.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 188ms (Views: 178.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:14:34 -0400
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:14:39 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (1.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 157]]
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (21.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 146ms (Views: 141.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:14:40 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shopping_lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Baked Eggs"], ["created_at", "2015-03-29 22:14:40.803643"], ["updated_at", "2015-03-29 22:14:40.803643"]]
+  [1m[35m (29.0ms)[0m  commit transaction
+  [1m[36mRecipeIngredientQuantity Load (0.0ms)[0m  [1mSELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_ingredient_quantity_id", 1], ["done", "f"], ["created_at", "2015-03-29 22:14:40.847671"], ["updated_at", "2015-03-29 22:14:40.847671"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["recipe_ingredient_quantity_id", 2], ["done", "f"], ["created_at", "2015-03-29 22:14:40.855677"], ["updated_at", "2015-03-29 22:14:40.855677"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/shopping_list_items
+Completed 302 Found in 71ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/shopping_list_items" for ::1 at 2015-03-29 18:14:40 -0400
+Processing by ShoppingListItemsController#index as HTML
+  [1m[35mShoppingListItem Load (0.0ms)[0m  SELECT "shopping_list_items".* FROM "shopping_list_items"
+  Rendered shopping_list_items/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `recipe_ingredient_quantity' for #<ShoppingListItem:0x5c720b8>):
+    17:       <tr>
+    18:         <td><%= shopping_list_item.done %></td>
+    19:         <td><%= shopping_list_item.shopping_list %></td>
+    20:         <td><%= shopping_list_item.recipe_ingredient_quantity %></td>
+    21:         <td><%= link_to 'Show', shopping_list_item %></td>
+    22:         <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
+    23:         <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/shopping_list_items/index.html.erb:20:in `block in _app_views_shopping_list_items_index_html_erb__578829671_48504384'
+  app/views/shopping_list_items/index.html.erb:16:in `_app_views_shopping_list_items_index_html_erb__578829671_48504384'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (37.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (73.0ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:14:41 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shopping_lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Baked Eggs"], ["created_at", "2015-03-29 22:14:41.234931"], ["updated_at", "2015-03-29 22:14:41.234931"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mRecipeIngredientQuantity Load (0.0ms)[0m  [1mSELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_ingredient_quantity_id", 1], ["done", "f"], ["created_at", "2015-03-29 22:14:41.242935"], ["updated_at", "2015-03-29 22:14:41.242935"]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["recipe_ingredient_quantity_id", 2], ["done", "f"], ["created_at", "2015-03-29 22:14:41.258945"], ["updated_at", "2015-03-29 22:14:41.258945"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/shopping_list_items
+Completed 302 Found in 32ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/shopping_list_items" for ::1 at 2015-03-29 18:14:41 -0400
+Processing by ShoppingListItemsController#index as HTML
+  [1m[35mShoppingListItem Load (0.0ms)[0m  SELECT "shopping_list_items".* FROM "shopping_list_items"
+  Rendered shopping_list_items/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined method `recipe_ingredient_quantity' for #<ShoppingListItem:0x3885330>):
+    17:       <tr>
+    18:         <td><%= shopping_list_item.done %></td>
+    19:         <td><%= shopping_list_item.shopping_list %></td>
+    20:         <td><%= shopping_list_item.recipe_ingredient_quantity %></td>
+    21:         <td><%= link_to 'Show', shopping_list_item %></td>
+    22:         <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
+    23:         <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/shopping_list_items/index.html.erb:20:in `block in _app_views_shopping_list_items_index_html_erb__578829671_45344700'
+  app/views/shopping_list_items/index.html.erb:16:in `_app_views_shopping_list_items_index_html_erb__578829671_45344700'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (70.0ms)
+  [1m[36mShoppingList Load (3.0ms)[0m  [1mSELECT "shopping_lists".* FROM "shopping_lists"[0m
+  [1m[35mShoppingList Load (1.0ms)[0m  SELECT "shopping_lists".* FROM "shopping_lists"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "shopping_lists" WHERE "shopping_lists"."id" = ?  [["id", 1]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "shopping_lists" WHERE "shopping_lists"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mRecipeIngredientQuantity Load (2.0ms)[0m  [1mSELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities"[0m
+  [1m[35mRecipeIngredientQuantity Load (1.0ms)[0m  SELECT  "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mRecipeIngredientQuantity Load (0.0ms)[0m  [1mSELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipeIngredientQuantity Load (0.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mShoppingList Load (2.0ms)[0m  [1mSELECT "shopping_lists".* FROM "shopping_lists"[0m
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:24:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (34.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 265ms (Views: 240.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:24:55 -0400
+
+
+Started GET "/recipes/8/edit" for ::1 at 2015-03-29 18:24:58 -0400
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered recipes/_form.html.erb (58.0ms)
+  Rendered recipes/edit.html.erb within layouts/application (62.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 195ms (Views: 178.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/8" for ::1 at 2015-03-29 18:25:02 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mRecipeIngredientQuantity Load (1.0ms)[0m  [1mSELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[35mIngredient Load (0.0ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 157]]
+  [1m[36mIngredient Load (0.0ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 137]]
+  Rendered recipes/show.html.erb within layouts/application (47.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 164ms (Views: 161.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:25:03 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "shopping_lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Baked Eggs"], ["created_at", "2015-03-29 22:25:03.480561"], ["updated_at", "2015-03-29 22:25:03.480561"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipeIngredientQuantity Load (1.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["recipe_ingredient_quantity_id", 1], ["done", "f"], ["created_at", "2015-03-29 22:25:03.504587"], ["updated_at", "2015-03-29 22:25:03.504587"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_ingredient_quantity_id", 2], ["done", "f"], ["created_at", "2015-03-29 22:25:03.511579"], ["updated_at", "2015-03-29 22:25:03.511579"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/shopping_list_items
+Completed 302 Found in 45ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/shopping_list_items" for ::1 at 2015-03-29 18:25:03 -0400
+Processing by ShoppingListItemsController#index as HTML
+  [1m[36mShoppingListItem Load (0.0ms)[0m  [1mSELECT "shopping_list_items".* FROM "shopping_list_items"[0m
+  Rendered shopping_list_items/index.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `recipe_ingredient_quantity' for #<ShoppingListItem:0x61d07c0>):
+    17:       <tr>
+    18:         <td><%= shopping_list_item.done %></td>
+    19:         <td><%= shopping_list_item.shopping_list %></td>
+    20:         <td><%= shopping_list_item.recipe_ingredient_quantity %></td>
+    21:         <td><%= link_to 'Show', shopping_list_item %></td>
+    22:         <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
+    23:         <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/shopping_list_items/index.html.erb:20:in `block in _app_views_shopping_list_items_index_html_erb___564142309_51350160'
+  app/views/shopping_list_items/index.html.erb:16:in `_app_views_shopping_list_items_index_html_erb___564142309_51350160'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (72.0ms)
+
+
+Started GET "/make_shopping_list/8" for ::1 at 2015-03-29 18:25:03 -0400
+Processing by RecipesController#generate_shopping_list as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "shopping_lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Baked Eggs"], ["created_at", "2015-03-29 22:25:03.892835"], ["updated_at", "2015-03-29 22:25:03.892835"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipeIngredientQuantity Load (0.0ms)[0m  SELECT "recipe_ingredient_quantities".* FROM "recipe_ingredient_quantities" WHERE "recipe_ingredient_quantities"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["recipe_ingredient_quantity_id", 1], ["done", "f"], ["created_at", "2015-03-29 22:25:03.900838"], ["updated_at", "2015-03-29 22:25:03.900838"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "shopping_list_items" ("recipe_ingredient_quantity_id", "done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_ingredient_quantity_id", 2], ["done", "f"], ["created_at", "2015-03-29 22:25:03.910846"], ["updated_at", "2015-03-29 22:25:03.910846"]]
+  [1m[35m (33.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/shopping_list_items
+Completed 302 Found in 57ms (ActiveRecord: 41.0ms)
+
+
+Started GET "/shopping_list_items" for ::1 at 2015-03-29 18:25:03 -0400
+Processing by ShoppingListItemsController#index as HTML
+  [1m[36mShoppingListItem Load (1.0ms)[0m  [1mSELECT "shopping_list_items".* FROM "shopping_list_items"[0m
+  Rendered shopping_list_items/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `recipe_ingredient_quantity' for #<ShoppingListItem:0x5dfc738>):
+    17:       <tr>
+    18:         <td><%= shopping_list_item.done %></td>
+    19:         <td><%= shopping_list_item.shopping_list %></td>
+    20:         <td><%= shopping_list_item.recipe_ingredient_quantity %></td>
+    21:         <td><%= link_to 'Show', shopping_list_item %></td>
+    22:         <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
+    23:         <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/shopping_list_items/index.html.erb:20:in `block in _app_views_shopping_list_items_index_html_erb___564142309_49312692'
+  app/views/shopping_list_items/index.html.erb:16:in `_app_views_shopping_list_items_index_html_erb___564142309_49312692'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (32.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (69.0ms)
+
+
+Started GET "/recipes" for ::1 at 2015-03-29 18:27:40 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes"
+  Rendered recipes/index.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 141ms (Views: 133.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-29 18:27:41 -0400
+
+
+Started GET "/assets/application-7812d9db0a9a79ae5c8fb2ec5acceab8.css?body=1" for ::1 at 2015-03-29 18:27:41 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-03-29 18:27:41 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-29 18:27:41 -0400
+
+
+Started GET "/assets/ingredient_types-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-03-29 18:27:41 -0400
+  [1m[36mShoppingList Load (2.0ms)[0m  [1mSELECT "shopping_lists".* FROM "shopping_lists"[0m
+  [1m[35mShoppingListItem Load (0.0ms)[0m  SELECT "shopping_list_items".* FROM "shopping_list_items"
+  [1m[36mShoppingListItem Load (1.0ms)[0m  [1mSELECT "shopping_list_items".* FROM "shopping_list_items"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?[0m  [["id", 1]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?  [["id", 2]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?[0m  [["id", 3]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?  [["id", 4]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?[0m  [["id", 5]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?  [["id", 6]]
+  [1m[36m (24.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?[0m  [["id", 7]]
+  [1m[35m (22.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "shopping_list_items" WHERE "shopping_list_items"."id" = ?  [["id", 8]]
+  [1m[36m (39.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mShoppingList Load (0.0ms)[0m  SELECT "shopping_lists".* FROM "shopping_lists"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "shopping_lists" WHERE "shopping_lists"."id" = ?  [["id", 3]]
+  [1m[36m (28.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "shopping_lists" WHERE "shopping_lists"."id" = ?[0m  [["id", 4]]
+  [1m[35m (5.0ms)[0m  commit transaction

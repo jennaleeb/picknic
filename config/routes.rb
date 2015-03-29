@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
+  resources :shopping_list_items
+  resources :shopping_lists
   resources :recipe_ingredient_quantities
-
   resources :ingredient_types
-
   resources :ingredients
-
   resources :recipes
 
   # The priority is based upon order of creation: first created -> highest priority.

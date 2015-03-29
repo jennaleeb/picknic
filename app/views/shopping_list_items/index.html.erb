@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Shopping List Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Done</th>
+      <th>Shopping list</th>
+      <th>Recipe ingredient quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shopping_list_items.each do |shopping_list_item| %>
+      <tr>
+        <td><%= shopping_list_item.done %></td>
+        <td><%= shopping_list_item.shopping_list %></td>
+        <td><%= shopping_list_item.recipe_ingredient_quantity %></td>
+        <td><%= link_to 'Show', shopping_list_item %></td>
+        <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
+        <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shopping list item', new_shopping_list_item_path %>
