@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328232456) do
+ActiveRecord::Schema.define(version: 20150330001404) do
 
   create_table "ingredient_availabilities", force: :cascade do |t|
     t.integer  "ingredient_id"
@@ -63,6 +63,24 @@ ActiveRecord::Schema.define(version: 20150328232456) do
     t.string   "meal_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "shopping_list_items", force: :cascade do |t|
+    t.boolean  "done"
+    t.integer  "shopping_list_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "ingredient_name"
+    t.decimal  "ingredient_quantity"
+    t.string   "ingredient_quantity_unit"
+  end
+
+  add_index "shopping_list_items", ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
 end

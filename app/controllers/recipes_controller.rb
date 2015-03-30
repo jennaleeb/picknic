@@ -26,6 +26,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    recipe_id = params[:id].to_i
+    @recipe = Recipe.find(recipe_id)
   end
 
   # GET /recipes/new
@@ -35,6 +37,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    recipe_id = params[:id].to_i
+    @recipe = Recipe.find(recipe_id)
   end
 
   # POST /recipes
@@ -75,6 +79,28 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Generate shopping list for the recipe (not yet tested)
+  def generate_shopping_list
+    recipe_id = params[:id].to_i
+    @recipe = Recipe.find(recipe_id)
+
+    recipe_name = @recipe.name
+
+    ShoppingList.create(name: recipe_name)
+    shopping_list_id = ShoppingList.find_by(name: recipe_name).id
+    @recipe.recipe_ingredient_quantities.all.each do |recipe_ingredient_qty| 
+        ShoppingListItem.create( 
+          shopping_list_id: shopping_list_id, 
+          ingredient_name: recipe_ingredient_qty.ingredient.name,
+          ingredient_quantity: recipe_ingredient_qty.quantity,
+          ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
+          done: false )
+    end
+
+   #redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}."
+   redirect_to recipes_url, notice: "You have created a shopping list."
   end
 
   private
