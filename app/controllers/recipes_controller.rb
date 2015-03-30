@@ -88,14 +88,19 @@ class RecipesController < ApplicationController
 
     recipe_name = @recipe.name
 
-    shopping_list_id = ShoppingList.create(name: recipe_name)
+    ShoppingList.create(name: recipe_name)
+    shopping_list_id = ShoppingList.find_by(name: recipe_name).id
     @recipe.recipe_ingredient_quantities.all.each do |recipe_ingredient_qty| 
-        ShoppingListItem.create( shopping_list_id: shopping_list_id, 
-          recipe_ingredient_quantity_id: recipe_ingredient_qty.id, 
+        ShoppingListItem.create( 
+          shopping_list_id: shopping_list_id, 
+          ingredient_name: recipe_ingredient_qty.ingredient.name,
+          ingredient_quantity: recipe_ingredient_qty.quantity,
+          ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
           done: false )
     end
 
-    redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}."
+   #redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}."
+   redirect_to recipes_url, notice: "You have created a shopping list."
   end
 
   private
