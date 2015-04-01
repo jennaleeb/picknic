@@ -1,4 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @shopping_list.name %>
+</p>
+
+<p>
+	<strong>Items:</strong>
+	<table class="table">
+	<thead>
+		<th>Completed?</th>
+		<th>Ingredient Name</th>
+		<th>Quantity</th>
+		<th>Unit</th>
+	</thead>
+	<tbody>
+		<% @shopping_list.shopping_list_items.each do |shopping_list_item| %>
+		<tr>
+		<td><%= ( shopping_list_item.done ) ? "Yes" : "No" %></td>
+        <td><%= shopping_list_item.ingredient_name %></td>
+        <td><%= shopping_list_item.ingredient_quantity %></td>
+        <td><%= shopping_list_item.ingredient_quantity_unit %></td>
+        </tr>
+		<% end %>
+	</tbody>
+	</table>
+</p>
+
 <%= link_to 'Edit', edit_shopping_list_path(@shopping_list) %> |
 <%= link_to 'Back', shopping_lists_path %>

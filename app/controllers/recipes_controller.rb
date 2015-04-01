@@ -97,10 +97,10 @@ class RecipesController < ApplicationController
           ingredient_quantity: recipe_ingredient_qty.quantity,
           ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
           done: false )
+
     end
 
-   #redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}."
-   redirect_to recipes_url, notice: "You have created a shopping list."
+   redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}"
   end
 
   private

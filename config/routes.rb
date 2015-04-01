@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
+  get 'mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
+
   resources :shopping_list_items
   resources :shopping_lists
   resources :recipe_ingredient_quantities
