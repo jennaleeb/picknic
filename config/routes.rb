@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
   resources :shopping_list_items
   resources :shopping_lists
