@@ -1,11 +1,8 @@
 class ShoppingListItemsController < ApplicationController
-  before_action :set_shopping_list_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_shopping_list_item, only: [:show, :edit, :update, :destroy, :mark_complete]
 
   # Mark a shopping list item as completed
   def mark_complete
-    shopping_list_item_id = params[:id].to_i
-    @shopping_list_item = ShoppingListItem.find(shopping_list_item_id)
-
     @shopping_list_item.mark_done
     @shopping_list_item.save
 
