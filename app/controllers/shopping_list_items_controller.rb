@@ -1,6 +1,16 @@
 class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: [:show, :edit, :update, :destroy]
 
+  # Mark a shopping list item as completed
+  def mark_complete
+    shopping_list_item_id = params[:id].to_i
+    @shopping_list_item = ShoppingListItem.find(shopping_list_item_id)
+
+    @shopping_list_item.mark_done
+    @shopping_list_item.save
+
+    redirect_to shopping_list_items_path
+  end
   # GET /shopping_list_items
   # GET /shopping_list_items.json
   def index
