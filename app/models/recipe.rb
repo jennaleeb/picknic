@@ -7,42 +7,58 @@ class Recipe < ActiveRecord::Base
 
 	MEAL_TYPES = ["Appetizer", "Entree", "Side", "Dessert"]
 
-	def self.meal_filter(prep_time, meal_type)
+
+	def self.recipe_filter(prep_time, meal_type, ingredient_type)
 		recipes = Recipe.all
 		case 
 		when prep_time <= 15
-		  recipes = Recipe.where(prep_time: (0)..(15), meal_type: meal_type)
+		  recipes = Recipe.where(prep_time: (0)..(15))
 		when prep_time <= 30
-		  recipes = Recipe.where(prep_time: (0)..(30), meal_type: meal_type)
+		  recipes = Recipe.where(prep_time: (0)..(30))
 		when prep_time <= 60
-		  recipes = Recipe.where(prep_time: (0)..(60), meal_type: meal_type)
+		  recipes = Recipe.where(prep_time: (0)..(60))
 		when prep_time <= 120
-		  recipes = Recipe.where(prep_time: (0)..(120), meal_type: meal_type)
+		  recipes = Recipe.where(prep_time: (0)..(120))
 		when prep_time > 120
-		  recipes = Recipe.where(prep_time: (0)..(300), meal_type: meal_type)
+		  recipes = Recipe.where(prep_time: (0)..(300))
 		else
 		  recipes = Recipe.all
 		end
 		
-	end
+		recipes2 = recipes
 
-	# Filter recipes by ingredient type (core functionality!!!!)
-	#
-	# Seafood - Find all recipes that contain seafood ingredients
-	# Meat - Find all recipes that contain meat ingredients
-	# Nuts - Find all recipes that contains nuts
-	# Vegan - Find all recipes that does not contain seafood, meat, dairy or eggs
-	# Vegetarian - Find all recipes that does not contain seafood and meat
-	#
-	# Initial implementation: 
-	# 1) Use a complex multi-way join
-	# 2) Manually munge up an array based on the value of an ingredient type search 
-	# (this is what I have implemented: ask instructors if there's a better way to do this!)
-	#
-	def self.ingredient_type_filter(ingredient_type)
+		case 
+		when meal_type == "Appetizer"
+			recipes2 = recipes2.where(meal_type: "Appetizer")
+		when meal_type == "Entree"
+			recipes2 = recipes2.where(meal_type: "Entree")
+		when meal_type == "Side"
+			recipes2 = recipes2.where(meal_type: "Side")
+		when meal_type == "Dessert"
+			recipes2 = recipes2.where(meal_type: "Dessert")
+		else
+			recipes2 = recipes
+		end
+
+		recipes2
+
+		
+		recipes3 = recipes2
+		# Filter recipes by ingredient type (core functionality!!!!)
+		#
+		# Seafood - Find all recipes that contain seafood ingredients
+		# Meat - Find all recipes that contain meat ingredients
+		# Nuts - Find all recipes that contains nuts
+		# Vegan - Find all recipes that does not contain seafood, meat, dairy or eggs
+		# Vegetarian - Find all recipes that does not contain seafood and meat
+		#
+		# Initial implementation: 
+		# 1) Use a complex multi-way join
+		# 2) Manually munge up an array based on the value of an ingredient type search 
+		# (this is what I have implemented: ask instructors if there's a better way to do this!)
 		result = []
 
-		Recipe.all.each do |recipe|
+		recipes3.each do |recipe|
 			case
 			when ingredient_type == 'Vegan'
 				if !(recipe.ingredients.meat_and_seafood_ingredients.present? || recipe.ingredients.dairy_ingredients.present?) && recipe.ingredients.vegan_ingredients.present? then
@@ -79,6 +95,7 @@ class Recipe < ActiveRecord::Base
 		end
 
 		result
-	end
 
+	end
+	
 end
