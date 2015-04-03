@@ -5,18 +5,41 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
+    # if params[:recipe].present?
+    #   if params[:recipe][:ingredient_type_picker].present?
+    #     ingredient_type = params[:recipe][:ingredient_type_picker]
+    #     @recipes = Recipe.ingredient_type_filter(ingredient_type)
+
+    #   else
+    #     prep_time = params[:recipe][:prep_time].to_i
+    #     meal_type = params[:recipe][:meal_type]
+
+    #     @recipes = Recipe.meal_filter(prep_time, meal_type)
+    #   end
+
+    # else
+    #   @recipes = Recipe.all
+    # end
     if params[:recipe].present?
-      if params[:recipe][:ingredient_type_picker].present?
-        ingredient_type = params[:recipe][:ingredient_type_picker]
-        @recipes = Recipe.ingredient_type_filter(ingredient_type)
-
-      else
+      if params[:recipe][:prep_time].present?
         prep_time = params[:recipe][:prep_time].to_i
-        meal_type = params[:recipe][:meal_type]
-
-        @recipes = Recipe.meal_filter(prep_time, meal_type)
+      else
+        prep_time = 120
       end
 
+      if params[:recipe][:meal_type].present?
+        meal_type = params[:recipe][:meal_type]
+      else
+        meal_type = Recipe::MEAL_TYPES
+      end
+
+      if params[:recipe][:ingredient_type_picker].present?
+        ingredient_type = params[:recipe][:ingredient_type_picker]
+      else
+        ingredient_type = Ingredient::INGREDIENT_TYPES
+      end
+
+      @recipes = Recipe.recipe_filter(prep_time, meal_type, ingredient_type)
     else
       @recipes = Recipe.all
     end

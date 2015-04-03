@@ -10,19 +10,23 @@ class Recipe < ActiveRecord::Base
 
 	def self.recipe_filter(prep_time, meal_type, ingredient_type)
 		recipes = Recipe.all
-		case 
-		when prep_time <= 15
-		  recipes = Recipe.where(prep_time: (0)..(15))
-		when prep_time <= 30
-		  recipes = Recipe.where(prep_time: (0)..(30))
-		when prep_time <= 60
-		  recipes = Recipe.where(prep_time: (0)..(60))
-		when prep_time <= 120
-		  recipes = Recipe.where(prep_time: (0)..(120))
-		when prep_time > 120
-		  recipes = Recipe.where(prep_time: (0)..(300))
+		if prep_time.present?
+			case 
+			when prep_time <= 15
+			  recipes = Recipe.where(prep_time: (0)..(15))
+			when prep_time <= 30
+			  recipes = Recipe.where(prep_time: (0)..(30))
+			when prep_time <= 60
+			  recipes = Recipe.where(prep_time: (0)..(60))
+			when prep_time <= 120
+			  recipes = Recipe.where(prep_time: (0)..(120))
+			when prep_time > 120
+			  recipes = Recipe.where(prep_time: (0)..(300))
+			else
+			  recipes = Recipe.all
+			end
 		else
-		  recipes = Recipe.all
+			prep_time = 120
 		end
 		
 		recipes2 = recipes
@@ -97,5 +101,5 @@ class Recipe < ActiveRecord::Base
 		result
 
 	end
-	
+
 end
