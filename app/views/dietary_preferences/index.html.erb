@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dietary Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dietary_preferences.each do |dietary_preference| %>
+      <tr>
+        <td><%= dietary_preference.user %></td>
+        <td><%= link_to 'Show', dietary_preference %></td>
+        <td><%= link_to 'Edit', edit_dietary_preference_path(dietary_preference) %></td>
+        <td><%= link_to 'Destroy', dietary_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dietary preference', new_dietary_preference_path %>
