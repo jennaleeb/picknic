@@ -2,9 +2,24 @@ class IngredientAvailabilitiesController < ApplicationController
 	before_action :set_ingredient_availability, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@month = params[:month_id]
+		@ingredient_type = params[:ingredient_type_id]
+
+		
 		@ingredient_availability = IngredientAvailability.new
 		@ingredient_availabilities = IngredientAvailability.all
+		@ingredients = Ingredient.all
+
+
+		
+
 	end
+
+
+
+
+
+
 
 	def new
 		@ingredient_availability = IngredientAvailability.new

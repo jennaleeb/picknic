@@ -1,20 +1,4 @@
-body,
-html {
-    width: 100%;
-    height: 100%;
-    
-}
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Helvetica,Arial,sans-serif;
-    font-weight: 700;
-}
 
 .topnav {
     font-size: 14px; 
@@ -48,5 +32,33 @@ h6 {
     h1 {
         text-align: center;
         margin-top: 5em;
+
     }
+
+    .search {
+        font-size: 1.5em;
+        font-style: italic;
+    }
+}
+
+.section-half {
+    height: 50%;
+}
+
+.section-half ul {
+    list-style: none;
+    margin-left: -5em;
+}
+
+li:nth-child(3) {
+    border-right: none;
+}
+
+.intro-descriptions {
+    margin-top: 2em;
+    height: 10em;
+    border-right: 1px solid lightgrey;
+    text-align: center;
+
+
 }

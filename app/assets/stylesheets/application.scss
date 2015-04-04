@@ -16,7 +16,9 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import 'home';
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
  @import 'base_styles';
  @import 'header';
+ @import 'home';
+ @import 'finder_tools';
 

@@ -3,6 +3,6 @@ class IngredientType < ActiveRecord::Base
 	has_many :ingredients
 
 	# An ingredient type must have a name
-	validates :name, { presence: true }
+	validates :name, { uniqueness: true }
 
 end
