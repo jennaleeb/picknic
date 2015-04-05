@@ -1,5 +1,6 @@
 class IngredientTypesController < ApplicationController
   before_action :set_ingredient_type, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ingredient_types
   # GET /ingredient_types.json
