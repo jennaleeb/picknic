@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Profiles</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>First name</th>
@@ -15,10 +13,14 @@
   </thead>
 
   <tbody>
-    <% render @profiles %>
+    <% if current_user.has_profile? then %>
+      <%= render 'profile', profile: current_user.profile %>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Profile', new_profile_path %>
+<% if !current_user.has_profile? then %>
+  <%= link_to 'New Profile', new_profile_path %>
+<% end %>

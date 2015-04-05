@@ -39,3 +39,29 @@
     </div>
     <!-- /.container -->
 </nav>
+
+<div class="logo">
+<p>Farm.</p><br>
+<p>Shop.</p><br>
+<p>Table.</p>
+</div>
+
+<% if user_signed_in? then %>
+	<div class="logout">
+		<%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+	</div>
+	<div class="user_info">
+		<p>Hi, <%= current_user.email %>! You are a <%= current_user.user_category %> user for Farm. Shop. Table.</p>
+	</div>
+<% else %>
+<div class="login">
+	<%= link_to 'Sign in', new_user_session_path %>
+</div>
+<% end %>
+
+<p class="notice">
+<%= notice %>
+</p>
+<p class="alert">
+<%= alert %>
+</p>

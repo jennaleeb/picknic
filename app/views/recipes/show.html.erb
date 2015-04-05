@@ -30,5 +30,7 @@
   <%= @recipe.meal_type %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> | 
+<% if current_user.admin_user? then %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> | 
+<% end %>
 <%= link_to 'Back', recipes_path %>

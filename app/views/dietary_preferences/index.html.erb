@@ -14,9 +14,9 @@
     <% @dietary_preferences.each do |dietary_preference| %>
       <tr>
         <td><%= dietary_preference.user %></td>
-        <td><%= link_to 'Show', dietary_preference %></td>
-        <td><%= link_to 'Edit', edit_dietary_preference_path(dietary_preference) %></td>
-        <td><%= link_to 'Destroy', dietary_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render 'view_dietary_preference', dietary_preference: dietary_preference %>
+        <%= render 'change_dietary_preference', dietary_preference: dietary_preference %>
+        </td>
       </tr>
     <% end %>
   </tbody>

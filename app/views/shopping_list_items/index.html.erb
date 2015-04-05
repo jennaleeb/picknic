@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container-fluid">
 <h1>Listing Shopping List Items</h1>
 </div>
@@ -25,10 +23,9 @@
         <td><%= shopping_list_item.ingredient_name %></td>
         <td><%= shopping_list_item.ingredient_quantity %></td>
         <td><%= shopping_list_item.ingredient_quantity_unit %></td>
-        <td><%= link_to 'Mark Complete', "mark_shopping_list_item_done/#{shopping_list_item.id}" %></td>
-        <td><%= link_to 'Show', shopping_list_item %></td>
-        <td><%= link_to 'Edit', edit_shopping_list_item_path(shopping_list_item) %></td>
-        <td><%= link_to 'Destroy', shopping_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render 'actions_for_shopping_list_item', shopping_list_item: shopping_list_item %>
+        <%= render 'view_shopping_list_item', shopping_list_item: shopping_list_item %>
+        <%= render 'change_shopping_list_item', shopping_list_item: shopping_list_item %>
       </tr>
     <% end %>
   </tbody>
