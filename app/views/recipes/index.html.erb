@@ -15,17 +15,10 @@
       <%= select :recipe, :meal_type, Recipe::MEAL_TYPES, {include_blank: "Meal Type"}, class: "form-control"%>
     </div>
 
-
-    <%= submit_tag 'Search' , class: "btn btn-default" %>
-    <button class= "btn btn-primary" ><%=link_to("Show All", recipes_path)%></button>
-  <% end %>
-</div>
-
-<div class="container-fluid">
-  <%= form_tag 'recipes', method: :get do %>
     <div class="col-md-3">
       <%= select :recipe, :ingredient_type_picker, Ingredient::INGREDIENT_TYPES, {include_blank: "Ingredient Type"}, class: "form-control"%>
     </div>
+
 
     <%= submit_tag 'Search' , class: "btn btn-default" %>
     <button class= "btn btn-primary" ><%=link_to("Show All", recipes_path)%></button>
@@ -69,15 +62,16 @@
 
 <div class="container-fluid">
   
-<div class="row">
+<div class="recipe-tile-row">
   <% @recipes.each do |recipe| %>
-    <div class="item">
-      <div class="well">
+    <div class="recipe-item">
+      <div class="well recipe-well">
         <%= image_tag("basil-bucket.jpg", :alt => "") %>
         <h3><%= recipe.name %></h3> 
-        Prep Time: <%= recipe.prep_time %> min <br>
-        Meal Type: <%= recipe.meal_type %> <br>
-        <%= link_to 'Show', recipe %>
+        <p>Prep Time: <%= recipe.prep_time %> min </p>
+        <p>Meal Type: <%= recipe.meal_type %></p>
+        <p><%= link_to 'Show', recipe %></p>
+        
       </div>
     </div>
   <% end %>

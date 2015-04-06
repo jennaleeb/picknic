@@ -1,23 +1,170 @@
-<table class="table">
-		<tr>
-			<th>Month</th>
-			<th>Available Ingredients</th>
-		</tr>
-	
-		<% Month.all.each do |month| %>
+<div class="container-fluid search-section">
+
+	<div class="row">
+
+	  <div class="col-md-12 finder">
+	  	<%= form_for @ingredient_availability, :html => {:class => "form-inline"} do |f| %>
+
+	  		<span>It's </span>
+	  		<%= f.select :month_id, options_from_collection_for_select(Month.all, 'id' ,'name' ), {}, {class: 'form-control'}  %>
+
+	  		<%= fields_for :ingredient_type do |u| %>
+	  		<span> and I am looking for </span>
+
+	  			<%= u.select :ingredient_type_id, options_from_collection_for_select(IngredientType.all, 'id' ,'name' ), {}, {class: 'form-control'}  %>
+	  		<% end %>
+
+	  		<%= f.submit "Search" , class: 'btn btn-success'%>
+
+	  	<% end %>
+	  </div>
+	</div>
+
+</div>
+
+
+<div class="container-fluid">
+	<table class="table">
 			<tr>
-				<td>
-					<%= month.name %>
-				</td>
+				<th>Ingredient</th>
+				<th>Jan</th>
+				<th>Feb</th>
+				<th>Mar</th>
+				<th>Apr</th>
+				<th>May</th>
+				<th>June</th>
+				<th>July</th>
+				<th>Aug</th>
+				<th>Sept</th>
+				<th>Oct</th>
+				<th>Nov</th>
+				<th>Dec</th>
 
-				<td>
-					<% month.ingredients.each do |ingredient| %>
-						<%= ingredient.name %><br>
-					<% end %>
-				</td>
 			</tr>
-		<% end %>
+		
+			<% @ingredients.each do |ingredient| %>
+				<tr>
+					<td>
+						<%= ingredient.name %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Jan") != nil %>
+						<button type="button" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Feb") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Mar") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Apr") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "May") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "June") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "July") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Aug") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Sept") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Oct") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Nov") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+					<td>
+						<% if ingredient.months.find_by(name: "Dec") != nil %>
+							<button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-ok"></span> 
+							</button>						
+						<% end %>
+					</td>
+
+				</tr>
+			<% end %>
 
 
 
-</table>
+	</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+

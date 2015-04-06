@@ -1,3 +1,64 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.topnav {
+    font-size: 14px; 
+}
+
+.lead {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.intro-header {
+    height: 100%;
+    text-align: center;
+    color: #f8f8f8;
+    background: image-url("cuttingboard_etc.jpg") no-repeat center center;
+    background-size: cover;
+
+}
+
+.intro-header-black {
+    background-color: rgba(1,1,1,0.4);
+    height: 100%;
+}
+
+.intro-header-black:hover {
+    background-color: rgba(1,1,1,0);
+    height: 100%;
+}
+
+.intro-message {
+    h1 {
+        text-align: center;
+        margin-top: 5em;
+
+    }
+
+    .search {
+        font-size: 1.5em;
+        font-style: italic;
+    }
+}
+
+.section-half {
+    height: 50%;
+}
+
+.section-half ul {
+    list-style: none;
+    margin-left: -5em;
+}
+
+li:nth-child(3) {
+    border-right: none;
+}
+
+.intro-descriptions {
+    margin-top: 2em;
+    height: 10em;
+    border-right: 1px solid lightgrey;
+    text-align: center;
+
+
+}
