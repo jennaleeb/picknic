@@ -1,5 +1,6 @@
 class IngredientAvailabilitiesController < ApplicationController
 	before_action :set_ingredient_availability, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 
 	def index
 		@month = params[:month_id]

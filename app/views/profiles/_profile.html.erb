@@ -1,0 +1,9 @@
+      <tr>
+        <td><%= profile.first_name %></td>
+        <td><%= profile.last_name %></td>
+        <td><%= profile.city %></td>
+        <td><%= profile.postal_code %></td>
+        <td><%= profile.user.email %></td>
+        <%= render 'view_profile', profile: profile %>
+        <%= render 'change_profile', profile: profile %>
+      </tr>

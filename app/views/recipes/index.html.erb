@@ -1,13 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-
-
 <div class="container-fluid">
   <h1>Recipes</h1>
 
   <%= form_tag 'recipes', method: :get do %>
     <div class="col-md-3">
-
       <%= select :recipe, :prep_time, Recipe::PREP_TIMES, {include_blank: "Prep Time"}, class: "form-control"%>
     </div>
 
@@ -18,7 +13,6 @@
     <div class="col-md-3">
       <%= select :recipe, :ingredient_type_picker, Ingredient::INGREDIENT_TYPES, {include_blank: "Ingredient Type"}, class: "form-control"%>
     </div>
-
 
     <%= submit_tag 'Search' , class: "btn btn-default" %>
     <button class= "btn btn-primary" ><%=link_to("Show All", recipes_path)%></button>
@@ -44,10 +38,11 @@
           <td><%= recipe.instructions %></td>
           <td><%= recipe.prep_time %> min</td>
           <td><%= recipe.meal_type %></td>
-          <td><%= link_to 'Make Shopping List', "/make_shopping_list/#{recipe.id}" %></td>
-          <td><%= link_to 'Show', recipe %></td>
-          <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-          <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= render 'actions_for_recipe', recipe: recipe %>
+          <%= render 'view_recipe', recipe: recipe %>
+          <% if current_user.admin_user? then %>
+            <%= render 'change_recipe', recipe: recipe %>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -55,8 +50,9 @@
 
   <br>
 
-  <%= link_to 'New Recipe', new_recipe_path %>
-
+  <% if current_user.admin_user? then %>
+    <%= link_to 'New Recipe', new_recipe_path %>
+  <% end %>
 
 </div>
 

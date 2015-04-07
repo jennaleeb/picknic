@@ -1,5 +1,6 @@
 class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: [:show, :edit, :update, :destroy, :mark_complete]
+  before_action :authenticate_user!
 
   # Mark a shopping list item as completed
   def mark_complete

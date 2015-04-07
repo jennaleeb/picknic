@@ -14,9 +14,8 @@
     <% @ingredient_types.each do |ingredient_type| %>
       <tr>
         <td><%= ingredient_type.name %></td>
-        <td><%= link_to 'Show', ingredient_type %></td>
-        <td><%= link_to 'Edit', edit_ingredient_type_path(ingredient_type) %></td>
-        <td><%= link_to 'Destroy', ingredient_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= render 'view_ingredient_type', ingredient_type: ingredient_type %>
+        <%= render 'change_ingredient_type', ingredient_type: ingredient_type %>
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get '/' => 'home#index'
+
+  resources :dietary_preferences
+
+  resources :profiles
+
+  devise_for :users
+  root to: "home#index"
+  get 'home/index'
 
   get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
   get 'mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
