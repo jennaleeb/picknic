@@ -40,12 +40,6 @@
     <!-- /.container -->
 </nav>
 
-<div class="logo">
-<p>Farm.</p><br>
-<p>Shop.</p><br>
-<p>Table.</p>
-</div>
-
 <% if user_signed_in? then %>
 	<div class="logout">
 		<%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
