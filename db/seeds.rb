@@ -71,6 +71,72 @@ ingredient_bartlett_pear_id = Ingredient.find_by(name: "Bartlett Pear").id
 ingredient_gruyere_cheese_id = Ingredient.find_by(name: "Gruyere Cheese").id
 ingredient_large_eggs_id = Ingredient.find_by(name: "Large Eggs").id
 
+
+# Create the possible diets
+Diet.create(name: "Vegetarian")
+Diet.create(name: "Vegetarian (lacto)")
+Diet.create(name: "Vegetarian (ovo)")
+Diet.create(name: "Vegan")
+Diet.create(name: "Dairy-Free")
+Diet.create(name: "Nut-Free")
+Diet.create(name: "Pescatarian")
+
+# Associate the diets with appropriate ingredient types
+diet_vegetarian_id = Diet.find_by(name: "Vegetarian").id
+diet_lacto_vegetarian_id = Diet.find_by(name: "Vegetarian (lacto)").id
+diet_ovo_vegetarian_id = Diet.find_by(name: "Vegetarian (ovo)").id
+diet_vegan_id = Diet.find_by(name: "Vegan").id
+diet_dairy_free_id = Diet.find_by(name: "Dairy-Free").id
+diet_nut_free_id = Diet.find_by(name: "Nut-Free").id
+diet_pescatarian = Diet.find_by(name: "Pescatarian").id
+
+DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: egg_id)
+DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: dairy_id)
+
+DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: dairy_id)
+
+DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: egg_id)
+
+DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: fruit_id)
+
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: meat_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fish_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: shellfish_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: egg_id)
+DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: nuts_id)
+
+
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: meat_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fish_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: shellfish_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: egg_id)
+DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: dairy_id)
+
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fish_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: shellfish_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: vegetable_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: grain_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fruit_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: egg_id)
+DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: dairy_id)
+
 # Create a few recipes with fixed ingredients and linkages
 Recipe.create(name: "Baked Eggs", 
 	instructions: "1. Oven",

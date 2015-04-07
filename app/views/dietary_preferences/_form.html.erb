@@ -12,9 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <div><%= f.label :diet_id %></div>
+    <div><%= f.collection_select :diet_id, Diet.all, :id, :name %></div>
   </div>
+  <div class="field">
+    <%= f.hidden_field(:user_id, { value: current_user.id }) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

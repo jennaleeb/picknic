@@ -1,10 +1,11 @@
 class DietaryPreferencesController < ApplicationController
   before_action :set_dietary_preference, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /dietary_preferences
   # GET /dietary_preferences.json
   def index
-    @dietary_preferences = DietaryPreference.all
+    @dietary_preferences = DietaryPreference.where(user_id: current_user.id)
   end
 
   # GET /dietary_preferences/1
@@ -69,6 +70,6 @@ class DietaryPreferencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dietary_preference_params
-      params.require(:dietary_preference).permit(:user_id)
+      params.require(:dietary_preference).permit(:user_id, :diet_id)
     end
 end

@@ -20,9 +20,7 @@
                     <%= link_to "Seasonal Ingredients",  ingredient_availabilities_path %>
                 </li>
                 <li>
-
                     <%= link_to "Recipes",  recipes_path %>
-
                 </li>
 
                 <li>
@@ -31,7 +29,14 @@
 
                 <li>
                 <%= link_to "My Shopping Lists",  shopping_lists_path %>
+                </li>
 
+                <li>
+                    <% if user_signed_in? then %>
+                        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+                    <% else %>
+                        <%= link_to 'Sign in', new_user_session_path %>
+                    <% end %>
                 </li>
             </ul>
         </div>
@@ -40,22 +45,17 @@
     <!-- /.container -->
 </nav>
 
-<% if user_signed_in? then %>
-	<div class="logout">
-		<%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
-	</div>
-	<div class="user_info">
-		<p>Hi, <%= current_user.email %>! You are a <%= current_user.user_category %> user for Farm. Shop. Table.</p>
-	</div>
-<% else %>
-<div class="login">
-	<%= link_to 'Sign in', new_user_session_path %>
+<div class="container user_authentication">
+    <div class="user_info">
+    <% if user_signed_in? then %>
+    	<p>Hi, <%= current_user.email %>! You are a <%= current_user.user_category %> user for Farm. Shop. Table.</p>
+    <% end %>
+    <p class="notice">
+    <%= notice %>
+    </p>
+    <p class="alert">
+    <%= alert %>
+    </p>
+    </div>
 </div>
-<% end %>
 
-<p class="notice">
-<%= notice %>
-</p>
-<p class="alert">
-<%= alert %>
-</p>

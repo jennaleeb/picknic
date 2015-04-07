@@ -3,8 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # A user has one profile
   has_one :profile
-  has_one :dietary_preference
+
+  # A user has many dietary preference, and can follow many diets
+  has_many :dietary_preferences
+  has_many :diets, through: :dietary_preferences
 
   # Check if a user is an admin user
   def admin_user?

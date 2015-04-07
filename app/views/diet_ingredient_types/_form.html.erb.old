@@ -1,0 +1,26 @@
+<%= form_for(@diet_ingredient_type) do |f| %>
+  <% if @diet_ingredient_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diet_ingredient_type.errors.count, "error") %> prohibited this diet_ingredient_type from being saved:</h2>
+
+      <ul>
+      <% @diet_ingredient_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :diet_id %><br>
+    <%= f.text_field :diet_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ingredient_type_id %><br>
+    <%= f.text_field :ingredient_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

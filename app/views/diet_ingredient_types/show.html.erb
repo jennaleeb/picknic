@@ -1,0 +1,12 @@
+<p>
+  <strong>Diet:</strong>
+  <%= @diet_ingredient_type.diet.name %>
+</p>
+
+<p>
+  <strong>Ingredient type:</strong>
+  <%= @diet_ingredient_type.ingredient_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_diet_ingredient_type_path(@diet_ingredient_type) %> |
+<%= link_to 'Back', diet_ingredient_types_path %>

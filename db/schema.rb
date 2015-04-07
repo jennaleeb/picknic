@@ -11,15 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405164801) do
+ActiveRecord::Schema.define(version: 20150407215032) do
+
+  create_table "diet_ingredient_types", force: :cascade do |t|
+    t.integer  "diet_id"
+    t.integer  "ingredient_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "diet_ingredient_types", ["diet_id"], name: "index_diet_ingredient_types_on_diet_id"
+  add_index "diet_ingredient_types", ["ingredient_type_id"], name: "index_diet_ingredient_types_on_ingredient_type_id"
 
   create_table "dietary_preferences", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "diet_id"
   end
 
+  add_index "dietary_preferences", ["diet_id"], name: "index_dietary_preferences_on_diet_id"
   add_index "dietary_preferences", ["user_id"], name: "index_dietary_preferences_on_user_id"
+
+  create_table "diets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ingredient_availabilities", force: :cascade do |t|
     t.integer  "ingredient_id"

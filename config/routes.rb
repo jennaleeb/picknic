@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :diet_ingredient_types
+
+  resources :diets
+
   resources :dietary_preferences
 
   resources :profiles
