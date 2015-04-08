@@ -14,23 +14,32 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <%= link_to "Recipes",  recipes_path %>
+                </li>
+                <li>
+                    <%= link_to "My Shopping Lists",  shopping_lists_path %>
+                </li>
                 <li>
                     <%= link_to "Seasonal Ingredients",  ingredient_availabilities_path %>
                 </li>
                 <li>
-                    <%= link_to "Recipes",  recipes_path %>
-                </li>
-
-                <li>
                     <a href="#contact">Where to Buy</a>
                 </li>
 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li>
-                <%= link_to "My Shopping Lists",  shopping_lists_path %>
+                    <% if user_signed_in? then %>
+                        <%= link_to 'Profile', profiles_path %>
+                    <% end %>
                 </li>
-
+                <li>
+                    <% if user_signed_in? then %>
+                        <%= link_to 'Dietary Preferences', dietary_preferences_path %>
+                    <% end %>
+                </li>
                 <li>
                     <% if user_signed_in? then %>
                         <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
@@ -39,6 +48,7 @@
                     <% end %>
                 </li>
             </ul>
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
@@ -50,12 +60,12 @@
     <% if user_signed_in? then %>
     	<p>Hi, <%= current_user.email %>! You are a <%= current_user.user_category %> user for Farm. Shop. Table.</p>
     <% end %>
-    <p class="notice">
+    </div>
+    <div class="notice">
     <%= notice %>
-    </p>
-    <p class="alert">
+    </div>
+    <div class="alert">
     <%= alert %>
-    </p>
     </div>
 </div>
 
