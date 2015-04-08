@@ -3,5 +3,14 @@
   <%= @diet.name %>
 </p>
 
+<p>
+	<strong>Ingredient Types:</strong>
+	<ul>
+	<% @diet.ingredient_types.each do |ingredient_type| %>
+		<li><%= ingredient_type.name %></li>
+	<% end %>
+	</ul>
+</p>
+
 <%= link_to 'Edit', edit_diet_path(@diet) %> |
 <%= link_to 'Back', diets_path %>

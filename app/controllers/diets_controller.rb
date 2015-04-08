@@ -70,6 +70,6 @@ class DietsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diet_params
-      params.require(:diet).permit(:name)
+      params.require(:diet).permit(:name, :ingredient_type_ids => [])
     end
 end

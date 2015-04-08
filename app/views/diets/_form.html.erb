@@ -15,6 +15,12 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <div class="fieldGroup">
+    <div><%= f.label :ingredient_types %></div>
+    <div><%= f.collection_select :ingredient_type_ids, IngredientType.all, :id, :name, {}, multiple: true %></div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

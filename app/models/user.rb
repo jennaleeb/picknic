@@ -30,4 +30,6 @@ class User < ActiveRecord::Base
   def has_dietary_preferences?
     return self.dietary_preference.present?
   end
+
+  # Find the list of ingredient types that the user can eat (for customized recipe search)
 end
