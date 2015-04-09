@@ -1,6 +1,7 @@
 class RecipeIngredientQuantitiesController < ApplicationController
   before_action :set_recipe_ingredient_quantity, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :authorize_user
 
   # GET /recipe_ingredient_quantities
   # GET /recipe_ingredient_quantities.json
@@ -71,5 +72,12 @@ class RecipeIngredientQuantitiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_ingredient_quantity_params
       params.require(:recipe_ingredient_quantity).permit(:recipe_id, :ingredient_id, :quantity, :quantity_unit)
+    end
+
+    # Only allow admin users to access selected functions
+    def authorize_user
+      if !current_user.admin_user? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end

@@ -1,5 +1,6 @@
 class UserFavouriteRecipesController < ApplicationController
   before_action :set_user_favourite_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :prevent_editing, only: [:edit, :update]
 
   # GET /user_favourite_recipes
   # GET /user_favourite_recipes.json
@@ -70,5 +71,10 @@ class UserFavouriteRecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_favourite_recipe_params
       params.require(:user_favourite_recipe).permit(:user_id, :recipe_id)
+    end
+
+    # Only allow admin users to access selected functions
+    def prevent_editing
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
     end
 end

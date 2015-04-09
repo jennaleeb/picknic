@@ -1,6 +1,11 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :authorize_user, except: [:index, 
+    :show, 
+    :generate_shopping_list, 
+    :add_to_favourites, 
+    :remove_from_favourites]
 
   # GET /recipes
   # GET /recipes.json
@@ -147,5 +152,12 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:name, :instructions, :prep_time, :meal_type)
+    end
+
+    # Only allow admin users to access selected functions
+    def authorize_user
+      if !current_user.admin_user? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end
