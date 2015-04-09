@@ -2,7 +2,7 @@
 
 	<div class="field">
 	  <%= f.label :month_id %><br>
-	  <%= f.select :month_id, options_from_collection_for_select(Month.all, 'id' ,'name' ) %>
+	  <%= f.select :month_id, options_from_collection_for_select(Month.all, 'id' ,'name' ), {}, :multiple => true %>
 	</div>
 
 	<div class="field">
