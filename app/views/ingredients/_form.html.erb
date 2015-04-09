@@ -19,7 +19,11 @@
     <%= f.label :ingredient_type_id %><br>
     <div><%= f.collection_select :ingredient_type_id, IngredientType.all, :id, :name %></div>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>

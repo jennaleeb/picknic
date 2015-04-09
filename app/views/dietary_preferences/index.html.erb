@@ -24,5 +24,7 @@
 
 <br>
 
+<% if !@dietary_preferences.present? then %>
 <%= link_to 'New Dietary preference', new_dietary_preference_path %>
+<% end %>
 </div>

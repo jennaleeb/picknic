@@ -1,0 +1,2 @@
+module UserFavouriteRecipesHelper
+end

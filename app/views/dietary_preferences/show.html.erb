@@ -3,5 +3,12 @@
   <%= @dietary_preference.user %>
 </p>
 
+<p>
+	<strong>Diet:</strong>
+	<ul>
+	<%= @dietary_preference.diet.name %>
+	</ul>
+</p>
+
 <%= link_to 'Edit', edit_dietary_preference_path(@dietary_preference) %> |
 <%= link_to 'Back', dietary_preferences_path %>

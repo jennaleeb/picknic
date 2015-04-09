@@ -48,8 +48,7 @@ class IngredientAvailabilitiesController < ApplicationController
 
 	def ingredient_availability_params
 	
-	  params.require(:ingredient_availability).permit(:month_id, :ingredient_id)
-	  #instead of :month_id use :month_ids => [] and a multi-select in the form to add multiple months for an ingredient at a time
+	  params.require(:ingredient_availability).permit(:ingredient_id, :month_ids => [])
 	  
 	end
 

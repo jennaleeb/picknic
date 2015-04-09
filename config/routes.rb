@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :diet_ingredient_types
-
-  resources :diets
-
-  resources :dietary_preferences
-
-  resources :profiles
-
   devise_for :users
   root to: "home#index"
   get 'home/index'
 
   get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
   get 'mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
+
+  get 'add_to_favourites/:id' => 'recipes#add_to_favourites'
+  get 'remove_from_favourites/:id' => 'recipes#remove_from_favourites'
 
   resources :shopping_list_items
   resources :shopping_lists
@@ -23,6 +18,11 @@ Rails.application.routes.draw do
   resources :recipes
 
   resources :ingredient_availabilities
+  resources :user_favourite_recipes
+  resources :diet_ingredient_types
+  resources :diets
+  resources :dietary_preferences
+  resources :profiles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

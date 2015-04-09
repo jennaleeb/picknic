@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   has_many :dietary_preferences
   has_many :diets, through: :dietary_preferences
 
+  # A user has many favourite recipes
+  has_many :user_favourite_recipes
+  has_many :recipes, through: :user_favourite_recipes
+
   # Check if a user is an admin user
   def admin_user?
   	return self.user_category == "admin"
@@ -30,4 +34,11 @@ class User < ActiveRecord::Base
   def has_dietary_preferences?
     return self.dietary_preference.present?
   end
+
+  # Check if a specific recipe (by ID) is in the user's recipes
+  def has_favourite_recipe?(recipe_id)
+    return self.user_favourite_recipes.find_by(recipe_id: recipe_id)
+  end
+
+  # Find the list of ingredient types that the user can eat (for customized recipe search)
 end
