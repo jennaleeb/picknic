@@ -1,6 +1,7 @@
 class IngredientAvailabilitiesController < ApplicationController
 	before_action :set_ingredient_availability, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
+	before_action :authorize_user, except: [:index, :show]
 
 	def index
 		@month = params[:month_id]
@@ -51,6 +52,13 @@ class IngredientAvailabilitiesController < ApplicationController
 	  params.require(:ingredient_availability).permit(:month_id, :ingredient_id)
 	  #instead of :month_id use :month_ids => [] and a multi-select in the form to add multiple months for an ingredient at a time
 	  
+	end
+
+	# Only allow admin users to access selected functions
+	def authorize_user
+	  if !current_user.admin_user? then
+	    redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+	  end
 	end
 
 end
