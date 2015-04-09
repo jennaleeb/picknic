@@ -3,6 +3,10 @@ class Recipe < ActiveRecord::Base
 	has_many :recipe_ingredient_quantities
 	has_many :ingredients, through: :recipe_ingredient_quantities
 
+	# A recipe may be marked as favourite by many users
+	has_many :user_favourite_recipes
+	has_many :users, through: :user_favourite_recipes
+
 	PREP_TIMES = [['< 15 minutes',15], ['< 30 minutes',30], ['< 1 hour', 60], ['< 2 hours',120], ['> 2 hours',121]]
 
 	MEAL_TYPES = ["Appetizer", "Entree", "Side", "Dessert"]
