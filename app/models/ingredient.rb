@@ -87,4 +87,13 @@ class Ingredient < ActiveRecord::Base
 		)
 	end
 
+	# add month attribute to ingredient
+	def months=(months)
+		ingredient_availabilities.clear
+
+		months.each do |month|
+			ingredient_availabilities.build(month_id: month)
+		end
+	end
+
 end
