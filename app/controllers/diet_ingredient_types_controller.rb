@@ -1,6 +1,7 @@
 class DietIngredientTypesController < ApplicationController
   before_action :set_diet_ingredient_type, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :authorize_user, except: [:index, :show]
   
   # GET /diet_ingredient_types
   # GET /diet_ingredient_types.json
@@ -71,5 +72,12 @@ class DietIngredientTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def diet_ingredient_type_params
       params.require(:diet_ingredient_type).permit(:diet_id, :ingredient_type_id)
+    end
+
+    # Only allow admin users to access selected functions
+    def authorize_user
+      if !current_user.admin_user? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end
