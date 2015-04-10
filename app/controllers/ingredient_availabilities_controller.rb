@@ -11,9 +11,6 @@ class IngredientAvailabilitiesController < ApplicationController
 		@ingredient_availabilities = IngredientAvailability.all
 		@ingredients = Ingredient.all
 
-
-		
-
 	end
 
 
