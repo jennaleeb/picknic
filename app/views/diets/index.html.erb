@@ -1,5 +1,11 @@
 <div class="container">
-<h1>Listing Diets</h1>
+<h1>
+  <% if current_user.admin_user? then %>
+    Change Diet Definition
+  <% else %>
+    Diet Reference
+  <% end %>
+</h1>
 
 <table class="table">
   <thead>
