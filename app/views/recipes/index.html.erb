@@ -1,7 +1,6 @@
 <div class="container-fluid">
-  <h1>Recipes</h1>
 
-  <%= form_tag 'recipes', method: :get do %>
+  <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
     <div class="col-md-3">
       <%= select :recipe, :prep_time, Recipe::PREP_TIMES, {include_blank: "Prep Time"}, class: "form-control"%>
     </div>
