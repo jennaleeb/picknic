@@ -95,7 +95,7 @@ class IngredientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
-      params.require(:ingredient).permit(:name, :quantity, :quantity_unit, :ingredient_type_id, :month_ids => [])
+      params.require(:ingredient).permit(:name, :quantity, :quantity_unit, :ingredient_type_id, :months => [])
     end
 
     # Only allow admin users to access selected functions
@@ -103,5 +103,6 @@ class IngredientsController < ApplicationController
       if !current_user.admin_user? then
         redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
       end
+
     end
 end
