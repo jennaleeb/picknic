@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    @results = Yummly.search('', maxResult: 20)
+
 
     if params[:recipe].present?
       if params[:recipe][:prep_time].present?
