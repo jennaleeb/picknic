@@ -1,3 +1,4 @@
+<div class="container">
 <p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
@@ -23,5 +24,6 @@
   <%= @profile.user %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Change', edit_profile_path(@profile) %> |
+<%= link_to 'Back to Profile', profiles_path %>
+</div>

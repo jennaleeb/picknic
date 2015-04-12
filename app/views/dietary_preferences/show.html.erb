@@ -1,3 +1,4 @@
+<div class="container">
 <p>
   <strong>User:</strong>
   <%= @dietary_preference.user %>
@@ -10,5 +11,6 @@
 	</ul>
 </p>
 
-<%= link_to 'Edit', edit_dietary_preference_path(@dietary_preference) %> |
-<%= link_to 'Back', dietary_preferences_path %>
+<%= link_to 'Change', edit_dietary_preference_path(@dietary_preference) %> |
+<%= link_to 'Back to Dietary Preferences', dietary_preferences_path %>
+</div>
