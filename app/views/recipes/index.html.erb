@@ -59,21 +59,57 @@
 
 <div class="container-fluid">
   
-<div class="recipe-tile-row">
-  <% @recipes.each do |recipe| %>
-    <div class="recipe-item">
-      <div class="well recipe-well">
-        <%= image_tag("basil-bucket.jpg", :alt => "") %>
-        <h3><%= recipe.name %></h3> 
-        <p>Prep Time: <%= recipe.prep_time %> min </p>
-        <p>Meal Type: <%= recipe.meal_type %></p>
-        <p><%= link_to 'Show', recipe %></p>
-        
+<!--   <div class="recipe-tile-row">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="well recipe-well">
+          <%= image_tag("basil-bucket.jpg", :alt => "") %>
+          <h3><%= recipe.name %></h3> 
+          <p>Prep Time: <%= recipe.prep_time %> min </p>
+          <p>Meal Type: <%= recipe.meal_type %></p>
+          <p><%= link_to 'Show', recipe %></p>
+          
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-</div>
+  </div> -->
+  <div class="recipe-tile-row">
+    <% @results.each do |recipe| %>
+      <div class="recipe-item">
+        <div class="well recipe-well">
+
+          <% if recipe.images.first.small_url.present? %>
+            <%= link_to Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] do %>
+              <%= image_tag(recipe.images.first.small_url.sub("=s90", "=s300"), :alt => "") %>
+            <% end %>
+            
+          <% else %>
+            <%= image_tag("basil-bucket.jpg", :alt => "") %>
+          <% end %>
+          <h3><%= recipe.recipe_name %></h3> 
+
+          <% if recipe.total_time_in_seconds.present? %>
+            <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
+          <% end %>
+
+          <% if recipe.attributes["course"].present? %>
+            <p>Meal Type: <%= recipe.attributes["course"].first %></p>
+          <% end %>
+
+          <p><%= link_to "View Recipe",Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] %></p>
+
+          
+
+          
+         
+
+          
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>
 
 
