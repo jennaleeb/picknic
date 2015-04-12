@@ -1,6 +1,9 @@
-<h1>Editing Diet</h1>
+<div class="container">
+	<h1>Editing Diet</h1>
+	<%= render 'form' %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @diet %> |
-<%= link_to 'Back', diets_path %>
+<div class="container">
+	<%= link_to 'Change', @diet %> |
+	<%= link_to 'Back to Diet Definitions', diets_path %>
+</div>
