@@ -12,7 +12,7 @@ html {
 }
 
 body {
-	padding-top: 45px;
+	padding-top: 4em;
 	font-size: 14px;
 }
 
@@ -78,7 +78,10 @@ h6 {
 
 }
 
-
-.user_authentication {
-	margin-top: 1.5em;
+.form-container {
+	padding: 2em 3em;
+	background-color: #dedede;
+	border: 1px dotted #333333;
+	border-radius: 10px;
+	display: block;
 }
