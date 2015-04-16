@@ -1,0 +1,2 @@
+module UserFavouriteShopsHelper
+end

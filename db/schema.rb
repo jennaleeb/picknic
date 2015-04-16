@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409000745) do
+ActiveRecord::Schema.define(version: 20150414003906) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "postal_code"
+    t.integer  "shop_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "addresses", ["shop_id"], name: "index_addresses_on_shop_id"
 
   create_table "diet_ingredient_types", force: :cascade do |t|
     t.integer  "diet_id"
@@ -70,6 +84,18 @@ ActiveRecord::Schema.define(version: 20150409000745) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "operating_hours", force: :cascade do |t|
+    t.string   "day_of_week"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.boolean  "is_weekend_hours"
+    t.integer  "shop_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "operating_hours", ["shop_id"], name: "index_operating_hours_on_shop_id"
+
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -121,6 +147,11 @@ ActiveRecord::Schema.define(version: 20150409000745) do
     t.string   "name"
   end
 
+  create_table "shops", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_favourite_recipes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
@@ -130,6 +161,16 @@ ActiveRecord::Schema.define(version: 20150409000745) do
 
   add_index "user_favourite_recipes", ["recipe_id"], name: "index_user_favourite_recipes_on_recipe_id"
   add_index "user_favourite_recipes", ["user_id"], name: "index_user_favourite_recipes_on_user_id"
+
+  create_table "user_favourite_shops", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_favourite_shops", ["shop_id"], name: "index_user_favourite_shops_on_shop_id"
+  add_index "user_favourite_shops", ["user_id"], name: "index_user_favourite_shops_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -149,5 +190,17 @@ ActiveRecord::Schema.define(version: 20150409000745) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "web_infos", force: :cascade do |t|
+    t.string   "email"
+    t.string   "website"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "web_infos", ["shop_id"], name: "index_web_infos_on_shop_id"
 
 end
