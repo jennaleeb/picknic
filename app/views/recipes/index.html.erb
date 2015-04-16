@@ -18,6 +18,15 @@
   <% end %>
 </div>
 
+  <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
+    <div class="col-md-3">
+      <%= text_field_tag 'search_by_all' %>
+      <%= submit_tag 'Search' , class: "btn btn-default" %>
+    </div>
+  
+<% end %>
+
+
 <div class="container-fluid">
   <table class="table">
     <thead>
@@ -59,26 +68,12 @@
 
 <div class="container-fluid">
   
-<!--   <div class="recipe-tile-row">
-    <% @recipes.each do |recipe| %>
-      <div class="recipe-item">
-        <div class="well recipe-well">
-          <%= image_tag("basil-bucket.jpg", :alt => "") %>
-          <h3><%= recipe.name %></h3> 
-          <p>Prep Time: <%= recipe.prep_time %> min </p>
-          <p>Meal Type: <%= recipe.meal_type %></p>
-          <p><%= link_to 'Show', recipe %></p>
-          
-        </div>
-      </div>
-    <% end %>
-
-  </div> -->
   <div class="recipe-tile-row">
     <% @results.each do |recipe| %>
       <div class="recipe-item">
         <div class="well recipe-well">
 
+         <!--  Looks to see if a url to image is present. Replaces size from 90x90 to 300 -->
           <% if recipe.images.first.small_url.present? %>
             <%= link_to Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] do %>
               <%= image_tag(recipe.images.first.small_url.sub("=s90", "=s300"), :alt => "") %>
@@ -87,8 +82,7 @@
           <% else %>
             <%= image_tag("basil-bucket.jpg", :alt => "") %>
           <% end %>
-          <h3><%= recipe.recipe_name %></h3> 
-
+         <h3><%= recipe.recipe_name %></h3>
           <% if recipe.total_time_in_seconds.present? %>
             <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
           <% end %>
@@ -97,8 +91,7 @@
             <p>Meal Type: <%= recipe.attributes["course"].first %></p>
           <% end %>
 
-          <p><%= link_to "View Recipe",Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] %></p>
-
+          <a href="" class="glyphicon glyphicon-th-list"></a>
           
 
           
@@ -111,5 +104,6 @@
 
   </div>
 </div>
+
 
 

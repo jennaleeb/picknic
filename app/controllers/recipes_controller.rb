@@ -10,7 +10,12 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @results = Yummly.search('', maxResult: 20)
+
+    if params[:search_by_all].present?
+      @results = Yummly.search(params[:search_by_all], maxResult: 1)
+    else
+      @results = Yummly.search('', maxResult: 1)
+    end
 
 
     if params[:recipe].present?
@@ -163,3 +168,9 @@ class RecipesController < ApplicationController
       end
     end
 end
+
+# r.select { |rec| rec.total_time_in_seconds > 10000 }
+# r.select do |rec|
+#   rec.total_time_in_seconds > 10000
+#   # condition
+# end
