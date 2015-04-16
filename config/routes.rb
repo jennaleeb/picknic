@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :user_favourite_shops
+
+  resources :operating_hours
+
+  resources :web_infos
+
+  resources :addresses
+
+  resources :shops
+
   devise_for :users, :controllers => { :registrations => "registrations" }
   root to: "home#index"
   get 'home/index'

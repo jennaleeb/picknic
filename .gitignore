@@ -17,3 +17,6 @@
 /tmp
 
 /.env
+
+# Ignore all Yummly config files
+/config/initializers/yummly.rb
