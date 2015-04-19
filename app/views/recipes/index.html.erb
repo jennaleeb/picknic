@@ -19,10 +19,18 @@
 </div>
 
   <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
-    <div class="col-md-3">
-      <%= text_field_tag 'search_by_all' %>
+    <div class="col-md-12">
+      <%= text_field_tag 'search_by_all', nil, placeholder: 'Search By Recipe Name or Ingredient', size: 33 %>
+
+
+      <%= select_tag 'search_by_time', "<option value='900'>15 minutes</option><option value='1800'>30 minutes</option><option value='3600'>1 hour</option><option value='7200'>2 hours</option>".html_safe %>
+
+      <%= select_tag 'search_by_diet', "<option value='396^Gluten-Free'>Gluten-Free</option><option value='396^Dairy-Free'>Dairy-Free</option>".html_safe, multiple: true %>
+
       <%= submit_tag 'Search' , class: "btn btn-default" %>
     </div>
+
+
   
 <% end %>
 
@@ -48,7 +56,6 @@
           <td><%= recipe.instructions %></td>
           <td><%= recipe.prep_time %> min</td>
           <td><%= recipe.meal_type %></td>
-          <%= render 'actions_for_recipe', recipe: recipe %>
           <%= render 'view_recipe', recipe: recipe %>
           <% if current_user.admin_user? then %>
             <%= render 'change_recipe', recipe: recipe %>
@@ -73,6 +80,7 @@
       <div class="recipe-item">
         <div class="well recipe-well">
 
+
          <!--  Looks to see if a url to image is present. Replaces size from 90x90 to 300 -->
           <% if recipe.images.first.small_url.present? %>
             <%= link_to Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] do %>
@@ -82,6 +90,10 @@
           <% else %>
             <%= image_tag("basil-bucket.jpg", :alt => "") %>
           <% end %>
+
+          <%= render 'actions_for_recipe', recipe: recipe %>
+
+
          <h3><%= recipe.recipe_name %></h3>
           <% if recipe.total_time_in_seconds.present? %>
             <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
@@ -91,7 +103,9 @@
             <p>Meal Type: <%= recipe.attributes["course"].first %></p>
           <% end %>
 
-          <a href="" class="glyphicon glyphicon-th-list"></a>
+
+
+        
           
 
           
