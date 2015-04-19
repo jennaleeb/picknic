@@ -109,8 +109,7 @@ class RecipesController < ApplicationController
     #find recipe and ingredient name from yummly
     recipe.ingredients.each do |ingredient|
       r = Recipe.find_or_create_by(name: recipe.name)
-      i = Ingredient.find_or_create_by(name: ingredient)
-      ShoppingListItem.create(done: nil, shopping_list_id: s.id, ingredient_name: i.name, ingredient_quantity: nil, ingredient_quantity_unit: nil)
+      ShoppingListItem.create(done: nil, shopping_list_id: s.id, ingredient_name: ingredient, ingredient_quantity: nil, ingredient_quantity_unit: nil)
     end
 
     redirect_to shopping_lists_path
