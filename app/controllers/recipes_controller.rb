@@ -11,48 +11,13 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
-    if params[:search_by_all].present?
-      @results = Yummly.search(params[:search_by_all], maxResult: 20)
-    else
-      @results = Yummly.search('', maxResult: 20)
-    end
-
-    # if params[:search_by_time].present?
-    #   @results = Yummly.search(params[:search_by_all], "maxTotalTimeInSeconds" => params[:search_by_time])
-    # else
-    #   @results = Yummly.search('', maxResult: 20)
-    # end
-
-    # if params[:search_by_diet].present?
-    #   @results = Yummly.search(params[:search_by_all], "allowedAllergy[]" => params[:search_by_diet])
-    # else
-    #   @results = Yummly.search('', maxResult: 20)
-    # end
-
-
-    if params[:recipe].present?
-      if params[:recipe][:prep_time].present?
-        prep_time = params[:recipe][:prep_time].to_i
-      else
-        prep_time = 120
-      end
-
-      if params[:recipe][:meal_type].present?
-        meal_type = params[:recipe][:meal_type]
-      else
-        meal_type = Recipe::MEAL_TYPES
-      end
-
-      if params[:recipe][:ingredient_type_picker].present?
-        ingredient_type = params[:recipe][:ingredient_type_picker]
-      else
-        ingredient_type = Ingredient::INGREDIENT_TYPES
-      end
-
-      @recipes = Recipe.recipe_filter(prep_time, meal_type, ingredient_type)
-    else
-      @recipes = Recipe.all
-    end
+    @results = Yummly.search(
+      params[:search_by_all],
+      "maxTotalTimeInSeconds" => params[:search_by_time],
+      "allowedCourse[]" => params[:search_by_course],
+      "allowedAllergy[]" => params[:search_by_allergy],
+      "allowedDiet[]" => params[:search_by_diet],
+      maxResult: 20)
 
   end
 
