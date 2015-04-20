@@ -104,7 +104,6 @@ class RecipesController < ApplicationController
 
     #create new shopping list for each recipe
     s = ShoppingList.create(name: recipe.name)
-    shopping_list_id = ShoppingList.find_by(name: recipe.name).id
 
     #find recipe and ingredient name from yummly
     recipe.ingredients.each do |ingredient|
