@@ -1,84 +1,50 @@
 <div class="container-fluid">
 
-  <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
-    <div class="col-md-3">
-      <%= select :recipe, :prep_time, Recipe::PREP_TIMES, {include_blank: "Prep Time"}, class: "form-control"%>
-    </div>
-
-    <div class="col-md-3">
-      <%= select :recipe, :meal_type, Recipe::MEAL_TYPES, {include_blank: "Meal Type"}, class: "form-control"%>
-    </div>
-
-    <div class="col-md-3">
-      <%= select :recipe, :ingredient_type_picker, Ingredient::INGREDIENT_TYPES, {include_blank: "Ingredient Type"}, class: "form-control"%>
-    </div>
-
-    <%= submit_tag 'Search' , class: "btn btn-default" %>
-    <button class= "btn btn-primary" ><%=link_to("Show All", recipes_path)%></button>
-  <% end %>
-</div>
 
 <div class="container-fluid">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Directions</th>
-        <th>Prep time</th>
-        <th>Meal type</th>
-        <th>Shopping List</th>
-        <th>Favourites</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @recipes.each do |recipe| %>
-        <tr>
-          <td><%= recipe.name %></td>
-          <td><%= recipe.instructions %></td>
-          <td><%= recipe.prep_time %> min</td>
-          <td><%= recipe.meal_type %></td>
-          <%= render 'actions_for_recipe', recipe: recipe %>
-          <%= render 'view_recipe', recipe: recipe %>
-          <% if current_user.admin_user? then %>
-            <%= render 'change_recipe', recipe: recipe %>
-          <% end %>
-        </tr>
+    <div class="recipe-search">
+
+        <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
+
+
+            <div class="col-md-2">
+              <%= select_tag 'search_by_time', "<option value='' selected=\"selected\">All Time</option><option value='900'>15 minutes</option><option value='1800'>30 minutes</option><option value='3600'>1 hour</option><option value='7200'>2 hours</option>".html_safe, class: "form-control recipe-filter" %>
+            </div>
+
+            <div class="col-md-2">
+              <%= select_tag 'search_by_allergy', "<option value=''>No Allergies</option><option value='393^Gluten-Free'>Gluten-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='397^Egg-Free'>Egg-Free</option><option value='394^Peanut-Free'>Peanut-Free</option><option value='398^Seafood-Free'>Seafood-Free</option><option value='400^Soy-Free'>Soy-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option><option value='392^Wheat-Free'>Wheat-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
+            </div>
+
+            <div class="col-md-2">
+              <%= select_tag 'search_by_diet', "<option value='' >All Diets</option><option value='387^Lacto-ovo vegetarian'>Vegetarian</option><option value='386^Vegan'>Vegan</option><option value='390^Pescetarian'>Pescetarian</option><option value='403^Paleo'>Paleo</option><option value='389^Ovo vegetarian'>Ovo-Vegetarian</option><option value='388^Lacto vegetarian'>Lacto-Vegetarian</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
+
+            </div>
+
+            <div class="col-md-2">
+              <%= select_tag 'search_by_course', "<option value='' selected=\"selected\">All Courses</option><option value='course^course-Appetizers'>Appetizers</option><option value='course^course-Main Dishes'>Main Dishes</option><option value='course^course-Salads'>Salads</option><option value='course^course-Side Dishes'>Side Dishes</option><option value='course^course-Lunch and Snacks'>Lunch and Snacks</option><option value='course^course-Soups and Snacks'>Soups</option><option value='course^course-Desserts'>Desserts</option><option value='course^course-Condiments and Sauces'>Condiments and Sauces</option><option value='course^course-Cocktails'>Cocktails</option><option value='course^course-Breakfast and Brunch'>Breakfast and Brunch</option><option value='course^course-Beverages'>Beverages</option>".html_safe, class: "form-control recipe-filter" %>
+            </div>
+
+            <div class="col-md-2">
+              <%= text_field_tag 'search_by_all', nil, placeholder: 'Keyword', class: "form-control recipe-filter" %>
+            </div>
+
+
+            <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
+
+        
       <% end %>
-    </tbody>
-  </table>
 
-  <br>
 
-  <% if current_user.admin_user? then %>
-    <%= link_to 'New Recipe', new_recipe_path %>
-  <% end %>
-
-</div>
-
-<div class="container-fluid">
+  </div>
   
-<!--   <div class="recipe-tile-row">
-    <% @recipes.each do |recipe| %>
-      <div class="recipe-item">
-        <div class="well recipe-well">
-          <%= image_tag("basil-bucket.jpg", :alt => "") %>
-          <h3><%= recipe.name %></h3> 
-          <p>Prep Time: <%= recipe.prep_time %> min </p>
-          <p>Meal Type: <%= recipe.meal_type %></p>
-          <p><%= link_to 'Show', recipe %></p>
-          
-        </div>
-      </div>
-    <% end %>
-
-  </div> -->
   <div class="recipe-tile-row">
     <% @results.each do |recipe| %>
       <div class="recipe-item">
         <div class="well recipe-well">
 
+
+         <!--  Looks to see if a url to image is present. Replaces size from 90x90 to 300 -->
           <% if recipe.images.first.small_url.present? %>
             <%= link_to Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] do %>
               <%= image_tag(recipe.images.first.small_url.sub("=s90", "=s300"), :alt => "") %>
@@ -87,8 +53,11 @@
           <% else %>
             <%= image_tag("basil-bucket.jpg", :alt => "") %>
           <% end %>
-          <h3><%= recipe.recipe_name %></h3> 
 
+          <%= render 'actions_for_recipe', recipe: recipe %>
+
+
+         <h3><%= recipe.recipe_name %></h3>
           <% if recipe.total_time_in_seconds.present? %>
             <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
           <% end %>
@@ -97,8 +66,9 @@
             <p>Meal Type: <%= recipe.attributes["course"].first %></p>
           <% end %>
 
-          <p><%= link_to "View Recipe",Yummly.find(recipe.id).json["source"]["sourceRecipeUrl"] %></p>
 
+
+        
           
 
           
@@ -111,5 +81,6 @@
 
   </div>
 </div>
+
 
 

@@ -7,7 +7,7 @@ class ShoppingListItemsController < ApplicationController
     @shopping_list_item.mark_done
     @shopping_list_item.save
 
-    redirect_to shopping_list_items_path
+    redirect_to :back
   end
   # GET /shopping_list_items
   # GET /shopping_list_items.json

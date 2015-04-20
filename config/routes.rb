@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'home/index'
 
-  get 'make_shopping_list/:id' => 'recipes#generate_shopping_list'
-  get 'mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
+  get 'make_shopping_list/:yummly_id' => 'recipes#generate_shopping_list'
+  get 'shopping_lists/mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
 
   get 'add_to_favourites/:id' => 'recipes#add_to_favourites'
   get 'remove_from_favourites/:id' => 'recipes#remove_from_favourites'

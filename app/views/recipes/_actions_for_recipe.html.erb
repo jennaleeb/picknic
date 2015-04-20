@@ -1,6 +1,10 @@
-<td><%= link_to 'Make Shopping List', "/make_shopping_list/#{recipe.id}" %></td>
-<% if current_user.has_favourite_recipe?(recipe.id) then %>
-	<td><%= link_to '-', "remove_from_favourites/#{recipe.id}" %></td>
-<% else %>
-	<td><%= link_to '+', "add_to_favourites/#{recipe.id}" %></td>
-<% end %>
+
+<p class="recipe-icons">
+	<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-list-alt" %>
+	<% if current_user.has_favourite_recipe?(recipe.id) then %>
+		<%= link_to '', "remove_from_favourites/#{recipe.id}", class: "glyphicon glyphicon-star" %>
+	<% else %>
+		<%= link_to '', "add_to_favourites/#{recipe.id}", class: "glyphicon glyphicon-star-empty" %>
+
+	<% end %>
+</p>

@@ -10,32 +10,14 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @results = Yummly.search('', maxResult: 20)
 
-
-    if params[:recipe].present?
-      if params[:recipe][:prep_time].present?
-        prep_time = params[:recipe][:prep_time].to_i
-      else
-        prep_time = 120
-      end
-
-      if params[:recipe][:meal_type].present?
-        meal_type = params[:recipe][:meal_type]
-      else
-        meal_type = Recipe::MEAL_TYPES
-      end
-
-      if params[:recipe][:ingredient_type_picker].present?
-        ingredient_type = params[:recipe][:ingredient_type_picker]
-      else
-        ingredient_type = Ingredient::INGREDIENT_TYPES
-      end
-
-      @recipes = Recipe.recipe_filter(prep_time, meal_type, ingredient_type)
-    else
-      @recipes = Recipe.all
-    end
+    @results = Yummly.search(
+      params[:search_by_all],
+      "maxTotalTimeInSeconds" => params[:search_by_time],
+      "allowedCourse[]" => params[:search_by_course],
+      "allowedAllergy[]" => params[:search_by_allergy],
+      "allowedDiet[]" => params[:search_by_diet],
+      maxResult: 20)
 
   end
 
@@ -99,32 +81,58 @@ class RecipesController < ApplicationController
 
   # Generate shopping list for the recipe (not yet tested)
   def generate_shopping_list
-    recipe_id = params[:id].to_i
-    @recipe = Recipe.find(recipe_id)
+   #  recipe_id = params[:id].to_i
 
-    recipe_name = @recipe.name
+   #  @recipe = Recipe.new
 
-    ShoppingList.create(name: recipe_name)
-    shopping_list_id = ShoppingList.find_by(name: recipe_name).id
-    @recipe.recipe_ingredient_quantities.all.each do |recipe_ingredient_qty| 
-        ShoppingListItem.create( 
-          shopping_list_id: shopping_list_id, 
-          ingredient_name: recipe_ingredient_qty.ingredient.name,
-          ingredient_quantity: recipe_ingredient_qty.quantity,
-          ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
-          done: false )
+   #  recipe_name = @recipe.name
 
+   #  ShoppingList.create(name: recipe_name)
+   #  shopping_list_id = ShoppingList.find_by(name: recipe_name).id
+   #  @recipe.recipe_ingredient_quantities.all.each do |recipe_ingredient_qty| 
+   #      ShoppingListItem.create( 
+   #        shopping_list_id: shopping_list_id, 
+   #        ingredient_name: recipe_ingredient_qty.ingredient.name,
+   #        ingredient_quantity: recipe_ingredient_qty.quantity,
+   #        ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
+   #        done: false )
+
+   #  end
+
+    #pull out whichever recipe you are clicking on
+    recipe = Yummly.find(params[:yummly_id])
+
+    #create new shopping list for each recipe
+    s = ShoppingList.create(name: recipe.name)
+
+    #find recipe and ingredient name from yummly
+    recipe.ingredients.each do |ingredient|
+      r = Recipe.find_or_create_by(name: recipe.name)
+      ShoppingListItem.create(done: nil, shopping_list_id: s.id, ingredient_name: ingredient, ingredient_quantity: nil, ingredient_quantity_unit: nil)
     end
 
-   redirect_to shopping_list_items_url, notice: "You have created a shopping list: #{recipe_name}"
+    redirect_to shopping_lists_path
+
   end
 
   # Add recipe to logged-in user's favourites
   def add_to_favourites
+    @recipe = Recipe.create(name: recipe.name)
+
     user_id = current_user.id
+
+    yummly_id = recipe.id
+
+    recipe_name = recipe.name
+
+    
+ 
+
     recipe_id = params[:id].to_i
-    @recipe = Recipe.find(recipe_id)
+    
     recipe_name = @recipe.name
+
+
 
     UserFavouriteRecipe.create(recipe_id: recipe_id, user_id: user_id)
 
@@ -163,3 +171,9 @@ class RecipesController < ApplicationController
       end
     end
 end
+
+# r.select { |rec| rec.total_time_in_seconds > 10000 }
+# r.select do |rec|
+#   rec.total_time_in_seconds > 10000
+#   # condition
+# end
