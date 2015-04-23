@@ -40,5 +40,11 @@ class User < ActiveRecord::Base
     return self.user_favourite_recipes.find_by(recipe_id: recipe_id)
   end
 
+  # Check if a user can modify a shop.
+  # Note: Only admin / vendor users can modify shops
+  def can_modify_shops?
+    return self.admin_user? || self.vendor_user?
+  end
+
   # Find the list of ingredient types that the user can eat (for customized recipe search)
 end

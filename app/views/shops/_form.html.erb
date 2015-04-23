@@ -1,4 +1,4 @@
-<%= form_for(@shop) do |f| %>
+<%= form_for @shop, :html => {:class => "form-horizontal", :role => 'form'} do |f| %>
   <% if @shop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
@@ -11,7 +11,62 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <h3>Address</h3>
+  <!-- Forms for address -->
+  <%= f.fields_for :address, @shop.address do |address| %>
+    <div class="field">
+      <%= address.label :address_line1 %><br>
+      <%= address.text_field :address_line1 %>
+    </div>
+    <div class="field">
+      <%= address.label :address_line2 %><br>
+      <%= address.text_field :address_line2 %>
+    </div>
+    <div class="field">
+      <%= address.label :city %><br>
+      <%= address.text_field :city %>
+    </div>
+    <div class="field">
+      <%= address.label :province %><br>
+      <%= address.text_field :province %>
+    </div>
+    <div class="field">
+      <%= address.label :country %><br>
+      <%= address.text_field :country %>
+    </div>
+    <div class="field">
+      <%= address.label :postal_code %><br>
+      <%= address.text_field :postal_code %>
+    </div>
+  <% end %>
+
+  <h3>Web Info</h3>
+  <!-- forms for web info -->
+  <%= f.fields_for :web_info, @shop.web_info do |web_info| %>
+    <div class="field">
+      <%= web_info.label :email %><br>
+      <%= web_info.text_field :email %>
+    </div>
+    <div class="field">
+      <%= web_info.label :website %><br>
+      <%= web_info.text_field :website %>
+    </div>
+    <div class="field">
+      <%= web_info.label :facebook %><br>
+      <%= web_info.text_field :facebook %>
+    </div>
+    <div class="field">
+      <%= web_info.label :twitter %><br>
+      <%= web_info.text_field :twitter %>
+    </div>
+ <% end %>
+
+  <div class="form-group actions">
+    <%= f.submit 'Set Shop Information', class: 'btn btn-primary'  %>
   </div>
 <% end %>

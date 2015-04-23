@@ -1,5 +1,9 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy, :add_to_favourites, :remove_from_favourites]
+  before_action :authorize_user, except: [:index, 
+    :show, 
+    :add_to_favourites, 
+    :remove_from_favourites]
 
   # GET /shops
   # GET /shops.json
@@ -15,6 +19,8 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
+    address = @shop.create_address
+    web_info = @shop.create_web_info
   end
 
   # GET /shops/1/edit
@@ -61,6 +67,28 @@ class ShopsController < ApplicationController
     end
   end
 
+  # Add shop to logged-in user's favourites
+  def add_to_favourites
+    user_id = current_user.id
+    shop_name = @shop.name
+
+    UserFavouriteShop.create(shop_id: @shop.id, user_id: user_id)
+
+    redirect_to shops_url, notice: "Added the recipe #{shop_name} to your list of favourite recipes"
+  end
+
+  # Remove recipe from logged-in user's favourites
+  def remove_from_favourites
+    user_id = current_user.id
+    shop_name = @shop.name
+
+    user_favourite_shop = UserFavouriteShop.find_by(shop_id: @shop.id, user_id: user_id)
+    user_favourite_shop.destroy
+
+    redirect_to shops_url, notice: "Removed the recipe #{recipe_name} from your list of favourite recipes"
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shop
@@ -68,7 +96,17 @@ class ShopsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # TODO: How to pass the params for addresses and web info?
     def shop_params
-      params[:shop]
+       params.require(:shop).permit(:name, 
+        address_attributes: [ :address_line1, :address_line2, :city, :province, :country, :postal_code ],
+        web_info_attributes: [ :email, :website, :facebook, :twitter ])
+    end
+
+    # Only allow admin and vendor users to access selected functions
+    def authorize_user
+      if !current_user.can_modify_shops? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end
