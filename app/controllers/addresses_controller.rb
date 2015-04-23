@@ -1,5 +1,7 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user
 
   # GET /addresses
   # GET /addresses.json
@@ -70,5 +72,12 @@ class AddressesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
       params.require(:address).permit(:address_line1, :address_line2, :city, :province, :country, :postal_code, :shop_id)
+    end
+
+    # Only allow admin and vendor users to access selected functions
+    def authorize_user
+      if !current_user.can_modify_shops? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end

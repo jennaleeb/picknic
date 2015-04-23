@@ -1,5 +1,7 @@
 class OperatingHoursController < ApplicationController
   before_action :set_operating_hour, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user
 
   # GET /operating_hours
   # GET /operating_hours.json
@@ -70,5 +72,12 @@ class OperatingHoursController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def operating_hour_params
       params.require(:operating_hour).permit(:day_of_week, :start_time, :end_time, :is_weekend_hours, :shop_id)
+    end
+
+    # Only allow admin and vendor users to access selected functions
+    def authorize_user
+      if !current_user.can_modify_shops? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end

@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
+<div class="container view-margin">
+<h3>Shop</h3>
+<dl>
+	<dt>Name</dt>
+	<dd><%= @shop.name %></dd>
+</dl>
+<h3>Address</h3>
+<dl>
+	<dt>Address Line 1</dt>
+	<dd><%= @shop.address.address_line1 %></dd>
+	<dt>Address Line 2</dt>
+	<dd><%= @shop.address.address_line2 %></dd>
+	<dt>City</dt>
+	<dd><%= @shop.address.city %></dd>
+	<dt>Province</dt>
+	<dd><%= @shop.address.province %></dd>
+	<dt>Country</dt>
+	<dd><%= @shop.address.country %></dd>
+	<dt>Postal Code</dt>
+	<dd><%= @shop.address.postal_code %></dd>
+</dl>
+<h3>Contact Info</h3>
+<dl>
+	<dt>Email</dt>
+	<dd><%= @shop.web_info.email %></dd>
+	<dt>Website</dt>
+	<dd><%= @shop.web_info.website %></dd>
+	<dt>Facebook</dt>
+	<dd><%= @shop.web_info.facebook %></dd>
+	<dt>Twitter</dt>
+	<dd><%= @shop.web_info.twitter %></dd>
+</dl>
+<%= link_to 'Change', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>
+</div>

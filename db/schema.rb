@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414003906) do
+ActiveRecord::Schema.define(version: 20150423010634) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -129,6 +129,16 @@ ActiveRecord::Schema.define(version: 20150414003906) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "shop_ingredients", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.integer  "ingredients_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "shop_ingredients", ["ingredients_id"], name: "index_shop_ingredients_on_ingredients_id"
+  add_index "shop_ingredients", ["shop_id"], name: "index_shop_ingredients_on_shop_id"
+
   create_table "shopping_list_items", force: :cascade do |t|
     t.boolean  "done"
     t.integer  "shopping_list_id"
@@ -150,6 +160,7 @@ ActiveRecord::Schema.define(version: 20150414003906) do
   create_table "shops", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "user_favourite_recipes", force: :cascade do |t|

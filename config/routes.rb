@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :shop_ingredients
+
   resources :user_favourite_shops
 
   resources :operating_hours
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
 
   get 'add_to_favourites/:id' => 'recipes#add_to_favourites'
   get 'remove_from_favourites/:id' => 'recipes#remove_from_favourites'
+
+  get 'add_to_favourite_shops/:id' => 'shops#add_to_favourites'
+  get 'remove_from_favourite_shops/:id' => 'shops#remove_from_favourites'
 
   resources :shopping_list_items
   resources :shopping_lists

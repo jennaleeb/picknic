@@ -1,5 +1,7 @@
 class WebInfosController < ApplicationController
   before_action :set_web_info, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user
 
   # GET /web_infos
   # GET /web_infos.json
@@ -70,5 +72,12 @@ class WebInfosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def web_info_params
       params.require(:web_info).permit(:email, :website, :facebook, :twitter, :shop_id)
+    end
+
+    # Only allow admin and vendor users to access selected functions
+    def authorize_user
+      if !current_user.can_modify_shops? then
+        redirect_to '/', notice: 'You have attempted to access a function that is not available for basic users.'
+      end
     end
 end
