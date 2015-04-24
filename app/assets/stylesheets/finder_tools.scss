@@ -1,6 +1,6 @@
 .finder {
 	text-align: center;
-	font-size: 3em;
+	font-size: 2em;
 }
 
 .search-section {
@@ -17,4 +17,12 @@ button a {
 button a:hover {
 	text-decoration: none;
 	color: white;
+}
+
+.ingredient-avail-selector {
+	width: 15%;
+	display: inline-block;
+	position: relative;
+	font-size: 1em;
+	height: 2em;
 }

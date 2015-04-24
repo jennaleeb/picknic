@@ -4,13 +4,14 @@ class IngredientAvailabilitiesController < ApplicationController
 	before_action :authorize_user, except: [:index, :show]
 
 	def index
-		@month = params[:month_id]
-		@ingredient_type = params[:ingredient_type_id]
-
+		ingredient_id = params[:ingredient_type]
+		if ingredient_id.present?
+			@ingredients = Ingredient.where(ingredient_type_id: ingredient_id)
+		else
+			@ingredients = Ingredient.all
+			# raise 'hell'
+		end
 		
-		@ingredient_availability = IngredientAvailability.new
-		@ingredient_availabilities = IngredientAvailability.all
-		@ingredients = Ingredient.all
 
 	end
 
@@ -46,7 +47,7 @@ class IngredientAvailabilitiesController < ApplicationController
 
 	def ingredient_availability_params
 	
-	  params.require(:ingredient_availability).permit(:ingredient_id, :month_ids => [])
+	  params.require(:ingredient_availability).permit(:ingredient_id, :ingredient_type,:month_ids => [])
 	  
 	end
 
