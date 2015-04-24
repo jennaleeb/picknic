@@ -30,6 +30,9 @@
 	<dt>Twitter</dt>
 	<dd><%= @shop.web_info.twitter %></dd>
 </dl>
+<h3>Map</h3>
+<iframe width="600" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=<%= @shop.address.get_google_maps_address %>&key=AIzaSyArHVQKN6yi0kRKzZkJSXYsOzwWENkJqtY"></iframe>
 <%= link_to 'Change', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>
 </div>

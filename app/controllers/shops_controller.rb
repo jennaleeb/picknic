@@ -19,8 +19,8 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
-    address = @shop.create_address
-    web_info = @shop.create_web_info
+    address = @shop.build_address
+    web_info = @shop.build_web_info
   end
 
   # GET /shops/1/edit
@@ -85,7 +85,7 @@ class ShopsController < ApplicationController
     user_favourite_shop = UserFavouriteShop.find_by(shop_id: @shop.id, user_id: user_id)
     user_favourite_shop.destroy
 
-    redirect_to shops_url, notice: "Removed the recipe #{recipe_name} from your list of favourite recipes"
+    redirect_to shops_url, notice: "Removed the recipe #{shop_name} from your list of favourite recipes"
   end
 
 

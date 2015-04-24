@@ -14,16 +14,14 @@
   <tbody>
     <% @user_favourite_shops.each do |user_favourite_shop| %>
       <tr>
-        <td><%= user_favourite_shop.user %></td>
-        <td><%= user_favourite_shop.shop %></td>
-        <td><%= link_to 'Show', user_favourite_shop %></td>
-        <td><%= link_to 'Edit', edit_user_favourite_shop_path(user_favourite_shop) %></td>
-        <td><%= link_to 'Destroy', user_favourite_shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user_favourite_shop.user.email %></td>
+        <td><%= user_favourite_shop.shop.name %></td>
+        <td><%= link_to 'View', user_favourite_shop %></td>
+        <td><%= link_to 'Change', edit_user_favourite_shop_path(user_favourite_shop) %></td>
+        <td><%= link_to 'Delete', user_favourite_shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User favourite shop', new_user_favourite_shop_path %>

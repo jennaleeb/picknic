@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   has_many :user_favourite_recipes
   has_many :recipes, through: :user_favourite_recipes
 
+  # A user as many favourite shops
+  has_many :user_favourite_shops
+  has_many :users, through: :user_favourite_shops
+
   # Check if a user is an admin user
   def admin_user?
   	return self.user_category == "admin"
@@ -38,6 +42,11 @@ class User < ActiveRecord::Base
   # Check if a specific recipe (by ID) is in the user's recipes
   def has_favourite_recipe?(recipe_id)
     return self.user_favourite_recipes.find_by(recipe_id: recipe_id)
+  end
+
+  # Check if a specific shop (by ID) is in the user's favourite shops
+  def has_favourite_shop?(shop_id)
+    return self.user_favourite_shops.find_by(shop_id: shop_id)
   end
 
   # Check if a user can modify a shop.
