@@ -3,20 +3,23 @@
 	<div class="row">
 
 	  <div class="col-md-12 finder">
-	  	<%= form_for @ingredient_availability, :html => {:class => "form-inline"} do |f| %>
+	  	<%= form_tag ingredient_availabilities_path, method: :get, :html => {:class => "form-inline"} %>
 
 	  		<span>It's </span>
-	  		<%= f.select :month_id, options_from_collection_for_select(Month.all, 'id' ,'name' ), {}, {class: 'form-control'}  %>
 
-	  		<%= fields_for :ingredient_type do |u| %>
-	  		<span> and I am looking for </span>
+	  		<%= select_tag "month", options_from_collection_for_select(Month.all, 'id' ,'name' ), class: 'form-control ingredient-avail-selector'  %>
 
-	  			<%= u.select :ingredient_type_id, options_from_collection_for_select(IngredientType.all, 'id' ,'name' ), {}, {class: 'form-control'}  %>
-	  		<% end %>
+	  		<span>and I'm looking for</span>
 
-	  		<%= f.submit "Search" , class: 'btn btn-success'%>
+	  		<%= select_tag "ingredient_type",  options_from_collection_for_select(IngredientType.all, 'id' ,'name' ), class: 'form-control ingredient-avail-selector' %>
 
-	  	<% end %>
+	  		<span>in</span>
+
+	  		<%= select_tag "city", "<option selected='selected'>Toronto</option>".html_safe, class: 'form-control ingredient-avail-selector'  %>
+
+
+	  		<%= submit_tag "Search" , class: 'btn btn-success'%>
+
 	  </div>
 	</div>
 
@@ -49,7 +52,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Jan") != nil %>
+						<% if ingredient.months.find_by(name: "January") != nil %>
 						<button type="button" class="btn btn-default btn-sm">
 							<span class="glyphicon glyphicon-ok"></span>
 						</button>						
@@ -57,7 +60,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Feb") != nil %>
+						<% if ingredient.months.find_by(name: "February") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -65,7 +68,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Mar") != nil %>
+						<% if ingredient.months.find_by(name: "March") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -73,7 +76,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Apr") != nil %>
+						<% if ingredient.months.find_by(name: "April") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -105,7 +108,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Aug") != nil %>
+						<% if ingredient.months.find_by(name: "August") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -113,7 +116,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Sept") != nil %>
+						<% if ingredient.months.find_by(name: "September") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -121,7 +124,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Oct") != nil %>
+						<% if ingredient.months.find_by(name: "October") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -129,7 +132,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Nov") != nil %>
+						<% if ingredient.months.find_by(name: "November") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						
@@ -137,7 +140,7 @@
 					</td>
 
 					<td>
-						<% if ingredient.months.find_by(name: "Dec") != nil %>
+						<% if ingredient.months.find_by(name: "December") != nil %>
 							<button type="button" class="btn btn-default btn-sm">
 								<span class="glyphicon glyphicon-ok"></span> 
 							</button>						

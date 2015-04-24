@@ -4,4 +4,5 @@ class IngredientAvailability < ActiveRecord::Base
 
   # Ensure you can't add the same ingredient to a given month twice
   validates_uniqueness_of :ingredient_id, scope: [:month_id]
+
 end
