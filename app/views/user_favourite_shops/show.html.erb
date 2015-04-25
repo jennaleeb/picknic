@@ -2,13 +2,17 @@
 
 <p>
   <strong>User:</strong>
-  <%= @user_favourite_shop.user %>
+  <%= @user_favourite_shop.user.get_display_name %>
 </p>
 
 <p>
   <strong>Shop:</strong>
-  <%= @user_favourite_shop.shop %>
+  <%= @user_favourite_shop.shop.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_favourite_shop_path(@user_favourite_shop) %> |
+<p>
+	<strong>Shop Info</strong>
+	<%= render 'shops/view_shop_details', shop: @user_favourite_shop.shop %>
+</p>
+
 <%= link_to 'Back', user_favourite_shops_path %>

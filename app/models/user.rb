@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :diets, through: :dietary_preferences
 
   # A user has many favourite recipes
-  has_many :user_favourite_recipes
+  has_many :user_favourite_recipes, dependent: :destroy
   has_many :recipes, through: :user_favourite_recipes
 
   # A user as many favourite shops
@@ -53,6 +53,14 @@ class User < ActiveRecord::Base
   # Note: Only admin / vendor users can modify shops
   def can_modify_shops?
     return self.admin_user? || self.vendor_user?
+  end
+
+
+  # Get display name for a user
+  def get_display_name
+    return self.has_profile? ?
+      self.profile.first_name + " " + self.profile.last_name :
+      self.email
   end
 
   # Find the list of ingredient types that the user can eat (for customized recipe search)

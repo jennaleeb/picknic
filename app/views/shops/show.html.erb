@@ -1,38 +1,10 @@
 <div class="container view-margin">
 <h3>Shop</h3>
-<dl>
-	<dt>Name</dt>
-	<dd><%= @shop.name %></dd>
-</dl>
-<h3>Address</h3>
-<dl>
-	<dt>Address Line 1</dt>
-	<dd><%= @shop.address.address_line1 %></dd>
-	<dt>Address Line 2</dt>
-	<dd><%= @shop.address.address_line2 %></dd>
-	<dt>City</dt>
-	<dd><%= @shop.address.city %></dd>
-	<dt>Province</dt>
-	<dd><%= @shop.address.province %></dd>
-	<dt>Country</dt>
-	<dd><%= @shop.address.country %></dd>
-	<dt>Postal Code</dt>
-	<dd><%= @shop.address.postal_code %></dd>
-</dl>
-<h3>Contact Info</h3>
-<dl>
-	<dt>Email</dt>
-	<dd><%= @shop.web_info.email %></dd>
-	<dt>Website</dt>
-	<dd><%= @shop.web_info.website %></dd>
-	<dt>Facebook</dt>
-	<dd><%= @shop.web_info.facebook %></dd>
-	<dt>Twitter</dt>
-	<dd><%= @shop.web_info.twitter %></dd>
-</dl>
-<h3>Map</h3>
-<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=<%= @shop.address.get_google_maps_address %>&key=AIzaSyArHVQKN6yi0kRKzZkJSXYsOzwWENkJqtY"></iframe>
-<%= link_to 'Change', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+
+<%= render 'view_shop_details', shop: @shop %>
+
+<% if user_signed_in? and current_user.can_modify_shops? then %>
+	<%= link_to 'Change', edit_shop_path(@shop), class: 'btn btn-default' %> 
+<% end %>
+<%= link_to 'Back', shops_path, class: 'btn btn-default' %>
 </div>
