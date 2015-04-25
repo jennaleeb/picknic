@@ -1,10 +1,12 @@
 class UserFavouriteShopsController < ApplicationController
   before_action :set_user_favourite_shop, only: [:show, :edit, :update, :destroy]
+  before_action :prevent_editing, only: [:edit, :update]
+  before_action :authenticate_user!
 
   # GET /user_favourite_shops
   # GET /user_favourite_shops.json
   def index
-    @user_favourite_shops = UserFavouriteShop.all
+    @user_favourite_shops = UserFavouriteShop.where(user_id: current_user.id)
   end
 
   # GET /user_favourite_shops/1

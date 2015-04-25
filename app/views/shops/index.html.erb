@@ -1,27 +1,39 @@
+<div class="container"> 
+        <%= form_tag shops_path, method: :get, :class => 'search-section' do %>
+          <div class="col-sm-3">
+            <%= text_field_tag 'search_by_name', nil, placeholder: 'Enter shop name...', class: "form-control" %>
+          </div>
+          <div class="col-sm-3">
+            <%= text_field_tag 'search_by_city', nil, placeholder: 'Enter city...', class: "form-control" %>
+          </div>
+          <div class="col-sm-3">
+            <%= text_field_tag 'search_by_province', nil, placeholder: 'Enter province...',  class: "form-control" %>
+          </div>
+          <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
+        <% end %>
+</div>
 <div class="container">
-<h1>Listing Shops</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Shop Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Search Results -->
 
-  <tbody>
+
     <% @shops.each do |shop| %>
-      <tr>
-        <td><%= shop.name %></td>
-        <td><%= link_to 'View', shop %></td>
-        <td><%= link_to 'Change', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Delete', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-md-8">
+          <p><h4><%= shop.name %></h4></p>
+          <p><%= shop.address.get_full_address %></p>
+        </div> 
+        <div class="col-md-4">
+          <% if user_signed_in? then %>
+            <%= render 'actions_for_shop', shop: shop %>
+          <% end %> 
+          <%= render 'view_shop', shop: shop %>
+          <% if user_signed_in? and current_user.can_modify_shops? then %>
+            <%= render 'change_shop', shop: shop %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
 
 <% if user_signed_in? and current_user.can_modify_shops? then %>
   <%= link_to 'New Shop', new_shop_path %>

@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-sm-6">
+		<h3><%= shop.name %></h3>
+		<p><%= shop.address.get_full_address %></p>
+		<dl>
+			<dt>Telephone Number</dt>
+			<dd><%= shop.contact_info.telephone_number %></dd>
+			<dt>Fax Number</dt>
+			<dd><%= shop.contact_info.fax_number %></dd>
+		</dl>
+		<dl>
+			<dt>Email</dt>
+			<dd><%= shop.web_info.email %></dd>
+			<dt>Website</dt>
+			<dd><%= shop.web_info.website %></dd>
+			<dt>Facebook</dt>
+			<dd><%= shop.web_info.facebook %></dd>
+			<dt>Twitter</dt>
+			<dd><%= shop.web_info.twitter %></dd>
+		</dl>
+	</div>
+	<div class="col-sm-6">
+		<iframe width="400" height="300" frameborder="0" style="border:0"
+		src="https://www.google.com/maps/embed/v1/place?q=<%= shop.address.get_google_maps_address %>&key=AIzaSyArHVQKN6yi0kRKzZkJSXYsOzwWENkJqtY"></iframe>
+	</div>
+</div>

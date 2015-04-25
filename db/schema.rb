@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423010634) do
+ActiveRecord::Schema.define(version: 20150424211544) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20150423010634) do
   end
 
   add_index "addresses", ["shop_id"], name: "index_addresses_on_shop_id"
+
+  create_table "contact_infos", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.string   "telephone_number"
+    t.string   "fax_number"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "contact_infos", ["shop_id"], name: "index_contact_infos_on_shop_id"
 
   create_table "diet_ingredient_types", force: :cascade do |t|
     t.integer  "diet_id"

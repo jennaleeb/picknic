@@ -1,6 +1,7 @@
 class UserFavouriteRecipesController < ApplicationController
   before_action :set_user_favourite_recipe, only: [:show, :edit, :update, :destroy]
   before_action :prevent_editing, only: [:edit, :update]
+  before_action :authenticate_user!
 
   # GET /user_favourite_recipes
   # GET /user_favourite_recipes.json
