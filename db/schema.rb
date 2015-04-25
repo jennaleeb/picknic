@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424211544) do
+ActiveRecord::Schema.define(version: 20150425191620) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 20150424211544) do
   add_index "dietary_preferences", ["user_id"], name: "index_dietary_preferences_on_user_id"
 
   create_table "diets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "excluded_ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -193,6 +199,20 @@ ActiveRecord::Schema.define(version: 20150424211544) do
   add_index "user_favourite_shops", ["shop_id"], name: "index_user_favourite_shops_on_shop_id"
   add_index "user_favourite_shops", ["user_id"], name: "index_user_favourite_shops_on_user_id"
 
+  create_table "user_yummly_preferences", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "yummly_diet_id"
+    t.integer  "yummly_allergy_id"
+    t.integer  "excluded_ingredient_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "user_yummly_preferences", ["excluded_ingredient_id"], name: "index_user_yummly_preferences_on_excluded_ingredient_id"
+  add_index "user_yummly_preferences", ["user_id"], name: "index_user_yummly_preferences_on_user_id"
+  add_index "user_yummly_preferences", ["yummly_allergy_id"], name: "index_user_yummly_preferences_on_yummly_allergy_id"
+  add_index "user_yummly_preferences", ["yummly_diet_id"], name: "index_user_yummly_preferences_on_yummly_diet_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -223,5 +243,17 @@ ActiveRecord::Schema.define(version: 20150424211544) do
   end
 
   add_index "web_infos", ["shop_id"], name: "index_web_infos_on_shop_id"
+
+  create_table "yummly_allergies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "yummly_diets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
