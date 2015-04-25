@@ -25,17 +25,23 @@ class DietaryPreferencesController < ApplicationController
   # POST /dietary_preferences
   # POST /dietary_preferences.json
   def create
-    @dietary_preference = DietaryPreference.new(dietary_preference_params)
-
-    respond_to do |format|
-      if @dietary_preference.save
-        format.html { redirect_to @dietary_preference, notice: 'Dietary preference was successfully created.' }
-        format.json { render :show, status: :created, location: @dietary_preference }
-      else
-        format.html { render :new }
-        format.json { render json: @dietary_preference.errors, status: :unprocessable_entity }
-      end
+    params[:diets].each do |diet|
+      @dietary_preference = DietaryPreference.new(user_id: current_user.id, diet_id: diet )
+      @dietary_preference.save
     end
+
+    redirect_to dietary_preferences_path
+
+
+    # respond_to do |format|
+    #   if @dietary_preference.save
+    #     format.html { redirect_to @dietary_preference, notice: 'Dietary preference was successfully created.' }
+    #     format.json { render :show, status: :created, location: @dietary_preference }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @dietary_preference.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /dietary_preferences/1
@@ -70,6 +76,6 @@ class DietaryPreferencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dietary_preference_params
-      params.require(:dietary_preference).permit(:user_id, :diet_id)
+      params.require(:dietary_preference).permit(:user_id, :diet_ids =>[])
     end
 end

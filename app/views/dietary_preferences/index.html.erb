@@ -4,7 +4,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
       <th>Diet</th>
       <th colspan="3"></th>
     </tr>
@@ -13,7 +12,6 @@
   <tbody>
     <% @dietary_preferences.each do |dietary_preference| %>
       <tr>
-        <td><%= dietary_preference.user.email %></td>
         <td><%= dietary_preference.diet.name %></td>
         <%= render 'view_dietary_preference', dietary_preference: dietary_preference %>
         <%= render 'change_dietary_preference', dietary_preference: dietary_preference %>

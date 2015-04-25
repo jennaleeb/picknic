@@ -16,9 +16,14 @@
       <div class="col-sm-4">
         <%= f.label :diet_id %>
       </div>
-      <div class="col-sm-4">
+<!--       <div class="col-sm-4">
         <%= f.collection_select :diet_id, Diet.all, :id, :name, {}, {:class =>"form-control"} %>
-      </div>
+      </div> -->
+
+      <% Diet.all.each do |diet| %>
+        <%= check_box_tag 'diets[]', diet.id %> <%= diet.name %>
+      <% end %>
+
     </div>
 
     <div class="form-group">
