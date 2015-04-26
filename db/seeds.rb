@@ -72,20 +72,21 @@ ingredient_gruyere_cheese_id = Ingredient.find_by(name: "Gruyere Cheese").id
 ingredient_large_eggs_id = Ingredient.find_by(name: "Large Eggs").id
 
 
-# Create the possible diets
-Diet.create(name: "Vegetarian")
-Diet.create(name: "Vegetarian (lacto)")
-Diet.create(name: "Vegetarian (ovo)")
-Diet.create(name: "Vegan")
-Diet.create(name: "Dairy-Free")
-Diet.create(name: "Nut-Free")
-Diet.create(name: "Pescatarian")
+# Create the possible diets (modified to yummly's version)
+Diet.create(name: "Vegetarian", yummly_diet_id: "387^Lacto-ovo vegetarian")
+Diet.create(name: "Vegan", yummly_diet_id: "386^Vegan")
+Diet.create(name: "Pescetarian", yummly_diet_id: "390^Pescetarian")
+Diet.create(name: "Paleo", yummly_diet_id: "403^Paleo")
+Diet.create(name: "Ovo vegetarian", yummly_diet_id:"389^Ovo vegetarian")
+Diet.create(name: "Lacto vegetarian", yummly_diet_id:"388^Lacto vegetarian")
 
 # Associate the diets with appropriate ingredient types
 diet_vegetarian_id = Diet.find_by(name: "Vegetarian").id
-diet_lacto_vegetarian_id = Diet.find_by(name: "Vegetarian (lacto)").id
-diet_ovo_vegetarian_id = Diet.find_by(name: "Vegetarian (ovo)").id
+diet_lacto_vegetarian_id = Diet.find_by(name: "Lacto vegetarian").id
+diet_ovo_vegetarian_id = Diet.find_by(name: "Ovo vegetarian").id
 diet_vegan_id = Diet.find_by(name: "Vegan").id
+
+
 diet_dairy_free_id = Diet.find_by(name: "Dairy-Free").id
 diet_nut_free_id = Diet.find_by(name: "Nut-Free").id
 diet_pescatarian = Diet.find_by(name: "Pescatarian").id

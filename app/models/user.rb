@@ -52,4 +52,24 @@ class User < ActiveRecord::Base
   end
 
   # Find the list of ingredient types that the user can eat (for customized recipe search)
+
+
+
+  def find_user_diets
+    yummly_diets = []
+
+    user_diets = DietaryPreference.where(user_id: self.id)
+
+    if user_diets != nil
+      user_diets.each do |diet|
+        diet_id = diet.diet_id
+        yummly_diets << Diet.find(diet_id).yummly_diet_id
+      end
+    yummly_diets
+    else
+      yummly_diets = nil
+    end
+
+  end
+
 end
