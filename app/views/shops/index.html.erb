@@ -1,14 +1,17 @@
 <!-- Search forms -->
 <div class="container"> 
         <%= form_tag shops_path, method: :get, :class => 'search-section' do %>
-          <div class="col-sm-3">
+          <div class="col-md-2 col-sm-12">
             <%= text_field_tag 'search_by_name', nil, placeholder: 'Enter shop name...', class: "form-control" %>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-2 col-sm-12">
             <%= text_field_tag 'search_by_city', nil, placeholder: 'Enter city...', class: "form-control" %>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-2 col-sm-12">
             <%= text_field_tag 'search_by_province', nil, placeholder: 'Enter province...',  class: "form-control" %>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <%= select_tag 'search_by_nearest_distance', "<option value=''>Nearest markets in...</option><option value='5'>5 km</option><option value='10'>10 km</option><option value='15'>15 km</option><option value='20'>20 km</option><option value='30'>30 km</option><option value='40'>40 km</option><option value='50'>50 km</option>".html_safe, multiple: false, class: "form-control" %>
           </div>
           <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
         <% end %>
@@ -37,3 +40,9 @@
   <%= link_to 'New Shop', new_shop_path, class: "btn btn-default" %>
 <% end %>
 </div>
+
+<%- unless @lat_lng %>
+<script>
+  getGeoLocation();
+</script>
+<%- end %>

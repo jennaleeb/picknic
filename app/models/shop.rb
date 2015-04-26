@@ -18,11 +18,21 @@ class Shop < ActiveRecord::Base
 	# Validation rules
 	validates :name, :presence => { message: "You've entered a blank name for the shop. Please re-enter the shop name."}
 
-	# Flexible search for shops by shop name, city and province
-	def self.shops_filter(name, city, province)
+	# Geocoding
+	geocoded_by :get_full_address   # can also be an IP address
+	after_validation :geocode          # auto-fetch coordinates
+
+	# Flexible search for shops by shop name, distance from current
+	# user location, city and province
+	def self.shops_filter(name, city, province, nearest_distance, user_lat_long)
 
 		# Filter shops by name
 		shops_list = name.present? ? Shop.where(name: name) : Shop.all
+
+		# Filter shops by nearest specified kilometres from the user's
+		# current location (expressed as latitude-longitude coordinates)
+		shops_list = nearest_distance.present? ?
+			Shop.near(user_lat_long, nearest_distance.to_i, :units => :km) : Shop.all
 
 		# Filter shops by city
 		shops_list = city.present? ?
@@ -35,7 +45,11 @@ class Shop < ActiveRecord::Base
 			shops_list
 
 		shops_list
+	end
 
+	# Get the address for the shop (for geocoding purposes)
+	def get_full_address
+		self.address.get_full_address
 	end
 
 end

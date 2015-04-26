@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  include ApplicationHelper
   before_action :set_shop, only: [:show, :edit, :update, :destroy, :add_to_favourites, :remove_from_favourites]
   before_action :authorize_user, except: [:index, 
     :show, 
@@ -8,9 +9,15 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
+    # Get the user's location, as a latitude-longitude pair.
+    latitude_longitude = lat_lng
+
+    # Run a search for the user with the given information.
     @shops = Shop.shops_filter(params[:search_by_name],
         params[:search_by_city],
-        params[:search_by_province])
+        params[:search_by_province],
+        params[:search_by_nearest_distance],
+        latitude_longitude)
   end
 
   # GET /shops/1
