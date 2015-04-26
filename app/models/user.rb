@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   has_many :user_favourite_recipes
   has_many :recipes, through: :user_favourite_recipes
 
+  has_many :user_allergies
+  has_many :allergies, through: :user_allergies
+
+  has_many :excluded_ingredients
+
   # Check if a user is an admin user
   def admin_user?
   	return self.user_category == "admin"

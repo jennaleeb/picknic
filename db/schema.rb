@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423010634) do
+ActiveRecord::Schema.define(version: 20150425233207) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150423010634) do
   end
 
   add_index "addresses", ["shop_id"], name: "index_addresses_on_shop_id"
+
+  create_table "allergies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "diet_ingredient_types", force: :cascade do |t|
     t.integer  "diet_id"
@@ -52,6 +58,15 @@ ActiveRecord::Schema.define(version: 20150423010634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "excluded_ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "excluded_ingredients", ["user_id"], name: "index_excluded_ingredients_on_user_id"
 
   create_table "ingredient_availabilities", force: :cascade do |t|
     t.integer  "ingredient_id"
@@ -162,6 +177,16 @@ ActiveRecord::Schema.define(version: 20150423010634) do
     t.datetime "updated_at", null: false
     t.string   "name"
   end
+
+  create_table "user_allergies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_allergies", ["allergy_id"], name: "index_user_allergies_on_allergy_id"
+  add_index "user_allergies", ["user_id"], name: "index_user_allergies_on_user_id"
 
   create_table "user_favourite_recipes", force: :cascade do |t|
     t.integer  "user_id"
