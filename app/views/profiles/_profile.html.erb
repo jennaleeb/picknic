@@ -1,9 +1,21 @@
-      <tr>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>
-        <td><%= profile.city %></td>
-        <td><%= profile.postal_code %></td>
-        <td><%= profile.user.email %></td>
-        <%= render 'view_profile', profile: profile %>
-        <%= render 'change_profile', profile: profile %>
-      </tr>
+<h1>User Profile</h1>      
+<dl>
+	<dt>First Name</dt>
+	<dd><%= profile.first_name %></dd>
+</dl>
+<dl>
+	<dt>Last Name</dt>
+	<dd><%= profile.last_name %></dd>
+</dl>
+<dl>
+	<dt>City</dt>
+	<dd><%= profile.city %></dd>
+</dl>
+<dl>
+	<dt>Postal Code</dt>
+	<dd><%= profile.postal_code %></dd>
+</dl>
+<dl>
+	<dt>Email</dt>
+	<dd><%= profile.user.email %></dd>
+</dl>
