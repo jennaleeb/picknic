@@ -16,7 +16,7 @@ class Shop < ActiveRecord::Base
 	has_many :users, through: :user_favourite_shops
 
 	# Validation rules
-	validates :name, { presence: true }
+	validates :name, :presence => { message: "You've entered a blank name for the shop. Please re-enter the shop name."}
 
 	# Flexible search for shops by shop name, city and province
 	def self.shops_filter(name, city, province)

@@ -3,11 +3,11 @@ class Address < ActiveRecord::Base
 
   # Validation rules
   # The fields that form the full address for the shop cannot be blank.
-  validates :address_line1, { presence: true }
-  validates :city, { presence: true }
-  validates :province, { presence: true }
-  validates :country, { presence: true }
-  validates :postal_code, { presence: true }
+  validates :address_line1, :presence => { message: "You've entered a blank 1st line for the shop.  Please re-enter - this information is necessary for Google Maps search."}
+  validates :city, :presence => { message: "You've entered a blank city.  Please re-enter - this information is necessary for Google Maps search."}
+  validates :province, :presence => { message: "You've entered a blank province.  Please re-enter - this information is necessary for Google Maps search."}
+  validates :country, :presence => { message: "You've entered a blank country.  Please re-enter - this information is necessary for Google Maps search."}
+  validates :postal_code, :presence => { message: "You've entered a blank postal code.  Please re-enter - this information is necessary for Google Maps search."}
 
   # Obtain the full address for the shop.
   def get_full_address
