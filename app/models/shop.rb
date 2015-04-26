@@ -8,7 +8,7 @@ class Shop < ActiveRecord::Base
 	accepts_nested_attributes_for :address, :contact_info, :web_info
 
 	# Connect to ingredients (TODO)
-	has_many :shop_ingredients
+	has_many :shop_ingredients, dependent: :destroy
 	has_many :ingredients, through: :shop_ingredients
 
 	# Connect to user favourite shops
