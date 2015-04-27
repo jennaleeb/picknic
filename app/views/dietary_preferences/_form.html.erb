@@ -13,13 +13,34 @@
 
   <div class="form-container col-sm-8">
     <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :diet_id %>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <%= f.label :diet_id %>
+        </div>
+        
+        <div class="col-sm-8">
+          <% Diet.all.each do |diet| %>
+            <%= check_box_tag 'diets[]', diet.id %> <%= diet.name %><br>
+          <% end %>
+        </div>
+      </div><br>
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <%= f.label :allergy_id %>
+        </div>
+
+        <div class="col-sm-8">
+          <% Allergy.all.each do |allergy| %>
+            <%= check_box_tag 'allergies[]', allergy.id %> <%= allergy.name %><br>
+          <% end %>
+        </div>
       </div>
-      
-      <% Diet.all.each do |diet| %>
-        <%= check_box_tag 'diets[]', diet.id %> <%= diet.name %>
-      <% end %>
+
+
+
 
     </div>
 

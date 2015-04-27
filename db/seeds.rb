@@ -59,17 +59,17 @@ Ingredient.create(name: "Almonds", ingredient_type_id: nuts_id );
 Ingredient.create(name: "Pecans", ingredient_type_id: nuts_id );
 Ingredient.create(name: "Nutella", ingredient_type_id: nuts_id );
 
-ingredient_bacon_id = Ingredient.find_by(name: "Bacon").id
-ingredient_cod_id = Ingredient.find_by(name: "Cod").id
-ingredient_scallops_id = Ingredient.find_by(name: "Scallops").id
-ingredient_tomatoes_id = Ingredient.find_by(name: "Tomatoes").id
-ingredient_carrots_id = Ingredient.find_by(name: "Carrots").id
-ingredient_broccoli_id = Ingredient.find_by(name: "Broccoli").id
-ingredient_cauliflower_id = Ingredient.find_by(name: "Cauliflower").id
-ingredient_apple_id = Ingredient.find_by(name: "Apples").id
-ingredient_bartlett_pear_id = Ingredient.find_by(name: "Bartlett Pear").id
-ingredient_gruyere_cheese_id = Ingredient.find_by(name: "Gruyere Cheese").id
-ingredient_large_eggs_id = Ingredient.find_by(name: "Large Eggs").id
+# ingredient_bacon_id = Ingredient.find_by(name: "Bacon").id
+# ingredient_cod_id = Ingredient.find_by(name: "Cod").id
+# ingredient_scallops_id = Ingredient.find_by(name: "Scallops").id
+# ingredient_tomatoes_id = Ingredient.find_by(name: "Tomatoes").id
+# ingredient_carrots_id = Ingredient.find_by(name: "Carrots").id
+# ingredient_broccoli_id = Ingredient.find_by(name: "Broccoli").id
+# ingredient_cauliflower_id = Ingredient.find_by(name: "Cauliflower").id
+# ingredient_apple_id = Ingredient.find_by(name: "Apples").id
+# ingredient_bartlett_pear_id = Ingredient.find_by(name: "Bartlett Pear").id
+# ingredient_gruyere_cheese_id = Ingredient.find_by(name: "Gruyere Cheese").id
+# ingredient_large_eggs_id = Ingredient.find_by(name: "Large Eggs").id
 
 
 # Create the possible diets (modified to yummly's version)
@@ -80,113 +80,125 @@ Diet.create(name: "Paleo", yummly_diet_id: "403^Paleo")
 Diet.create(name: "Ovo vegetarian", yummly_diet_id:"389^Ovo vegetarian")
 Diet.create(name: "Lacto vegetarian", yummly_diet_id:"388^Lacto vegetarian")
 
+# Create the possible allergies (modified to yummly's version)
+
+Allergy.create(name: "Gluten-Free", yummly_allergy_id: "393^Gluten-Free")
+Allergy.create(name: "Dairy-Free", yummly_allergy_id: "396^Dairy-Free")
+Allergy.create(name: "Egg-Free", yummly_allergy_id: "397^Egg-Free")
+Allergy.create(name: "Peanut-Free", yummly_allergy_id: "394^Peanut-Free")
+Allergy.create(name: "Seafood-Free", yummly_allergy_id: "398^Seafood-Free")
+Allergy.create(name: "Soy-Free", yummly_allergy_id: "400^Soy-Free")
+Allergy.create(name: "Tree Nut-Free", yummly_allergy_id: "395^Tree Nut-Free")
+Allergy.create(name: "Wheat-Free", yummly_allergy_id: "392^Wheat-Free")
+
+
 # Associate the diets with appropriate ingredient types
-diet_vegetarian_id = Diet.find_by(name: "Vegetarian").id
-diet_lacto_vegetarian_id = Diet.find_by(name: "Lacto vegetarian").id
-diet_ovo_vegetarian_id = Diet.find_by(name: "Ovo vegetarian").id
-diet_vegan_id = Diet.find_by(name: "Vegan").id
+# diet_vegetarian_id = Diet.find_by(name: "Vegetarian").id
+# diet_lacto_vegetarian_id = Diet.find_by(name: "Lacto vegetarian").id
+# diet_ovo_vegetarian_id = Diet.find_by(name: "Ovo vegetarian").id
+# diet_vegan_id = Diet.find_by(name: "Vegan").id
 
 
-diet_dairy_free_id = Diet.find_by(name: "Dairy-Free").id
-diet_nut_free_id = Diet.find_by(name: "Nut-Free").id
-diet_pescatarian = Diet.find_by(name: "Pescatarian").id
+# diet_dairy_free_id = Diet.find_by(name: "Dairy-Free").id
+# diet_nut_free_id = Diet.find_by(name: "Nut-Free").id
+# diet_pescatarian = Diet.find_by(name: "Pescatarian").id
 
-DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: egg_id)
-DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: dairy_id)
+# DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: egg_id)
+# DietIngredientType.create(diet_id: diet_vegetarian_id, ingredient_type_id: dairy_id)
 
-DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: dairy_id)
+# DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_lacto_vegetarian_id, ingredient_type_id: dairy_id)
 
-DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: egg_id)
+# DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_ovo_vegetarian_id, ingredient_type_id: egg_id)
 
-DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_vegan_id, ingredient_type_id: fruit_id)
 
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: meat_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fish_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: shellfish_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: egg_id)
-DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: nuts_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: meat_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fish_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: shellfish_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: egg_id)
+# DietIngredientType.create(diet_id: diet_dairy_free_id, ingredient_type_id: nuts_id)
 
 
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: meat_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fish_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: shellfish_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: egg_id)
-DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: dairy_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: meat_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fish_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: shellfish_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: egg_id)
+# DietIngredientType.create(diet_id: diet_nut_free_id, ingredient_type_id: dairy_id)
 
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fish_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: shellfish_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: vegetable_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: grain_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fruit_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: egg_id)
-DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: dairy_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fish_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: shellfish_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: vegetable_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: grain_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: fruit_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: egg_id)
+# DietIngredientType.create(diet_id: diet_pescatarian, ingredient_type_id: dairy_id)
 
-# Create a few recipes with fixed ingredients and linkages
-Recipe.create(name: "Baked Eggs", 
-	instructions: "1. Oven",
-	prep_time: 15,
-	meal_type: "Appetizer")
+# # Create a few recipes with fixed ingredients and linkages
+# Recipe.create(name: "Baked Eggs", 
+# 	instructions: "1. Oven",
+# 	prep_time: 15,
+# 	meal_type: "Appetizer")
 
-Recipe.create(name: "Bacon Wrapped Scallop Skewers", 
-	instructions: "1. Grill",
-	prep_time: 15,
-	meal_type: "Appetizer")
+# Recipe.create(name: "Bacon Wrapped Scallop Skewers", 
+# 	instructions: "1. Grill",
+# 	prep_time: 15,
+# 	meal_type: "Appetizer")
 
-Recipe.create(name: "Ratatouille", 
-	instructions: "1. Oven",
-	prep_time: 60,
-	meal_type: "Entree")
+# Recipe.create(name: "Ratatouille", 
+# 	instructions: "1. Oven",
+# 	prep_time: 60,
+# 	meal_type: "Entree")
 
-Recipe.create(name: "Cod Meuniere", 
-	instructions: "1. Pan Fry",
-	prep_time: 45,
-	meal_type: "Entree")
+# Recipe.create(name: "Cod Meuniere", 
+# 	instructions: "1. Pan Fry",
+# 	prep_time: 45,
+# 	meal_type: "Entree")
 
-Recipe.create(name: "Apple and Pear Pie", 
-	instructions: "1. Oven",
-	prep_time: 30,
-	meal_type: "Dessert")
+# Recipe.create(name: "Apple and Pear Pie", 
+# 	instructions: "1. Oven",
+# 	prep_time: 30,
+# 	meal_type: "Dessert")
 
-recipe_baked_eggs_id = Recipe.find_by(name: "Baked Eggs").id
-recipe_bacon_scallops_id = Recipe.find_by(name: "Bacon Wrapped Scallop Skewers").id
-recipe_ratatouille_id = Recipe.find_by(name: "Ratatouille").id
-recipe_cod_id = Recipe.find_by(name: "Cod Meuniere").id
-recipe_apple_pear_pie_id = Recipe.find_by(name: "Apple and Pear Pie").id
+# recipe_baked_eggs_id = Recipe.find_by(name: "Baked Eggs").id
+# recipe_bacon_scallops_id = Recipe.find_by(name: "Bacon Wrapped Scallop Skewers").id
+# recipe_ratatouille_id = Recipe.find_by(name: "Ratatouille").id
+# recipe_cod_id = Recipe.find_by(name: "Cod Meuniere").id
+# recipe_apple_pear_pie_id = Recipe.find_by(name: "Apple and Pear Pie").id
 
 # Create the linkages
-RecipeIngredientQuantity.create(recipe_id: recipe_baked_eggs_id, ingredient_id: ingredient_large_eggs_id, quantity: 4, quantity_unit: "")
-RecipeIngredientQuantity.create(recipe_id: recipe_baked_eggs_id, ingredient_id: ingredient_bacon_id, quantity: 2, quantity_unit: "pieces")
+# RecipeIngredientQuantity.create(recipe_id: recipe_baked_eggs_id, ingredient_id: ingredient_large_eggs_id, quantity: 4, quantity_unit: "")
+# RecipeIngredientQuantity.create(recipe_id: recipe_baked_eggs_id, ingredient_id: ingredient_bacon_id, quantity: 2, quantity_unit: "pieces")
 
-RecipeIngredientQuantity.create(recipe_id: recipe_bacon_scallops_id, ingredient_id: ingredient_bacon_id, quantity: 4, quantity_unit: "pieces")
-RecipeIngredientQuantity.create(recipe_id: recipe_bacon_scallops_id, ingredient_id: ingredient_scallops_id, quantity: 12, quantity_unit: "large")
+# RecipeIngredientQuantity.create(recipe_id: recipe_bacon_scallops_id, ingredient_id: ingredient_bacon_id, quantity: 4, quantity_unit: "pieces")
+# RecipeIngredientQuantity.create(recipe_id: recipe_bacon_scallops_id, ingredient_id: ingredient_scallops_id, quantity: 12, quantity_unit: "large")
 
-RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_tomatoes_id, quantity: 2, quantity_unit: "")
-RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_carrots_id, quantity: 4, quantity_unit: "")
-RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_broccoli_id, quantity: 1, quantity_unit: "head")
-RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_cauliflower_id, quantity: 1, quantity_unit: "head")
+# RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_tomatoes_id, quantity: 2, quantity_unit: "")
+# RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_carrots_id, quantity: 4, quantity_unit: "")
+# RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_broccoli_id, quantity: 1, quantity_unit: "head")
+# RecipeIngredientQuantity.create(recipe_id: recipe_ratatouille_id, ingredient_id: ingredient_cauliflower_id, quantity: 1, quantity_unit: "head")
 
-RecipeIngredientQuantity.create(recipe_id: recipe_cod_id, ingredient_id: ingredient_cod_id, quantity: 8, quantity_unit: "oz")
-RecipeIngredientQuantity.create(recipe_id: recipe_cod_id, ingredient_id: ingredient_gruyere_cheese_id, quantity: 100, quantity_unit: "g")
+# RecipeIngredientQuantity.create(recipe_id: recipe_cod_id, ingredient_id: ingredient_cod_id, quantity: 8, quantity_unit: "oz")
+# RecipeIngredientQuantity.create(recipe_id: recipe_cod_id, ingredient_id: ingredient_gruyere_cheese_id, quantity: 100, quantity_unit: "g")
 
-RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_apple_id, quantity: 4, quantity_unit: "large")
-RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_bartlett_pear_id, quantity: 4, quantity_unit: "small")
+# RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_apple_id, quantity: 4, quantity_unit: "large")
+# RecipeIngredientQuantity.create(recipe_id: recipe_apple_pear_pie_id, ingredient_id: ingredient_bartlett_pear_id, quantity: 4, quantity_unit: "small")
 
 # Create the months
 Month.create(name: "January")

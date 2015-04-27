@@ -25,10 +25,7 @@ class DietaryPreferencesController < ApplicationController
   # POST /dietary_preferences
   # POST /dietary_preferences.json
   def create
-    params[:diets].each do |diet|
-      @dietary_preference = DietaryPreference.new(user_id: current_user.id, diet_id: diet )
-      @dietary_preference.save
-    end
+    current_user.diet_ids = params[:diets]
 
     redirect_to dietary_preferences_path
 

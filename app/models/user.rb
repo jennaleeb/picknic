@@ -72,4 +72,21 @@ class User < ActiveRecord::Base
 
   end
 
+  def find_user_allergies
+    yummly_allergies = []
+
+    user_allergies = UserAllergy.where(user_id: self.id)
+
+    if user_allergies != nil
+      user_allergies.each do |allergy|
+        allergy_id = allergy.allergy_id
+        yummly_allergies << Allergy.find(allergy_id).yummly_allergy_id
+      end
+    yummly_allergies
+    else
+      yummly_allergies = nil
+    end
+
+  end
+
 end

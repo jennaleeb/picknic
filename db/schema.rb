@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426142018) do
+ActiveRecord::Schema.define(version: 20150427213028) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20150426142018) do
 
   create_table "allergies", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "yummly_allergy_id"
   end
 
   create_table "diet_ingredient_types", force: :cascade do |t|
