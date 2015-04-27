@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426202803) do
+ActiveRecord::Schema.define(version: 20150427213028) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20150426202803) do
   end
 
   add_index "addresses", ["shop_id"], name: "index_addresses_on_shop_id"
+
+  create_table "allergies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "yummly_allergy_id"
+  end
 
   create_table "contact_infos", force: :cascade do |t|
     t.integer  "shop_id"
@@ -59,9 +66,19 @@ ActiveRecord::Schema.define(version: 20150426202803) do
 
   create_table "diets", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "yummly_diet_id"
+  end
+
+  create_table "excluded_ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "excluded_ingredients", ["user_id"], name: "index_excluded_ingredients_on_user_id"
 
   create_table "ingredient_availabilities", force: :cascade do |t|
     t.integer  "ingredient_id"
@@ -175,6 +192,16 @@ ActiveRecord::Schema.define(version: 20150426202803) do
     t.float    "longitude"
   end
 
+  create_table "user_allergies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_allergies", ["allergy_id"], name: "index_user_allergies_on_allergy_id"
+  add_index "user_allergies", ["user_id"], name: "index_user_allergies_on_user_id"
+
   create_table "user_favourite_recipes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
@@ -227,4 +254,3 @@ ActiveRecord::Schema.define(version: 20150426202803) do
   add_index "web_infos", ["shop_id"], name: "index_web_infos_on_shop_id"
 
 end
->>>>>>> 3d0daf292ff85f0c6a6bae0f53242c93c5b0d440
