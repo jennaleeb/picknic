@@ -55,13 +55,13 @@ class User < ActiveRecord::Base
     return self.admin_user? || self.vendor_user?
   end
 
-
   # Get display name for a user
   def get_display_name
     return self.has_profile? ?
       self.profile.first_name + " " + self.profile.last_name :
       self.email
   end
+
 
   # Find the list of ingredient types that the user can eat (for customized recipe search)
 end

@@ -2,7 +2,7 @@
 <h1><%= current_user.profile.first_name %>'s Favourite Shops</h1>
 
     <% @user_favourite_shops.each do |user_favourite_shop| %>
-      <div class="row">
+      <div class="row well">
         <div class="col-md-8">
           <%= render 'shops/view_shop_summary', shop: user_favourite_shop.shop %>
         </div>

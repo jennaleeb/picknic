@@ -1,6 +1,4 @@
 <div class="container view-margin">
-<h3>Shop</h3>
-
 <%= render 'view_shop_details', shop: @shop %>
 
 <% if user_signed_in? and current_user.can_modify_shops? then %>
