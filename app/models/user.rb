@@ -7,9 +7,14 @@ class User < ActiveRecord::Base
   # A user has one profile
   has_one :profile
 
-  # A user has many dietary preference, and can follow many diets
+  # A user has many dietary preferences, allergies, excluded ingredients (yummly)
   has_many :dietary_preferences
   has_many :diets, through: :dietary_preferences
+
+  has_many :user_allergies
+  has_many :allergies, through: :user_allergies
+
+  has_many :excluded_ingredients
 
   # A user has many favourite recipes
   has_many :user_favourite_recipes, dependent: :destroy
@@ -18,6 +23,7 @@ class User < ActiveRecord::Base
   # A user as many favourite shops
   has_many :user_favourite_shops
   has_many :users, through: :user_favourite_shops
+
 
   # Check if a user is an admin user
   def admin_user?
@@ -64,4 +70,41 @@ class User < ActiveRecord::Base
 
 
   # Find the list of ingredient types that the user can eat (for customized recipe search)
+
+
+
+  def find_user_diets
+    yummly_diets = []
+
+    user_diets = DietaryPreference.where(user_id: self.id)
+
+    if user_diets != nil
+      user_diets.each do |diet|
+        diet_id = diet.diet_id
+        yummly_diets << Diet.find(diet_id).yummly_diet_id
+      end
+    yummly_diets
+    else
+      yummly_diets = nil
+    end
+
+  end
+
+  def find_user_allergies
+    yummly_allergies = []
+
+    user_allergies = UserAllergy.where(user_id: self.id)
+
+    if user_allergies != nil
+      user_allergies.each do |allergy|
+        allergy_id = allergy.allergy_id
+        yummly_allergies << Allergy.find(allergy_id).yummly_allergy_id
+      end
+    yummly_allergies
+    else
+      yummly_allergies = nil
+    end
+
+  end
+
 end

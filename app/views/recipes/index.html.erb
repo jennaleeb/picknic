@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-md-2">
-              <%= select_tag 'search_by_allergy', "<option value=''>No Allergies</option><option value='393^Gluten-Free'>Gluten-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='397^Egg-Free'>Egg-Free</option><option value='394^Peanut-Free'>Peanut-Free</option><option value='398^Seafood-Free'>Seafood-Free</option><option value='400^Soy-Free'>Soy-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option><option value='392^Wheat-Free'>Wheat-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
+              <%= select_tag 'search_by_allergy', "<option value=''>No Allergies</option><option value='393^Gluten-Free'>Gluten-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='397^Egg-Free'>Egg-Free</option><option value='394^Peanut-Free'>Peanut-Free</option><option value='398^Seafood-Free'>Seafood-Free</option><option value='400^Soy-Free'>Soy-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option><option value='392^Wheat-Free'>Wheat-Free</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
             </div>
 
             <div class="col-md-2">
@@ -35,6 +35,12 @@
         
       <% end %>
 
+      <% if current_user.profile.present? then %>
+        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s dietary preferences!</p>
+        <ul>
+          <li><%= current_user.find_user_diets %></li>
+        </ul>
+      <% end %>
 
   </div>
   
@@ -46,7 +52,8 @@
 
          <!--  Finds recipe image and replaces size from 90x90 to 300 -->
 
-          <%= image_tag(recipe.thumbnail.sub("=s90", "=s300"), :alt => "") %>
+          <%= link_to image_tag(recipe.thumbnail.sub("=s90", "=s300"), :alt => ""), 
+            "http://www.yummly.com/recipe/#{recipe.id}" %>
 
           <%= render 'actions_for_recipe', recipe: recipe %>
 

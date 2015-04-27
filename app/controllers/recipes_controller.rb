@@ -11,12 +11,20 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
+    user_diets = current_user.find_user_diets
+
+    if params[:search_by_diet].present?
+      allowed_diets_in_search = (user_diets << params[:search_by_diet]).flatten!
+    else
+      allowed_diets_in_search = user_diets
+    end
+
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
       "allowedAllergy[]" => params[:search_by_allergy],
-      "allowedDiet[]" => params[:search_by_diet],
+      "allowedDiet[]" => allowed_diets_in_search,
       maxResult: 20)
 
   end
