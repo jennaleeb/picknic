@@ -1,29 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-<h1><%= current_user.email %>'s Favourite Recipes</h1>
+<h1><%= current_user.profile.first_name %>'s Favourite Recipes</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Recipe</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @user_favourite_recipes.each do |user_favourite_recipe| %>
-      <tr>
-        <td><%= user_favourite_recipe.user.email %></td>
-        <td><%= user_favourite_recipe.recipe.name %></td>
-        <%= render 'view_user_favourite_recipe', user_favourite_recipe: user_favourite_recipe %>
-        <%= render 'change_user_favourite_recipe', user_favourite_recipe: user_favourite_recipe %>
-        </td>
-      </tr>
+      <div class="row well">
+        <div class="col-md-8">
+          <%= render 'view_user_favourite_recipe_summary', user_favourite_recipe: user_favourite_recipe %>
+        </div>
+        <div class="col-md-4">
+          <%= render 'view_user_favourite_recipe', user_favourite_recipe: user_favourite_recipe %>
+          <%= render 'change_user_favourite_recipe', user_favourite_recipe: user_favourite_recipe %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
 </div>

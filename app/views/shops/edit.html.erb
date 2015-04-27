@@ -1,8 +1,10 @@
-<div class="container">
-<h1>Editing Shop</h1>
+<div class="container clearfix">
+	<h1>Change Shop</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'View', @shop %> |
-<%= link_to 'Back', shops_path %>
+	<div class="post-clear">
+	<%= link_to 'View', @shop, class: "btn btn-default" %>
+	<%= link_to 'Back', shops_path, class: "btn btn-default" %>
+	</div>
 </div>

@@ -10,63 +10,132 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
   
-  <h3>Address</h3>
-  <!-- Forms for address -->
-  <%= f.fields_for :address, @shop.address do |address| %>
-    <div class="field">
-      <%= address.label :address_line1 %><br>
-      <%= address.text_field :address_line1 %>
+  <div class="well col-md-10 col-sm-12">
+    <h3>Name</h3>
+    <div class="form-group">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :name %>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
     </div>
-    <div class="field">
-      <%= address.label :address_line2 %><br>
-      <%= address.text_field :address_line2 %>
-    </div>
-    <div class="field">
-      <%= address.label :city %><br>
-      <%= address.text_field :city %>
-    </div>
-    <div class="field">
-      <%= address.label :province %><br>
-      <%= address.text_field :province %>
-    </div>
-    <div class="field">
-      <%= address.label :country %><br>
-      <%= address.text_field :country %>
-    </div>
-    <div class="field">
-      <%= address.label :postal_code %><br>
-      <%= address.text_field :postal_code %>
-    </div>
-  <% end %>
+    
+    <h3>Address</h3>
+    <!-- Forms for address -->
+    <%= f.fields_for :address, @shop.address do |address| %>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :address_line1 %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :address_line1, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :address_line2 %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :address_line2, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :city %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :city, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :province %>
+        </div> 
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :province, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :country %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :country, class: 'form-control' %>
+        </div>
+        
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= address.label :postal_code %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= address.text_field :postal_code, class: 'form-control' %>
+        </div>
+      </div>
+    <% end %>
 
-  <h3>Web Info</h3>
-  <!-- forms for web info -->
-  <%= f.fields_for :web_info, @shop.web_info do |web_info| %>
-    <div class="field">
-      <%= web_info.label :email %><br>
-      <%= web_info.text_field :email %>
-    </div>
-    <div class="field">
-      <%= web_info.label :website %><br>
-      <%= web_info.text_field :website %>
-    </div>
-    <div class="field">
-      <%= web_info.label :facebook %><br>
-      <%= web_info.text_field :facebook %>
-    </div>
-    <div class="field">
-      <%= web_info.label :twitter %><br>
-      <%= web_info.text_field :twitter %>
-    </div>
- <% end %>
+    <h3>Contact Info</h3>
+    <%= f.fields_for :contact_info, @shop.contact_info do |contact_info| %>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= contact_info.label :telephone_number %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= contact_info.text_field :telephone_number, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= contact_info.label :fax_number %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= contact_info.text_field :fax_number, class: 'form-control' %>
+        </div>
+      </div>
+    <% end %>
+    <h3>Web Info</h3>
+    <!-- forms for web info -->
+    <%= f.fields_for :web_info, @shop.web_info do |web_info| %>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= web_info.label :email %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= web_info.text_field :email, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= web_info.label :website %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= web_info.text_field :website, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= web_info.label :facebook %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= web_info.text_field :facebook, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-3 col-sm-12">
+          <%= web_info.label :twitter %>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <%= web_info.text_field :twitter, class: 'form-control' %>
+        </div>
+      </div>
+   <% end %>
 
-  <div class="form-group actions">
-    <%= f.submit 'Set Shop Information', class: 'btn btn-primary'  %>
+    <div class="form-group actions">
+      <div class="col-md-3 col-sm-6">
+        <%= f.submit 'Set Shop Information', class: 'btn btn-primary'  %>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -1,29 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<h1><%= current_user.profile.first_name %>'s Favourite Shops</h1>
 
-<h1>Listing User Favourite Shops</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Shop</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @user_favourite_shops.each do |user_favourite_shop| %>
-      <tr>
-        <td><%= user_favourite_shop.user %></td>
-        <td><%= user_favourite_shop.shop %></td>
-        <td><%= link_to 'Show', user_favourite_shop %></td>
-        <td><%= link_to 'Edit', edit_user_favourite_shop_path(user_favourite_shop) %></td>
-        <td><%= link_to 'Destroy', user_favourite_shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row well">
+        <div class="col-md-8">
+          <%= render 'shops/view_shop_summary', shop: user_favourite_shop.shop %>
+        </div>
+        <div class="col-md-4">
+          <%= render 'view_user_favourite_shop', user_favourite_shop: user_favourite_shop %>
+          <%= render 'change_user_favourite_shop', user_favourite_shop: user_favourite_shop %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User favourite shop', new_user_favourite_shop_path %>
+</div>

@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  include ApplicationHelper
   before_action :set_shop, only: [:show, :edit, :update, :destroy, :add_to_favourites, :remove_from_favourites]
   before_action :authorize_user, except: [:index, 
     :show, 
@@ -8,7 +9,15 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    # Get the user's location, as a latitude-longitude pair.
+    latitude_longitude = lat_lng
+
+    # Run a search for the user with the given information.
+    @shops = Shop.shops_filter(params[:search_by_name],
+        params[:search_by_city],
+        params[:search_by_province],
+        params[:search_by_nearest_distance],
+        latitude_longitude)
   end
 
   # GET /shops/1
@@ -19,8 +28,9 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
-    address = @shop.create_address
-    web_info = @shop.create_web_info
+    address = @shop.build_address
+    contact_info = @shop.build_contact_info
+    web_info = @shop.build_web_info
   end
 
   # GET /shops/1/edit
@@ -74,7 +84,8 @@ class ShopsController < ApplicationController
 
     UserFavouriteShop.create(shop_id: @shop.id, user_id: user_id)
 
-    redirect_to shops_url, notice: "Added the recipe #{shop_name} to your list of favourite recipes"
+    redirect_to shops_url, 
+      notice: "Added the recipe #{shop_name} to your list of favourite recipes"
   end
 
   # Remove recipe from logged-in user's favourites
@@ -85,7 +96,8 @@ class ShopsController < ApplicationController
     user_favourite_shop = UserFavouriteShop.find_by(shop_id: @shop.id, user_id: user_id)
     user_favourite_shop.destroy
 
-    redirect_to shops_url, notice: "Removed the recipe #{recipe_name} from your list of favourite recipes"
+    redirect_to shops_url, 
+      notice: "Removed the recipe #{shop_name} from your list of favourite recipes"
   end
 
 
@@ -100,6 +112,7 @@ class ShopsController < ApplicationController
     def shop_params
        params.require(:shop).permit(:name, 
         address_attributes: [ :address_line1, :address_line2, :city, :province, :country, :postal_code ],
+        contact_info_attributes: [ :telephone_number, :fax_number ],
         web_info_attributes: [ :email, :website, :facebook, :twitter ])
     end
 

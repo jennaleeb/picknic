@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contact_infos
+
   resources :shop_ingredients
 
   resources :user_favourite_shops

@@ -1,0 +1,7 @@
+<td>
+	<% if current_user.has_favourite_shop?(shop.id) then %>
+		<%= link_to '', "remove_from_favourite_shops/#{shop.id}", class: "glyphicon glyphicon-star" %>
+	<% else %>
+		<%= link_to '', "add_to_favourite_shops/#{shop.id}", class: "glyphicon glyphicon-star-empty" %>
+	<% end %>
+</td>

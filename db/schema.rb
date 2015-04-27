@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20150427213028) do
     t.string   "yummly_allergy_id"
   end
 
+  create_table "contact_infos", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.string   "telephone_number"
+    t.string   "fax_number"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "contact_infos", ["shop_id"], name: "index_contact_infos_on_shop_id"
+
   create_table "diet_ingredient_types", force: :cascade do |t|
     t.integer  "diet_id"
     t.integer  "ingredient_type_id"
@@ -178,6 +188,8 @@ ActiveRecord::Schema.define(version: 20150427213028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "user_allergies", force: :cascade do |t|

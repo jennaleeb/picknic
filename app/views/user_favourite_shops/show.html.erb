@@ -1,14 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container">
 <p>
-  <strong>User:</strong>
-  <%= @user_favourite_shop.user %>
+	<%= render 'shops/view_shop_details', shop: @user_favourite_shop.shop %>
 </p>
 
-<p>
-  <strong>Shop:</strong>
-  <%= @user_favourite_shop.shop %>
-</p>
-
-<%= link_to 'Edit', edit_user_favourite_shop_path(@user_favourite_shop) %> |
-<%= link_to 'Back', user_favourite_shops_path %>
+<%= link_to 'Back to Favourite Shops', user_favourite_shops_path, class: "btn btn-default" %>
+</div>
