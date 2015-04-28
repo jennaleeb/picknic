@@ -1,45 +1,45 @@
 <%= form_for :preferences, url: preferences_path, :html => {:class => "form-horizontal", :role => 'form', method: 'patch'} do |f| %>
 
 
-  <div class="col-sm-8">
-    <div class="">
 
-      <div class="row">
-        <div class="col-sm-4">
-          <%= f.label :diet_id %>
-        </div>
-        
-        <div class="col-sm-8">
-          <% Diet.all.each do |diet| %>
-            <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
-          <% end %>
-        </div>
-      </div><br>
+<div class="container-fluid">
+  <h3>Set Your Preferences</h3>
+  <div class="row">
+    <div class="col-sm-4">
+      <h4><%= f.label :diet_id %></h4>
 
-
-      <div class="row">
-        <div class="col-sm-4">
-          <%= f.label :allergy_id %>
-        </div>
-
-          <div class="col-sm-8">
-          <% Allergy.all.each do |allergy| %>
-            <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
-          <% end %>
-        </div>
-      </div>
-
-
-
-
+      <% Diet.all.each do |diet| %>
+        <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
+      <% end %>
     </div>
 
-    <div class="form-group">
-      <%= f.hidden_field(:user_id, { value: current_user.id }) %>
+    <div class="col-sm-4">
+      <h4><%= f.label :allergy_id %></h4>
+
+      <% Allergy.all.each do |allergy| %>
+        <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
+      <% end %>
     </div>
 
-    <div class="form-group">
-      <%= f.submit 'Saves Preference', class: 'btn btn-primary' %>
+    <div class="col-sm-4">
+      <h4><%= f.label :excluded_ingredients %></h4>
+      <%= f.text_field :excluded_ingredients %>
+
     </div>
+    
   </div>
+
+
+</div>
+
+
+<div class="form-group">
+  <%= f.hidden_field(:user_id, { value: current_user.id }) %>
+</div>
+
+<div class="form-group">
+  <%= f.submit 'Saves Preference', class: 'btn btn-primary' %>
 <% end %>
+
+</div>
+      
