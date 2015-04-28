@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427233312) do
+ActiveRecord::Schema.define(version: 20150428223518) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(version: 20150427233312) do
     t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "yummly_id"
   end
 
   add_index "user_favourite_recipes", ["recipe_id"], name: "index_user_favourite_recipes_on_recipe_id"

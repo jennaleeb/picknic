@@ -36,48 +36,63 @@
       <% end %>
 
       <% if current_user.profile.present? then %>
-        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s dietary preferences!</p>
+        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s Preferences!</p>
         <ul>
-          <li><%= current_user.find_user_diets %></li>
+          <% current_user.diets.each do |diet| %>
+          <li> <%= diet.name %></li>
+          <% end %>
+
+          <% current_user.allergies.each do |allergy| %>
+          <li> <%= allergy.name %></li>
+          <% end %>
         </ul>
       <% end %>
 
   </div>
   
   <div class="recipe-tile-row">
-    <% @results.each do |recipe| %>
-      <div class="recipe-item">
-        <div class="well recipe-well">
+
+    <% if @results == nil? %>
+
+      <p>Nothing found! Please search again.</p>
+
+    <% else %>
+
+      <% @results.each do |recipe| %>
+        <div class="recipe-item">
+          <div class="well recipe-well">
 
 
-         <!--  Finds recipe image and replaces size from 90x90 to 300 -->
+           <!--  Finds recipe image and replaces size from 90x90 to 300 -->
 
-          <%= link_to image_tag(recipe.thumbnail.sub("=s90", "=s300"), :alt => ""), 
-            "http://www.yummly.com/recipe/#{recipe.id}" %>
+            <%= link_to image_tag(recipe.thumbnail.sub("=s90", "=s300"), :alt => ""), 
+              "http://www.yummly.com/recipe/#{recipe.id}" %>
 
-          <%= render 'actions_for_recipe', recipe: recipe %>
-
-
-         <h3><%= recipe.recipe_name %></h3>
-          <% if recipe.total_time_in_seconds.present? %>
-            <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
-          <% end %>
-
-          <% if recipe.attributes["course"].present? %>
-            <p>Meal Type: <%= recipe.attributes["course"].first %></p>
-          <% end %>
+            <%= render 'actions_for_recipe', recipe: recipe %>
 
 
+           <h3><%= recipe.recipe_name %></h3>
+            <% if recipe.total_time_in_seconds.present? %>
+              <p>Prep Time: <%= recipe.total_time_in_seconds/60 %> min </p>
+            <% end %>
 
-        
+            <% if recipe.attributes["course"].present? %>
+              <p>Meal Type: <%= recipe.attributes["course"].first %></p>
+            <% end %>
+
+
+
           
+            
 
-          
-         
+            
+           
 
-          
+            
+          </div>
         </div>
-      </div>
+      <% end %>
+
     <% end %>
 
   </div>

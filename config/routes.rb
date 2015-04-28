@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contact_infos
+
   resources :shop_ingredients
 
   resources :contact_infos
@@ -21,8 +23,8 @@ Rails.application.routes.draw do
   get 'make_shopping_list/:yummly_id' => 'recipes#generate_shopping_list'
   get 'shopping_lists/mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
 
-  get 'add_to_favourites/:id' => 'recipes#add_to_favourites'
-  get 'remove_from_favourites/:id' => 'recipes#remove_from_favourites'
+  get 'add_to_favourites/:yummly_id' => 'recipes#add_to_favourites'
+  get 'remove_from_favourites/:yummly_id' => 'recipes#remove_from_favourites'
 
   get 'add_to_favourite_shops/:id' => 'shops#add_to_favourites'
   get 'remove_from_favourite_shops/:id' => 'shops#remove_from_favourites'
@@ -40,6 +42,7 @@ Rails.application.routes.draw do
   resources :diets
   resources :dietary_preferences
   resources :profiles
+  resource :preferences
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

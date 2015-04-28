@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
+    # Grab user's diets as saved in profile and pass it into the search
     user_diets = current_user.find_user_diets
 
     if params[:search_by_diet].present?
@@ -19,11 +20,20 @@ class RecipesController < ApplicationController
       allowed_diets_in_search = user_diets
     end
 
+    # Grab user's allergies as saved in profile and pass it into the search
+    user_allergies = current_user.find_user_allergies
+
+    if params[:search_by_allergy].present?
+      allowed_allergies_in_search = (user_allergies << params[:search_by_allergy]).flatten!
+    else
+      allowed_allergies_in_search = user_allergies
+    end
+
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
-      "allowedAllergy[]" => params[:search_by_allergy],
+      "allowedAllergy[]" => allowed_allergies_in_search,
       "allowedDiet[]" => allowed_diets_in_search,
       maxResult: 20)
 
@@ -89,23 +99,6 @@ class RecipesController < ApplicationController
 
   # Generate shopping list for the recipe (not yet tested)
   def generate_shopping_list
-   #  recipe_id = params[:id].to_i
-
-   #  @recipe = Recipe.new
-
-   #  recipe_name = @recipe.name
-
-   #  ShoppingList.create(name: recipe_name)
-   #  shopping_list_id = ShoppingList.find_by(name: recipe_name).id
-   #  @recipe.recipe_ingredient_quantities.all.each do |recipe_ingredient_qty| 
-   #      ShoppingListItem.create( 
-   #        shopping_list_id: shopping_list_id, 
-   #        ingredient_name: recipe_ingredient_qty.ingredient.name,
-   #        ingredient_quantity: recipe_ingredient_qty.quantity,
-   #        ingredient_quantity_unit: recipe_ingredient_qty.quantity_unit,
-   #        done: false )
-
-   #  end
 
     #pull out whichever recipe you are clicking on
     recipe = Yummly.find(params[:yummly_id])
@@ -125,26 +118,39 @@ class RecipesController < ApplicationController
 
   # Add recipe to logged-in user's favourites
   def add_to_favourites
-    @recipe = Recipe.create(name: recipe.name)
+    # @recipe = Recipe.create(name: recipe.name)
 
-    user_id = current_user.id
+    # user_id = current_user.id
 
-    yummly_id = recipe.id
+    # yummly_id = recipe.id
 
-    recipe_name = recipe.name
+    # recipe_name = recipe.name
 
     
  
 
-    recipe_id = params[:id].to_i
+    # recipe_id = params[:id].to_i
     
-    recipe_name = @recipe.name
+    # recipe_name = @recipe.name
 
 
 
-    UserFavouriteRecipe.create(recipe_id: recipe_id, user_id: user_id)
+    # UserFavouriteRecipe.create(recipe_id: recipe_id, user_id: user_id)
 
-    redirect_to recipes_url, notice: "Added the recipe #{recipe_name} to your list of favourite recipes"
+    # redirect_to recipes_url, notice: "Added the recipe #{recipe_name} to your list of favourite recipes"
+
+    #pull out whichever recipe you are clicking on
+    yummly_id = params[:yummly_id]
+    recipe = Yummly.find(yummly_id)
+
+    # make new instance of that recipe
+    r = Recipe.find_or_create_by(name: recipe.name)
+
+    UserFavouriteRecipe.create(recipe_id: r.id, user_id: current_user.id, yummly_id: yummly_id)
+
+
+    redirect_to user_favourite_recipes_path
+
   end
 
   # Remove recipe from logged-in user's favourites
