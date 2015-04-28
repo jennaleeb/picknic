@@ -18,6 +18,12 @@
 			<dt>Twitter</dt>
 			<dd><%= shop.web_info.twitter %></dd>
 		</dl>
+		<p>Ingredients:</p>
+		<ul>
+			<% shop.ingredients.each do |ingredient| %>
+				<li><%= ingredient.name %></li>
+			<% end %>
+		</ul>
 	</div>
 	<div class="col-md-6 col-sm-12">
 		<iframe width="400" height="300" frameborder="0" style="border:0"

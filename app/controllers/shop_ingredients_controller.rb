@@ -69,6 +69,6 @@ class ShopIngredientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_ingredient_params
-      params.require(:shop_ingredient).permit(:shop_id, :ingredients_id)
+      params.require(:shop_ingredient).permit(:shop_id, :ingredient_id)
     end
 end

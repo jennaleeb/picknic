@@ -31,10 +31,14 @@ class ShopsController < ApplicationController
     address = @shop.build_address
     contact_info = @shop.build_contact_info
     web_info = @shop.build_web_info
+    shop_ingredients = @shop.shop_ingredients.build
   end
 
   # GET /shops/1/edit
   def edit
+    if !@shop.web_info.present? then
+      web_info = @shop.build_web_info
+    end
   end
 
   # POST /shops
@@ -113,7 +117,8 @@ class ShopsController < ApplicationController
        params.require(:shop).permit(:name, 
         address_attributes: [ :address_line1, :address_line2, :city, :province, :country, :postal_code ],
         contact_info_attributes: [ :telephone_number, :fax_number ],
-        web_info_attributes: [ :email, :website, :facebook, :twitter ])
+        web_info_attributes: [ :email, :website, :facebook, :twitter ],
+        :ingredient_ids => [])
     end
 
     # Only allow admin and vendor users to access selected functions
