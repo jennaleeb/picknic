@@ -5,11 +5,11 @@ class Shop < ActiveRecord::Base
 	has_one :web_info, dependent: :destroy
 	has_many :operating_hours
 
-	accepts_nested_attributes_for :address, :contact_info, :web_info
-
 	# Connect to ingredients (TODO)
 	has_many :shop_ingredients, dependent: :destroy
 	has_many :ingredients, through: :shop_ingredients
+
+	accepts_nested_attributes_for :address, :contact_info, :web_info, :shop_ingredients
 
 	# Connect to user favourite shops
 	has_many :user_favourite_shops, dependent: :destroy
@@ -24,7 +24,7 @@ class Shop < ActiveRecord::Base
 
 	# Flexible search for shops by shop name, distance from current
 	# user location, city and province
-	def self.shops_filter(name, city, province, nearest_distance, user_lat_long)
+	def self.shops_filter(name, city, province, nearest_distance, user_lat_long, ingredient_list)
 
 		# Filter shops by name
 		shops_list = name.present? ? Shop.where(name: name) : Shop.all
@@ -42,6 +42,11 @@ class Shop < ActiveRecord::Base
 		# Filter shops by province
 		shops_list = province.present? ?
 			shops_list.joins(:address).where( addresses: { province: province } ) :
+			shops_list
+
+		# TODO: Filter shops by ingredients
+		shops_list = ingredient_list.present? ?
+			shops_list.joins(:ingredients).where(ingredients: { id: ingredient_list }) :
 			shops_list
 
 		shops_list

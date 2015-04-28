@@ -12,12 +12,15 @@ class ShopsController < ApplicationController
     # Get the user's location, as a latitude-longitude pair.
     latitude_longitude = lat_lng
 
+    #raise "hell"
+
     # Run a search for the user with the given information.
     @shops = Shop.shops_filter(params[:search_by_name],
         params[:search_by_city],
         params[:search_by_province],
         params[:search_by_nearest_distance],
-        latitude_longitude)
+        latitude_longitude,
+        params[:ingredient_ids])
   end
 
   # GET /shops/1
@@ -31,10 +34,14 @@ class ShopsController < ApplicationController
     address = @shop.build_address
     contact_info = @shop.build_contact_info
     web_info = @shop.build_web_info
+    shop_ingredients = @shop.shop_ingredients.build
   end
 
   # GET /shops/1/edit
   def edit
+    if !@shop.web_info.present? then
+      web_info = @shop.build_web_info
+    end
   end
 
   # POST /shops
@@ -113,7 +120,8 @@ class ShopsController < ApplicationController
        params.require(:shop).permit(:name, 
         address_attributes: [ :address_line1, :address_line2, :city, :province, :country, :postal_code ],
         contact_info_attributes: [ :telephone_number, :fax_number ],
-        web_info_attributes: [ :email, :website, :facebook, :twitter ])
+        web_info_attributes: [ :email, :website, :facebook, :twitter ],
+        :ingredient_ids => [])
     end
 
     # Only allow admin and vendor users to access selected functions

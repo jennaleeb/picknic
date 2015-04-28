@@ -8,6 +8,9 @@ class Ingredient < ActiveRecord::Base
 	# An ingredient has many months where it is available (in season)
 	has_many :ingredient_availabilities
 	has_many :months, through: :ingredient_availabilities
+	# An ingredient is available in many shops
+	has_many :shop_ingredients
+	has_many :shops, through: :shop_ingredients
 
 
 	# Validation rules for ingredients - ingredients must have a name

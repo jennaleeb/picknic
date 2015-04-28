@@ -2,7 +2,7 @@ class CreateShopIngredients < ActiveRecord::Migration
   def change
     create_table :shop_ingredients do |t|
       t.references :shop, index: true
-      t.references :ingredients, index: true
+      t.references :ingredient, index: true
 
       t.timestamps null: false
     end
