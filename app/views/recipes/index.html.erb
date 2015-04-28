@@ -36,9 +36,15 @@
       <% end %>
 
       <% if current_user.profile.present? then %>
-        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s dietary preferences!</p>
+        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s Preferences!</p>
         <ul>
-          <li><%= current_user.find_user_diets %></li>
+          <% current_user.diets.each do |diet| %>
+          <li> <%= diet.name %></li>
+          <% end %>
+
+          <% current_user.allergies.each do |allergy| %>
+          <li> <%= allergy.name %></li>
+          <% end %>
         </ul>
       <% end %>
 
