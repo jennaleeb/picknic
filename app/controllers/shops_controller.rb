@@ -12,12 +12,15 @@ class ShopsController < ApplicationController
     # Get the user's location, as a latitude-longitude pair.
     latitude_longitude = lat_lng
 
+    #raise "hell"
+
     # Run a search for the user with the given information.
     @shops = Shop.shops_filter(params[:search_by_name],
         params[:search_by_city],
         params[:search_by_province],
         params[:search_by_nearest_distance],
-        latitude_longitude)
+        latitude_longitude,
+        params[:ingredient_ids])
   end
 
   # GET /shops/1

@@ -24,7 +24,7 @@ class Shop < ActiveRecord::Base
 
 	# Flexible search for shops by shop name, distance from current
 	# user location, city and province
-	def self.shops_filter(name, city, province, nearest_distance, user_lat_long)
+	def self.shops_filter(name, city, province, nearest_distance, user_lat_long, ingredient_list)
 
 		# Filter shops by name
 		shops_list = name.present? ? Shop.where(name: name) : Shop.all
@@ -45,9 +45,9 @@ class Shop < ActiveRecord::Base
 			shops_list
 
 		# TODO: Filter shops by ingredients
-		# shops_list = ingredient_list.present? ?
-		# shops_list.joins(:ingredient).where (ingredients: { name: ingredient_list }) :
-		# shops_list
+		shops_list = ingredient_list.present? ?
+			shops_list.joins(:ingredients).where(ingredients: { id: ingredient_list }) :
+			shops_list
 
 		shops_list
 	end
