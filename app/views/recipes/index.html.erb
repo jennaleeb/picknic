@@ -13,11 +13,15 @@
             </div>
 
             <div class="col-md-2">
-              <%= select_tag 'search_by_allergy', "<option value=''>No Allergies</option><option value='393^Gluten-Free'>Gluten-Free</option><option value='396^Dairy-Free'>Dairy-Free</option><option value='397^Egg-Free'>Egg-Free</option><option value='394^Peanut-Free'>Peanut-Free</option><option value='398^Seafood-Free'>Seafood-Free</option><option value='400^Soy-Free'>Soy-Free</option><option value='395^Tree Nut-Free'>Tree Nut-Free</option><option value='392^Wheat-Free'>Wheat-Free</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
+
+              <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name'), multiple: true, class: "form-control recipe-filter" %>
+
+
             </div>
 
             <div class="col-md-2">
-              <%= select_tag 'search_by_diet', "<option value='' >All Diets</option><option value='387^Lacto-ovo vegetarian'>Vegetarian</option><option value='386^Vegan'>Vegan</option><option value='390^Pescetarian'>Pescetarian</option><option value='403^Paleo'>Paleo</option><option value='389^Ovo vegetarian'>Ovo-Vegetarian</option><option value='388^Lacto vegetarian'>Lacto-Vegetarian</option>".html_safe, multiple: true, class: "form-control recipe-filter" %>
+
+              <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name'), multiple: true, class: "form-control recipe-filter" %>
 
             </div>
 
