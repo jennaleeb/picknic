@@ -14,14 +14,14 @@
 
             <div class="col-md-2">
 
-              <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name'), multiple: true, class: "form-control recipe-filter" %>
+              <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name'), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Allergies' %>
 
 
             </div>
 
             <div class="col-md-2">
 
-              <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name'), multiple: true, class: "form-control recipe-filter" %>
+              <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name'), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
 
             </div>
 
