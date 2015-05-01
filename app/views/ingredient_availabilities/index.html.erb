@@ -48,7 +48,7 @@
 			<% @ingredients.each do |ingredient| %>
 				<tr>
 					<td>
-						<%= ingredient.name %>
+						<%= link_to ingredient.name, recipes_path(search_by_all: ingredient.name) %>
 					</td>
 
 					<td>
