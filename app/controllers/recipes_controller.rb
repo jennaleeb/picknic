@@ -36,6 +36,7 @@ class RecipesController < ApplicationController
       "allowedAllergy[]" => allowed_allergies_in_search,
       "allowedDiet[]" => allowed_diets_in_search,
       maxResult: 20)
+      "excludedIngredient[]" => params[:excluded_ingredients]
 
   end
 
