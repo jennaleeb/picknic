@@ -22,7 +22,11 @@
 }
 
 .link-to-recipe {
-	a {
-	visibility: hidden;
-	}
+	
+	display: none;
+	
+}
+
+.link-to-recipe:hover {
+	display: block;
 }
