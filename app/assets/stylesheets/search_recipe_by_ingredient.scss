@@ -1,0 +1,28 @@
+.ingredient {
+
+	a:link {
+		color: black;
+	}
+
+	a:active {
+		color: black;
+	}
+
+	a:visited {
+		color: black;
+	}
+
+
+	a:hover {
+		color: green;
+		text-decoration: none;
+	}
+	
+
+}
+
+.link-to-recipe {
+	a {
+	visibility: hidden;
+	}
+}

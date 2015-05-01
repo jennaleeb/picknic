@@ -1,6 +1,6 @@
 
 <p class="recipe-icons">
-	<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-list-alt" %>
+	<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-paperclip" %>
 	<% if current_user.has_favourite_recipe?(recipe.id) then %>
 		<%= link_to '', "remove_from_favourites/#{recipe.id}", class: "glyphicon glyphicon-star" %>
 	<% else %>
