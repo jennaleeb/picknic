@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428223518) do
+ActiveRecord::Schema.define(version: 20150502183543) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -182,7 +182,11 @@ ActiveRecord::Schema.define(version: 20150428223518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.string   "yummly_id"
+    t.integer  "user_id"
   end
+
+  add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
 
   create_table "shops", force: :cascade do |t|
     t.datetime "created_at", null: false

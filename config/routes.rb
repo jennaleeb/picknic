@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'make_shopping_list/:yummly_id' => 'recipes#generate_shopping_list'
+  get 'remove_shopping_list/:yummly_id' => 'recipes#remove_shopping_list'
   get 'shopping_lists/mark_shopping_list_item_done/:id' => 'shopping_list_items#mark_complete'
 
   get 'add_to_favourites/:yummly_id' => 'recipes#add_to_favourites'
