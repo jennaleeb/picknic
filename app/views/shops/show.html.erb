@@ -2,7 +2,7 @@
 <%= render 'view_shop_details', shop: @shop %>
 
 <% if user_signed_in? and current_user.can_modify_shops? then %>
-	<%= link_to 'Change', edit_shop_path(@shop), class: 'btn btn-primary' %> 
+	<%= link_to 'Change', edit_shop_path(@shop), class: 'btn btn-default' %> 
 <% end %>
 <%= link_to 'Back', shops_path, class: 'btn btn-default' %>
 </div>

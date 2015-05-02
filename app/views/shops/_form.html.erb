@@ -76,6 +76,16 @@
       </div>
     <% end %>
 
+    <h3>Hours of Operation</h3>
+    <div class="form-group">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :operating_hours %>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <%= f.text_field :operating_hours, class: 'form-control' %>
+      </div>
+    </div>
+
     <h3>Contact Info</h3>
     <%= f.fields_for :contact_info, @shop.contact_info do |contact_info| %>
       <div class="form-group">
