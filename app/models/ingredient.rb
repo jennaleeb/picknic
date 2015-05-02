@@ -14,7 +14,7 @@ class Ingredient < ActiveRecord::Base
 
 
 	# Validation rules for ingredients - ingredients must have a name
-	validates :name, { presence: true }
+	validates :name, :presence => { message: "You've entered a blank name for the ingredient.  Please re-enter the ingredient name."}
 
 	INGREDIENT_TYPES = ["Vegan", "Vegetarian", "Dairy", "Seafood", "Nuts", "Meat", "Meat and Seafood"]
 

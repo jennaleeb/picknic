@@ -1,4 +1,5 @@
 <div class="container">
+<h1>Diet</h1>
 <p>
   <strong>Name:</strong>
   <%= @diet.name %>
@@ -13,6 +14,6 @@
 	</ul>
 </p>
 
-<%= link_to 'Change', edit_diet_path(@diet) %> |
-<%= link_to 'Back to Diet Definitions', diets_path %>
+<%= link_to 'Change', edit_diet_path(@diet), class: 'btn btn-default' %> 
+<%= link_to 'Back to Diet Definitions', diets_path, class: 'btn btn-default' %>
 </div>

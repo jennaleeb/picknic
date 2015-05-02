@@ -1,7 +1,7 @@
 <%= form_for @diet, :html => {:class => "form-horizontal", :role => 'form'} do |f| %>
   <% if @diet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@diet.errors.count, "error") %> prohibited this diet from being saved:</h2>
+    <div id="error_explanation" class="bg-warning col-md-10 col-sm-12">
+      <h2><%= pluralize(@diet.errors.count, "error") %> found in field input:</h2>
 
       <ul>
       <% @diet.errors.full_messages.each do |message| %>
@@ -11,27 +11,29 @@
     </div>
   <% end %>
   
-  <div class="form-container col-sm-8">
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :name %>
+  <div class="well col-md-10 col-sm-12">
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :name, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.text_field :name, class: "form-control"  %>
       </div>
     </div>
 
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :ingredient_types %>
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :ingredient_types, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.collection_select :ingredient_type_ids, IngredientType.all, :id, :name, {}, {multiple: true, :class =>"form-control" } %>
       </div>
     </div>
 
     <div class="form-group actions">
-      <%= f.submit "Set Diet Definition", class: "btn btn-primary" %>
+      <div class="col-md-3 col-sm-12">
+        <%= f.submit "Set Diet Definition", class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 <% end %>
