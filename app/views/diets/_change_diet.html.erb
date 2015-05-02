@@ -1,2 +1,2 @@
-<td><%= link_to 'Change', edit_diet_path(diet) %></td>
-<td><%= link_to 'Delete', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Change', edit_diet_path(diet), class: 'btn btn-primary' %>
+<%= link_to 'Delete', diet, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

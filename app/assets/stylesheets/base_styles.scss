@@ -64,3 +64,8 @@ h6 {
 .post-clear {
 	clear: both;
 }
+
+.form-group.required .control-label:after { 
+   content:"*";
+   color:#ff0000;
+}

@@ -8,5 +8,6 @@ class Diet < ActiveRecord::Base
 	has_many :users, through: :dietary_preferences
 
 	# A diet must have a name
-	validates :name, { presence: true, uniqueness: true }
+	validates :name, :presence => { message: "Please enter a name for the diet."},
+		:uniqueness => { message: "A diet already exists with the name you've entered.  Please re-enter a new name for the diet."}
 end
