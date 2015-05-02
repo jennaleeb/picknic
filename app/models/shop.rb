@@ -3,7 +3,6 @@ class Shop < ActiveRecord::Base
 	has_one :address, dependent: :destroy
 	has_one :contact_info, dependent: :destroy
 	has_one :web_info, dependent: :destroy
-	has_many :operating_hours
 
 	# Connect to ingredients (TODO)
 	has_many :shop_ingredients, dependent: :destroy
