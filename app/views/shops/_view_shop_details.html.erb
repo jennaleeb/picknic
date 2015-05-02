@@ -27,6 +27,6 @@
 	</div>
 	<div class="col-md-6 col-sm-12">
 		<iframe width="400" height="300" frameborder="0" style="border:0"
-		src="https://www.google.com/maps/embed/v1/place?q=<%= shop.address.get_google_maps_address %>&key=AIzaSyArHVQKN6yi0kRKzZkJSXYsOzwWENkJqtY"></iframe>
+		src="https://www.google.com/maps/embed/v1/place?q=<%= shop.address.get_google_maps_address %>&key=<%= ENV['GOOGLE_API_KEY']%>"></iframe>
 	</div>
 </div>
