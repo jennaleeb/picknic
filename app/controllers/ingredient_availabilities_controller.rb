@@ -5,11 +5,12 @@ class IngredientAvailabilitiesController < ApplicationController
 
 	def index
 		ingredient_id = params[:ingredient_type]
+		month_id = params[:month]
+
 		if ingredient_id.present?
 			@ingredients = Ingredient.where(ingredient_type_id: ingredient_id)
 		else
 			@ingredients = Ingredient.all
-			# raise 'hell'
 		end
 		
 
