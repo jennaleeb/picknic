@@ -56,9 +56,6 @@
     }
 }
 
-.section-half {
-    height: 50%;
-}
 
 .section-half ul {
     list-style: none;
@@ -71,9 +68,23 @@ li:nth-child(3) {
 
 .intro-descriptions {
     margin-top: 2em;
+    margin-bottom: 2em;
     height: 10em;
     border-right: 1px solid lightgrey;
     text-align: center;
+
+    h4 {
+        font-family: 'Amatic SC', 'Open Sans', sans-serif;
+        color: #5e5e5e;
+        font-size: 2em;
+    }
+    
+
+    p {
+        margin-left: 2em;
+        margin-right: 2em;
+        font-family: 'Open Sans';
+    }
 
 
 }
@@ -87,4 +98,25 @@ li:nth-child(3) {
 
 .view-margin {
     margin-top: 45px;
+}
+
+footer {
+    height: 4em;
+    background-color: #5e5e5e;
+    position: relative;
+    text-align: center;
+
+    p {
+        color: white;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        position: absolute;
+        left: 40%;
+        top: 15%;
+    }
+
+    .heart {
+        color: rgb(236, 83, 109);
+    }
+
 }
