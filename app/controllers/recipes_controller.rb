@@ -29,13 +29,17 @@ class RecipesController < ApplicationController
       allowed_allergies_in_search = user_allergies
     end
 
+    user_excluded_ingredients = current_user.find_user_excluded_ingredients
+
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
       "allowedAllergy[]" => allowed_allergies_in_search,
       "allowedDiet[]" => allowed_diets_in_search,
+      "excludedIngredient[]" => user_excluded_ingredients,
       maxResult: 20)
+      
 
   end
 
@@ -131,27 +135,7 @@ class RecipesController < ApplicationController
 
   # Add recipe to logged-in user's favourites
   def add_to_favourites
-    # @recipe = Recipe.create(name: recipe.name)
-
-    # user_id = current_user.id
-
-    # yummly_id = recipe.id
-
-    # recipe_name = recipe.name
-
-    
- 
-
-    # recipe_id = params[:id].to_i
-    
-    # recipe_name = @recipe.name
-
-
-
-    # UserFavouriteRecipe.create(recipe_id: recipe_id, user_id: user_id)
-
-    # redirect_to recipes_url, notice: "Added the recipe #{recipe_name} to your list of favourite recipes"
-
+  
     #pull out whichever recipe you are clicking on
     yummly_id = params[:yummly_id]
     recipe = Yummly.find(yummly_id)

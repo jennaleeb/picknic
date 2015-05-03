@@ -1,45 +1,62 @@
 <%= form_for :preferences, url: preferences_path, :html => {:class => "form-horizontal", :role => 'form', method: 'patch'} do |f| %>
 
-
-
-<div class="container-fluid">
-  <h3>Set Your Preferences</h3>
+<div class="container-fluid ">
   <div class="row">
-    <div class="col-sm-4">
-      <h4><%= f.label :diet_id %></h4>
+    <div class="col-sm-6 col-sm-offset-3 well">
+      <h4 class="title"><%= f.label :diet_id %></h4>
 
       <% Diet.all.each do |diet| %>
         <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
       <% end %>
     </div>
 
-    <div class="col-sm-4">
-      <h4><%= f.label :allergy_id %></h4>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 well">
+      <h4 class="title"><%= f.label :allergy_id %></h4>
 
       <% Allergy.all.each do |allergy| %>
         <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
       <% end %>
     </div>
-
-    <div class="col-sm-4">
-      <h4><%= f.label :excluded_ingredients %></h4>
-      <%= f.text_field :excluded_ingredients %>
-
-    </div>
-    
   </div>
 
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 well">
+      <h4 class="title"><%= f.label :excluded_ingredients %></h4>
+      <%= f.text_field :excluded_ingredients, :size => "50s", :placeholder => "Add each ingredient separated by a comma ( ' , ' ) " %>
 
-</div>
+    </div>
+    <div class="">
+      <%= f.hidden_field(:user_id, { value: current_user.id }) %>
+    </div>
+
+    <div class="col-sm-6 col-sm-offset-3">
+      <table class="table">
+
+        <% @excluded_ingredients.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient.name %></td>
+          <td class="remove-ingredient"><%= link_to '', "remove_excluded_ingredient/#{ingredient.id}", class: "glyphicon glyphicon-remove" %></td>
+        </tr>
+        <% end %>
+
+      </table>
+
+    </div>
+
+    <div class="form-group col-sm-12">
+      <%= f.submit 'Save Preferences', class: 'save-pref-button' %>
+    </div>
+    <% end %>
+
+  </div>
+
+    
+    
 
 
-<div class="form-group">
-  <%= f.hidden_field(:user_id, { value: current_user.id }) %>
-</div>
-
-<div class="form-group">
-  <%= f.submit 'Saves Preference', class: 'btn btn-primary' %>
-<% end %>
 
 </div>
       

@@ -26,3 +26,24 @@ button a:hover {
 	font-size: 1em;
 	height: 2em;
 }
+
+.save-pref-button {
+	padding-left: 3em;
+	padding-right: 3em;
+	border-radius: 2px;
+	background-color: #f39b5c;
+	border: 0px;
+	color: white;
+	width: 41em;
+	margin-left: 22%;
+}
+
+.pref-page {
+	margin-top: 2em;
+	font-size: 1.2em;
+
+}
+
+.remove-ingredient {
+	text-align: right;
+}
