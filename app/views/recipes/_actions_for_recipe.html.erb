@@ -1,6 +1,5 @@
 
 <p class="recipe-icons">
-
 	<% if current_user.has_shopping_list_for_recipe?(current_user.id, recipe.id) then %>
 		<%= link_to '', "/remove_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-inbox" %>
 	<% else %>
