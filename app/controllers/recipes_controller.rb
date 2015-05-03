@@ -29,14 +29,17 @@ class RecipesController < ApplicationController
       allowed_allergies_in_search = user_allergies
     end
 
+    user_excluded_ingredients = current_user.find_user_excluded_ingredients
+
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
       "allowedAllergy[]" => allowed_allergies_in_search,
       "allowedDiet[]" => allowed_diets_in_search,
+      "excludedIngredient[]" => user_excluded_ingredients,
       maxResult: 20)
-      # "excludedIngredient[]" => params[:excluded_ingredients]
+      
 
   end
 

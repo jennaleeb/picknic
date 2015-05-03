@@ -117,4 +117,18 @@ class User < ActiveRecord::Base
 
   end
 
+  def find_user_excluded_ingredients
+    yummly_excluded_ingredients = []
+    user_excluded_ingredients = ExcludedIngredient.where(user_id: self.id)
+
+    if user_excluded_ingredients!= nil
+      user_excluded_ingredients.each do |ingredient|
+        yummly_excluded_ingredients << ingredient.name
+      end
+      yummly_excluded_ingredients
+    else
+      yummly_excluded_ingredients = nil
+    end
+  end
+
 end

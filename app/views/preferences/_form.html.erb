@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <h3>Set Your Preferences</h3>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <h4><%= f.label :diet_id %></h4>
 
       <% Diet.all.each do |diet| %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <h4><%= f.label :allergy_id %></h4>
 
       <% Allergy.all.each do |allergy| %>
@@ -21,25 +21,34 @@
       <% end %>
     </div>
 
-    <div class="col-sm-4">
-      <h4><%= f.label :excluded_ingredients %></h4>
-      <%= f.text_field :excluded_ingredients %>
+    <div class="row">
+      <div class="col-sm-6">
+        <h4><%= f.label :excluded_ingredients %></h4>
+        <%= f.text_field :excluded_ingredients, :size => "50s" %>
+
+      </div>
+      <div class="">
+        <%= f.hidden_field(:user_id, { value: current_user.id }) %>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <%= f.submit 'Save Preferences', class: 'btn btn-primary save-pref-button' %>
+      </div>
+      <% end %>
 
     </div>
+
     
-  </div>
+    
+
 
 
 </div>
 
 
-<div class="form-group">
-  <%= f.hidden_field(:user_id, { value: current_user.id }) %>
-</div>
 
-<div class="form-group">
-  <%= f.submit 'Saves Preference', class: 'btn btn-primary' %>
-<% end %>
+
+
 
 </div>
       

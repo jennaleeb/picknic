@@ -1,3 +1,23 @@
 <div class="container">
 
   <%= render 'form' %>
+
+  <div class="col-md-4">
+    <table class="table">
+      <tr>
+        <th>Ingredient</th>
+        <th>Action</th>
+      </tr>
+
+      <% @excluded_ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td>Action</td>
+      </tr>
+      <% end %>
+
+    </table>
+
+  </div>
+</div>
+
