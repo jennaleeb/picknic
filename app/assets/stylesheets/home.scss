@@ -104,14 +104,18 @@ footer {
     height: 4em;
     background-color: #5e5e5e;
     position: relative;
-    text-align: center;
+
+    a:link, a:hover, a:visited, a:active {
+        color: white;
+        text-decoration: none;
+    }
 
     p {
         color: white;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
         position: absolute;
-        left: 40%;
+        right: 3%;
         top: 15%;
     }
 
