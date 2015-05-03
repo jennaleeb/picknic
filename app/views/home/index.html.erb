@@ -9,20 +9,33 @@
 	    <div class="container">
 
 		    <div class="intro-message">
-		        <h1>Farm/Shop/Table</h1>
-		        <!-- <form> -->
-		        <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
-		        	<div class="form-group">
-		        		<div class="col-md-6 col-md-offset-3">
-<!-- 		        			<input type="text" class="form-control input-lg search" placeholder="Search for Recipes..."> -->
-						<%= text_field_tag 'search_by_all', nil, placeholder: "Search for Recipes...", class: "form-control input-lg search" %>
+		    	<div class="row">
+		    		<div class="col-md-3">
+		    			<h1>Farm/Shop/Table</h1>
+		    		</div>
 
-		        		</div>
-		        		
-		        	</div>
-		        	
-		      <!--   </form> -->
-		      <% end %>
+		    		<div class="col-md-9">
+
+		 		        <%= form_tag 'recipes', method: :get, :class => 'search-section home-search'  do %>
+				        	<div class="form-group">
+				        		<div class="col-md-6 col-md-offset-3">		        			
+								<%= text_field_tag 'search_by_all', nil, placeholder: "Ingredient", class: "form-control input-lg search" %>
+
+
+
+				        		</div>
+				        		<%= submit_tag 'Search' , class: "btn btn-default search" %>
+				        		
+				        	</div>
+
+				      <% end %>
+		    		</div>
+		    	</div>
+
+	
+		        
+
+
 		    </div>
 
 	    </div>

@@ -11,7 +11,7 @@
 
 .intro-header {
     height: 100%;
-    text-align: center;
+
     color: #f8f8f8;
     background: image-url("cuttingboard_etc.jpg") no-repeat center center;
     background-size: cover;
@@ -30,14 +30,29 @@
 
 .intro-message {
     h1 {
-        text-align: center;
-        margin-top: 5em;
-
+        display: inline-block;
+        font-family: 'Amatic SC', 'Open Sans', sans-serif;
+        font-size: 2.8em;
+        margin-left: 50%;
+        top: 5em;
+        border: 2px solid white;
+        padding: 4px 4px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
     }
 
     .search {
         font-size: 1.5em;
-        font-style: italic;
+        position: relative;
+        top: 7.5em;
+    }
+
+    .btn {
+        background-color: #f39b5c;
+        border: none;
+        margin-left: -5em;
+        margin-top: 2px;
     }
 }
 
@@ -65,6 +80,9 @@ li:nth-child(3) {
 
 .navbar-brand {
     font-weight: bold;
+    font-family: 'Amatic SC';
+    font-size: 2em;
+
 }
 
 .view-margin {
