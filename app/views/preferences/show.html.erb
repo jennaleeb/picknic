@@ -4,15 +4,11 @@
 
   <div class="col-md-4">
     <table class="table">
-      <tr>
-        <th>Ingredient</th>
-        <th>Action</th>
-      </tr>
 
       <% @excluded_ingredients.each do |ingredient| %>
       <tr>
         <td><%= ingredient.name %></td>
-        <td>Action</td>
+        <td><%= link_to '', "remove_excluded_ingredient/#{ingredient.id}", class: "glyphicon glyphicon-remove" %></td>
       </tr>
       <% end %>
 

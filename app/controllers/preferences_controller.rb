@@ -22,6 +22,15 @@ class PreferencesController < ApplicationController
 
   end
 
+  def remove_excluded_ingredient
+
+    ingredient_id = params[:ingredient_id]
+    ingredient = ExcludedIngredient.find_by(id: ingredient_id, user_id: current_user.id)
+    ingredient.destroy
+    
+    redirect_to preferences_path
+  end
+
   private
 
 
