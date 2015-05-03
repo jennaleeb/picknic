@@ -29,6 +29,8 @@ gem 'rails_12factor'
 gem 'yummly'
 # bundle geocoder
 gem 'geocoder'
+# dotenv-rails
+gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

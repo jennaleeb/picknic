@@ -1,7 +1,8 @@
-<%= form_for(@ingredient_type) do |f| %>
+<div class="container">
+<%= form_for @ingredient_type, :html => {:class => "form-horizontal", :role => 'form'} do |f| %>
   <% if @ingredient_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ingredient_type.errors.count, "error") %> prohibited this ingredient_type from being saved:</h2>
+    <div id="error_explanation" class="bg-warning col-md-10 col-sm-12">
+      <h2><%= pluralize(@ingredient_type.errors.count, "error") %> found in field input:</h2>
 
       <ul>
       <% @ingredient_type.errors.full_messages.each do |message| %>
@@ -11,11 +12,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="well col-md-10 col-sm-12">
+  <div class="form-group required">
+    <div class="col-md-3 col-sm-12"><%= f.label :name, class: 'control-label' %></div> 
+    <div class="col-md-7 col-sm-12"><%= f.text_field :name, class: 'form-control' %></div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <div class="col-md-3 col-sm-12"><%= f.submit 'Set Ingredient Type', class: 'btn btn-primary' %></div>
+  </div>
   </div>
 <% end %>
+</div>

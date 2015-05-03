@@ -1,7 +1,11 @@
 
 <p class="recipe-icons">
-	<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-paperclip" %>
-	<% if current_user.has_favourite_recipe?(recipe.id) then %>
+	<% if current_user.has_shopping_list_for_recipe?(current_user.id, recipe.id) then %>
+		<%= link_to '', "/remove_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-inbox" %>
+	<% else %>
+		<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-list-alt" %>
+	<% end %>
+	<% if current_user.has_favourite_recipe?(current_user.id, recipe.id) then %>
 		<%= link_to '', "remove_from_favourites/#{recipe.id}", class: "glyphicon glyphicon-star" %>
 	<% else %>
 		<%= link_to '', "add_to_favourites/#{recipe.id}", class: "glyphicon glyphicon-star-empty" %>

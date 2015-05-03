@@ -5,7 +5,7 @@ class ShoppingListsController < ApplicationController
   # GET /shopping_lists
   # GET /shopping_lists.json
   def index
-    @shopping_lists = ShoppingList.all
+    @shopping_lists = ShoppingList.where(user_id: current_user.id)
   end
 
   # GET /shopping_lists/1

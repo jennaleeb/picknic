@@ -19,8 +19,11 @@
           <div class="col-md-4 col-sm-12">
             <%= select_tag "ingredient_ids", options_for_select(Ingredient.all.collect { |u| [u.name, u.id] }), class: "form-control", multiple: true, include_blank: 'Choose an ingredient...' %>
           </div>
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-2 col-sm-12">
             <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <%= link_to '', "#", class: "btn btn-default glyphicon glyphicon-map-marker", id: "update-location" %>
           </div>
         <% end %>
 </div>
@@ -45,7 +48,7 @@
     <% end %>
 
 <% if user_signed_in? and current_user.can_modify_shops? then %>
-  <%= link_to 'New Shop', new_shop_path, class: "btn btn-default" %>
+  <%= link_to 'New Shop', new_shop_path, class: "btn btn-primary" %>
 <% end %>
 </div>
 

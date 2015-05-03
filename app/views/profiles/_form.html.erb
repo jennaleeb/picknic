@@ -1,7 +1,7 @@
 <%= form_for @profile, :html => {:class => "form-horizontal", :role => 'form'} do |f| %>
   <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+    <div id="error_explanation" class="bg-warning col-md-10 col-sm-12">
+      <h2><%= pluralize(@profile.errors.count, "error") %> found in field input:</h2>
 
       <ul>
       <% @profile.errors.full_messages.each do |message| %>
@@ -11,36 +11,36 @@
     </div>
   <% end %>
 
-  <div class="well col-sm-8">
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :first_name %>
+  <div class="well col-md-10 col-sm-12">
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :first_name, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.text_field :first_name, class: 'form-control' %>  
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :last_name %>
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :last_name, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.text_field :last_name, class: 'form-control' %>  
       </div>      
     </div>
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :city %>
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :city, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.text_field :city, class: 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.label :postal_code %>
+    <div class="form-group required">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :postal_code, class: 'control-label' %>
       </div>
-      <div class="col-sm-4">
+      <div class="col-md-7 col-sm-12">
         <%= f.text_field :postal_code, class: 'form-control' %>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <%= f.hidden_field(:user_id, { value: current_user.id }) %>
     </div>
     <div class="form-group actions">
-      <div class="col-sm-4">
+      <div class="col-md-3 col-sm-12">
       <%= f.submit 'Set user profile', class: "btn btn-primary" %>
       </div>
     </div>
