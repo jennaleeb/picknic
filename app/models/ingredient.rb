@@ -8,13 +8,16 @@ class Ingredient < ActiveRecord::Base
 	# An ingredient has many months where it is available (in season)
 	has_many :ingredient_availabilities
 	has_many :months, through: :ingredient_availabilities
+	
+	accepts_nested_attributes_for :ingredient_availabilities
+	accepts_nested_attributes_for :months
 	# An ingredient is available in many shops
 	has_many :shop_ingredients
 	has_many :shops, through: :shop_ingredients
 
 
 	# Validation rules for ingredients - ingredients must have a name
-	validates :name, { presence: true }
+	validates :name, :presence => { message: "You've entered a blank name for the ingredient.  Please re-enter the ingredient name."}
 
 	INGREDIENT_TYPES = ["Vegan", "Vegetarian", "Dairy", "Seafood", "Nuts", "Meat", "Meat and Seafood"]
 

@@ -17,9 +17,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+ @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
  @import 'base_styles';
  @import 'header';
  @import 'home';
  @import 'finder_tools';
  @import 'recipe-page';
+ @import 'search_recipe_by_ingredient';
 

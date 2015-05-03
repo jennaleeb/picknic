@@ -20,9 +20,12 @@ class User < ActiveRecord::Base
   has_many :user_favourite_recipes, dependent: :destroy
   has_many :recipes, through: :user_favourite_recipes
 
-  # A user as many favourite shops
-  has_many :user_favourite_shops
-  has_many :users, through: :user_favourite_shops
+  # A user has many favourite shops
+  has_many :user_favourite_shops, dependent: :destroy
+  has_many :shops, through: :user_favourite_shops
+
+  # A user has many shopping lists
+  has_many :shopping_lists
 
 
   # Check if a user is an admin user
@@ -45,15 +48,22 @@ class User < ActiveRecord::Base
     return self.dietary_preference.present?
   end
 
-  # Check if a specific recipe (by ID) is in the user's recipes
-  def has_favourite_recipe?(recipe_id)
-    return self.user_favourite_recipes.find_by(recipe_id: recipe_id)
+  # Check if a specific shopping_list (by Yummly ID) is in the user's recipes
+  def has_shopping_list_for_recipe?(user_id, yummly_id)
+    return self.shopping_lists.has_shopping_list_for_recipe?(user_id, yummly_id)
+  end
+
+  # Check if a specific recipe (by Yummly ID) is in the user's recipes
+  def has_favourite_recipe?(user_id, yummly_id)
+    return self.user_favourite_recipes.has_user_favourites_for_recipe?(user_id, yummly_id)
   end
 
   # Check if a specific shop (by ID) is in the user's favourite shops
   def has_favourite_shop?(shop_id)
     return self.user_favourite_shops.find_by(shop_id: shop_id)
   end
+
+
 
   # Check if a user can modify a shop.
   # Note: Only admin / vendor users can modify shops

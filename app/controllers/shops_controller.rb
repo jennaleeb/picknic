@@ -117,7 +117,7 @@ class ShopsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     # TODO: How to pass the params for addresses and web info?
     def shop_params
-       params.require(:shop).permit(:name, 
+       params.require(:shop).permit(:name, :operating_hours,
         address_attributes: [ :address_line1, :address_line2, :city, :province, :country, :postal_code ],
         contact_info_attributes: [ :telephone_number, :fax_number ],
         web_info_attributes: [ :email, :website, :facebook, :twitter ],

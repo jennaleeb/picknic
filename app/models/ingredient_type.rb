@@ -7,5 +7,6 @@ class IngredientType < ActiveRecord::Base
 	has_many :diets, through: :diet_ingredient_type
 
 	# An ingredient type must have a name
-	validates :name, { presence: true, uniqueness: true }
+	validates :name, :presence => { message: "Please enter a name for the ingredient type."},
+		:uniqueness => { message: "An ingredient type already exists with the name you've entered.  Please re-enter a new name for the ingredient type."}
 end

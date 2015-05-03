@@ -213,3 +213,13 @@ Month.create(name: "September")
 Month.create(name: "October")
 Month.create(name: "November")
 Month.create(name: "December")
+
+# Create the ingredient availabilities
+
+broccoli = Ingredient.create(name: "Broccoli", ingredient_type_id: vegetable_id );
+
+broccoli_month = [1,2,3,6,7,8]
+
+broccoli_month.each do |month_id|
+	broccoli.ingredient_availabilities.create(month_id: month_id)
+end

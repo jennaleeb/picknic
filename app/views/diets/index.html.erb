@@ -7,29 +7,23 @@
   <% end %>
 </h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @diets.each do |diet| %>
-      <tr>
-        <td><%= diet.name %></td>
-        <%= render 'view_diet', diet: diet %>
-        <% if current_user.admin_user? then %>
-          <%= render 'change_diet', diet: diet %>
-        <% end %>
-      </tr>
+      <div class="row">
+        <div class="well col-md-10 col-sm-12">
+          <div class="col-md-7 col-sm-12">
+            <p><%= diet.name %><p>
+          </div>
+          <div class="col-md-3 col-sm-12">
+          <%= render 'view_diet', diet: diet %>
+          <% if current_user.admin_user? then %>
+            <%= render 'change_diet', diet: diet %>
+          <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
 <% if current_user.admin_user? then %>
-  <%= link_to 'New Diet', new_diet_path %>
+  <%= link_to 'New Diet', new_diet_path, class: 'btn btn-primary' %>
 <% end %>
 </div>

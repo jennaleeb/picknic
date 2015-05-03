@@ -11,7 +11,7 @@
 
 .intro-header {
     height: 100%;
-    text-align: center;
+
     color: #f8f8f8;
     background: image-url("cuttingboard_2etc.jpg") no-repeat center center;
     background-size: cover;
@@ -30,20 +30,32 @@
 
 .intro-message {
     h1 {
-        text-align: center;
-        margin-top: 5em;
-
+        display: inline-block;
+        font-family: 'Amatic SC', 'Open Sans', sans-serif;
+        font-size: 2.8em;
+        margin-left: 50%;
+        top: 5em;
+        border: 2px solid white;
+        padding: 4px 4px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
     }
 
     .search {
         font-size: 1.5em;
-        font-style: italic;
+        position: relative;
+        top: 7.5em;
+    }
+
+    .btn {
+        background-color: #f39b5c;
+        border: none;
+        margin-left: -5em;
+        margin-top: 2px;
     }
 }
 
-.section-half {
-    height: 50%;
-}
 
 .section-half ul {
     list-style: none;
@@ -56,17 +68,59 @@ li:nth-child(3) {
 
 .intro-descriptions {
     margin-top: 2em;
+    margin-bottom: 2em;
     height: 10em;
     border-right: 1px solid lightgrey;
     text-align: center;
+
+    h4 {
+        font-family: 'Amatic SC', 'Open Sans', sans-serif;
+        color: #5e5e5e;
+        font-size: 2em;
+    }
+    
+
+    p {
+        margin-left: 2em;
+        margin-right: 2em;
+        font-family: 'Open Sans';
+    }
 
 
 }
 
 .navbar-brand {
     font-weight: bold;
+    font-family: 'Amatic SC';
+    font-size: 2em;
+
 }
 
 .view-margin {
     margin-top: 45px;
+}
+
+footer {
+    height: 4em;
+    background-color: #5e5e5e;
+    position: relative;
+
+    a:link, a:hover, a:visited, a:active {
+        color: white;
+        text-decoration: none;
+    }
+
+    p {
+        color: white;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        position: absolute;
+        right: 3%;
+        top: 15%;
+    }
+
+    .heart {
+        color: rgb(236, 83, 109);
+    }
+
 }

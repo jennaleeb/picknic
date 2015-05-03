@@ -27,6 +27,12 @@
 	
 }
 
+
 .link-to-recipe:hover {
 	display: block;
+}
+
+.ingredient a:hover .link-to-recipe {
+	display: inline-block;
+
 }

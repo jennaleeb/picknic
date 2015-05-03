@@ -98,14 +98,16 @@ class RecipesController < ApplicationController
     end
   end
 
-  # Generate shopping list for the recipe (not yet tested)
+  # Generate shopping list for the recipe
   def generate_shopping_list
 
     #pull out whichever recipe you are clicking on
     recipe = Yummly.find(params[:yummly_id])
 
     #create new shopping list for each recipe
-    s = ShoppingList.create(name: recipe.name)
+    s = ShoppingList.create(name: recipe.name, 
+      yummly_id: params[:yummly_id],
+      user_id: current_user.id)
 
     #find recipe and ingredient name from yummly
     recipe.ingredients.each do |ingredient|
@@ -113,8 +115,19 @@ class RecipesController < ApplicationController
       ShoppingListItem.create(done: nil, shopping_list_id: s.id, ingredient_name: ingredient, ingredient_quantity: nil, ingredient_quantity_unit: nil)
     end
 
-    redirect_to shopping_lists_path
+    redirect_to recipes_url, notice: "Added recipe to your shopping lists"
 
+  end
+
+  # Remove shopping list for recipe
+  def remove_shopping_list
+    user_id = current_user.id
+    yummly_id = params[:yummly_id]
+
+    shopping_list = ShoppingList.find_by(yummly_id: yummly_id, user_id: user_id)
+    shopping_list.destroy
+
+    redirect_to recipes_url, notice: "Removed recipe from your shopping lists"
   end
 
   # Add recipe to logged-in user's favourites
@@ -149,22 +162,19 @@ class RecipesController < ApplicationController
 
     UserFavouriteRecipe.create(recipe_id: r.id, user_id: current_user.id, yummly_id: yummly_id)
 
-
-    redirect_to user_favourite_recipes_path
+    redirect_to recipes_url, notice: "Added recipe from your list of favourite recipes"
 
   end
 
   # Remove recipe from logged-in user's favourites
   def remove_from_favourites
     user_id = current_user.id
-    recipe_id = params[:id].to_i
-    @recipe = Recipe.find(recipe_id)
-    recipe_name = @recipe.name
+    yummly_id = params[:yummly_id]
 
-    user_favourite_recipe = UserFavouriteRecipe.find_by(recipe_id: recipe_id, user_id: user_id)
+    user_favourite_recipe = UserFavouriteRecipe.find_by(yummly_id: yummly_id, user_id: user_id)
     user_favourite_recipe.destroy
 
-    redirect_to recipes_url, notice: "Removed the recipe #{recipe_name} from your list of favourite recipes"
+    redirect_to recipes_url, notice: "Removed recipe from your list of favourite recipes"
   end
 
 

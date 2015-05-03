@@ -1,7 +1,7 @@
 <%= form_for @shop, :html => {:class => "form-horizontal", :role => 'form'} do |f| %>
   <% if @shop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+    <div id="error_explanation" class="bg-warning col-md-10 col-sm-12">
+      <h2><%= pluralize(@shop.errors.count, "error") %> found in field input:</h2>
 
       <ul>
       <% @shop.errors.full_messages.each do |message| %>
@@ -13,9 +13,9 @@
   
   <div class="well col-md-10 col-sm-12">
     <h3>Name</h3>
-    <div class="form-group">
+    <div class="form-group required">
       <div class="col-md-3 col-sm-12">
-        <%= f.label :name %>
+        <%= f.label :name, class: 'control-label' %>
       </div>
       <div class="col-md-7 col-sm-12">
         <%= f.text_field :name, class: 'form-control' %>
@@ -25,9 +25,9 @@
     <h3>Address</h3>
     <!-- Forms for address -->
     <%= f.fields_for :address, @shop.address do |address| %>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= address.label :address_line1 %>
+          <%= address.label :address_line1, class: 'control-label' %>
         </div>
         <div class="col-md-7 col-sm-12">
           <%= address.text_field :address_line1, class: 'form-control' %>
@@ -41,34 +41,34 @@
           <%= address.text_field :address_line2, class: 'form-control' %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= address.label :city %>
+          <%= address.label :city, class: 'control-label' %>
         </div>
         <div class="col-md-7 col-sm-12">
           <%= address.text_field :city, class: 'form-control' %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= address.label :province %>
+          <%= address.label :province, class: 'control-label' %>
         </div> 
         <div class="col-md-7 col-sm-12">
           <%= address.text_field :province, class: 'form-control' %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= address.label :country %>
+          <%= address.label :country, class: 'control-label' %>
         </div>
         <div class="col-md-7 col-sm-12">
           <%= address.text_field :country, class: 'form-control' %>
         </div>
         
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= address.label :postal_code %>
+          <%= address.label :postal_code, class: 'control-label' %>
         </div>
         <div class="col-md-7 col-sm-12">
           <%= address.text_field :postal_code, class: 'form-control' %>
@@ -76,11 +76,21 @@
       </div>
     <% end %>
 
+    <h3>Hours of Operation</h3>
+    <div class="form-group">
+      <div class="col-md-3 col-sm-12">
+        <%= f.label :operating_hours %>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <%= f.text_field :operating_hours, class: 'form-control' %>
+      </div>
+    </div>
+
     <h3>Contact Info</h3>
     <%= f.fields_for :contact_info, @shop.contact_info do |contact_info| %>
-      <div class="form-group">
+      <div class="form-group required">
         <div class="col-md-3 col-sm-12">
-          <%= contact_info.label :telephone_number %>
+          <%= contact_info.label :telephone_number, class: 'control-label' %>
         </div>
         <div class="col-md-7 col-sm-12">
           <%= contact_info.text_field :telephone_number, class: 'form-control' %>
