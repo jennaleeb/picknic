@@ -1,5 +1,11 @@
-<div class="container-fluid">
 
+  <% if current_user.diets.present? || current_user.allergies.present? || current_user.excluded_ingredients.present? %>
+    <div class="warning">
+      <p>Warning! Also searching by <%= current_user.profile.first_name %>'s Preferences.</p>
+    </div>
+  <% end %>
+
+  
 
 <div class="container-fluid">
 
@@ -39,20 +45,8 @@
         
       <% end %>
 
-      <% if current_user.profile.present? then %>
-        <p>Warning! Also searching by <%= current_user.profile.first_name %>'s Preferences!</p>
-        <ul>
-          <% current_user.diets.each do |diet| %>
-          <li> <%= diet.name %></li>
-          <% end %>
+    </div>
 
-          <% current_user.allergies.each do |allergy| %>
-          <li> <%= allergy.name %></li>
-          <% end %>
-        </ul>
-      <% end %>
-
-  </div>
   
   <div class="recipe-tile-row">
 
@@ -100,7 +94,7 @@
     <% end %>
 
   </div>
-</div>
+
 
 
 

@@ -92,3 +92,16 @@
 
 }
 
+.warning {
+	background-color: rgba(250, 128, 114, 0.6);
+	height: 3em;
+	width: 100%;
+	margin-top: 1em;
+
+	p {
+		padding: 1em;
+		color: white;
+		text-align: center;
+	}
+}
+
