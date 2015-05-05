@@ -25,7 +25,16 @@ function setGeoCookie(position) {
 }
 
 $(function() {
+  $("#close-cookies").click(function() {
+  	$("#cookie-notice").css("display", "none")
+  });
+
   $("#update-location").click(function() {
     getGeoLocation();
-  })
+    $(this).addClass("btn-success");
+  });
+
+  $('body').bind('beforeunload',function(){
+     $("#update-location").removeClass("btn-success");
+  });
 })

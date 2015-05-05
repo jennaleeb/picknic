@@ -23,7 +23,7 @@
             <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
           </div>
           <div class="col-md-2 col-sm-12">
-            <%= link_to '', "#", class: "btn btn-default glyphicon glyphicon-map-marker", id: "update-location" %>
+            <%= link_to 'Set Location', "#", class: "btn btn-default", id: "update-location" %>
           </div>
         <% end %>
 </div>
@@ -50,6 +50,11 @@
 <% if user_signed_in? and current_user.can_modify_shops? then %>
   <%= link_to 'New Shop', new_shop_path, class: "btn btn-primary" %>
 <% end %>
+</div>
+
+<div id="cookie-notice">
+  <span class="cookies">For an improved search experience, this page uses cookies.</span>
+  <span class="close"><%= link_to '', "#", class: "glyphicon glyphicon-remove close-window", id: "close-cookies" %></span>
 </div>
 
 <%- unless @lat_lng %>

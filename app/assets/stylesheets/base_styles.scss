@@ -74,3 +74,24 @@ h6 {
 	font-family: 'Amatic SC', 'Open Sans', sans-serif;
 	font-size: 2em;
 }
+
+.close-window {
+	color: #ffffff;
+}
+
+#update-location {
+	padding-left: 3em;
+	padding-right: 3em;
+	border-radius: 0px;
+	margin-left: -4em;
+	border: 1px solid #dedede;
+}
+
+#cookie-notice {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #000000;
+	color: #dedede;
+	z-index: 9999;
+}
