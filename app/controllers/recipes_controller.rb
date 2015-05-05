@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
       "allowedAllergy[]" => allowed_allergies_in_search,
       "allowedDiet[]" => allowed_diets_in_search,
       "excludedIngredient[]" => user_excluded_ingredients,
-      maxResult: 20)
+      maxResult: 50);
       
 
   end
