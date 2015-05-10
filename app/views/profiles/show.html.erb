@@ -1,6 +1,6 @@
 <div class="container">
 <%= render 'profile', profile: @profile %>
 
-<%= link_to 'Change', edit_profile_path(@profile), class: "btn btn-default" %> 
-<%= link_to 'Back to Profile', profiles_path, class: "btn btn-default" %>
+<%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-default" %> 
+<%= link_to 'Set Dietary Preferences', preferences_path, class: "btn btn-default" %>
 </div>

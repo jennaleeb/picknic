@@ -2,30 +2,40 @@
 
 <div class="container-fluid ">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 well">
-      <h4 class="title"><%= f.label :diet_id %></h4>
+    <div class=" col-sm-6">
 
-      <% Diet.all.each do |diet| %>
-        <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
-      <% end %>
+      <div class="well preference-section">
+        <h4 class="title"><%= f.label :diet_id %></h4>
+
+        <% Diet.all.each do |diet| %>
+          <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
+        <% end %>
+      </div>
+     
     </div>
 
+
+    <div class=" col-sm-6">
+      <div class="well preference-section">
+        <h4 class="title"><%= f.label :allergy_id %></h4>
+
+        <% Allergy.all.each do |allergy| %>
+          <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
+        <% end %>
+      </div>
+     
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 well">
-      <h4 class="title"><%= f.label :allergy_id %></h4>
+    <div class="col-sm-6 col-sm-offset-3">
 
-      <% Allergy.all.each do |allergy| %>
-        <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 well">
-      <h4 class="title"><%= f.label :excluded_ingredients %></h4>
-      <%= f.text_field :excluded_ingredients, :size => "50s", :placeholder => "Add each ingredient separated by a comma ( ' , ' ) " %>
+      <div class="well">
+        <h4 class="title"><%= f.label :excluded_ingredients %></h4>
+        <p class="helper-text">Add each ingredient separated by a comma ( ' , ' )</p>
+        <%= f.text_field :excluded_ingredients, :placeholder => "E.g. apples, barley, coconut", :class => "ingredient_input_field" %>
+      </div>
+     
 
     </div>
     <div class="">
@@ -44,12 +54,14 @@
 
       </table>
 
+      <div class="form-group col-sm-12 pref_submit">
+        <%= f.submit 'Save Preferences', class: 'btn btn-default' %>
+      </div>
+      <% end %>
+
     </div>
 
-    <div class="form-group col-sm-12">
-      <%= f.submit 'Save Preferences', class: 'save-pref-button' %>
-    </div>
-    <% end %>
+   
 
   </div>
 

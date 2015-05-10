@@ -1,0 +1,25 @@
+.preference-section-container {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+.preference-section {
+	height: 17em;
+	position: relative;
+}
+
+.ingredient_input_field {
+	padding: 5px;
+	font-size: 14px;
+	width: 100%;
+}
+
+.helper-text {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+.pref_submit {
+	text-align: center;
+}
