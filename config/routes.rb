@@ -45,6 +45,8 @@ Rails.application.routes.draw do
   resources :profiles
   resource :preferences
 
+  resources :friends
+
   get 'remove_excluded_ingredient/:ingredient_id' => 'preferences#remove_excluded_ingredient'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+	<h3>Friends</h3>
+
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Diets</th>
+			<th>Allergies</th>
+			<th>Excluded Ingredients</th>
+			<th>Eating With?</th>
+
+		</tr>
+
+		<% User.all.each do |user| %>
+		<tr>
+			<td><%= user.profile.first_name %></td>
+
+			<td>
+				<% user.diets.each do |diet| %>
+					<%= diet.name %><br>
+				<% end %>
+
+			</td>
+
+			<td>
+				<% user.allergies.each do |allergy| %>
+					<%= allergy.name %><br>
+				<% end %>
+
+			</td>
+
+			<td>
+				<% user.excluded_ingredients.each do |ingredient| %>
+					<%= ingredient.name %><br>
+				<% end %>
+
+			</td>
+
+		
+
+			<td>
+
+
+				<%= form_tag('/friends', method: :get) %>
+
+				<%= check_box_tag 'guest', 'true' %>
+
+				
+
+			</td>
+
+		</tr>
+			
+		<% end %>
+	</table>
+</div>
+
+<%= submit_tag 'Add Guests' %>
