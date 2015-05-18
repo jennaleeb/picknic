@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'friendships/create'
+
+  get 'friendships/destroy'
+
   resources :contact_infos
 
   resources :shop_ingredients
@@ -46,6 +50,8 @@ Rails.application.routes.draw do
   resource :preferences
 
   resources :friends
+
+  resources :friendships
 
   get 'remove_excluded_ingredient/:ingredient_id' => 'preferences#remove_excluded_ingredient'
 

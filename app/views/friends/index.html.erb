@@ -9,7 +9,7 @@
 			<th>Allergies</th>
 			<th>Excluded Ingredients</th>
 			<th>Eating With?</th>
-
+			<th></th>
 		</tr>
 
 		<% User.all.each do |user| %>
@@ -37,18 +37,17 @@
 
 			</td>
 
-		
-
-			<td>
 
 
-				<%= form_tag('/friends', method: :get) %>
+			<% if current_user.friends.include?(user) %>
+			<% @friendship = current_user.friendships.find_by(friend_id: user) %>
+				<td><%= link_to "Remove Guest", @friendship, :method => :delete %></td>
+			<% else %>
+				<td><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></td>
+			<% end %>
 
-				<%= check_box_tag 'guest', 'true' %>
 
-				
 
-			</td>
 
 		</tr>
 			
@@ -56,4 +55,5 @@
 	</table>
 </div>
 
-<%= submit_tag 'Add Guests' %>
+
+
