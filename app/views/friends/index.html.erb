@@ -55,5 +55,24 @@
 	</table>
 </div>
 
+<table class="table">
+	<tr>
+		<th>Friend</th>
+		<th>Diets</th>
+	</tr>
 
+	
+		<% current_user.friends.each do |friend| %>
+			<tr>
+				<td><%= friend.profile.first_name %></td>
+					<% friend.diets.each do |diet| %>
+						<td> <%= diet.name %> </td>
+					<% end %>
+			</tr>
+		<% end %>
+	
+
+
+
+</table>
 

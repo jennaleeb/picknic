@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   def index
 
     # Grab user's diets as saved in profile and pass it into the search
-    user_diets = current_user.find_user_diets
+    user_diets = current_user.compile_diets
 
     if params[:search_by_diet].present?
       allowed_diets_in_search = (user_diets << params[:search_by_diet]).flatten!
@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     end
 
     # Grab user's allergies as saved in profile and pass it into the search
-    user_allergies = current_user.find_user_allergies
+    user_allergies = current_user.compile_allergies
 
     if params[:search_by_allergy].present?
       allowed_allergies_in_search = (user_allergies << params[:search_by_allergy]).flatten!
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
       allowed_allergies_in_search = user_allergies
     end
 
-    user_excluded_ingredients = current_user.find_user_excluded_ingredients
+    user_excluded_ingredients = current_user.compile_excluded_ingredients
 
     @results = Yummly.search(
       params[:search_by_all],

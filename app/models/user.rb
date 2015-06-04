@@ -89,13 +89,18 @@ class User < ActiveRecord::Base
   def find_user_diets
     yummly_diets = []
 
+
+    #Find current user's diets
     user_diets = DietaryPreference.where(user_id: self.id)
 
+
+    #Iterate through own and friends's diets and place in array yummly_diets
     if user_diets != nil
       user_diets.each do |diet|
         diet_id = diet.diet_id
         yummly_diets << Diet.find(diet_id).yummly_diet_id
       end
+      
     yummly_diets
     else
       yummly_diets = nil
@@ -110,7 +115,7 @@ class User < ActiveRecord::Base
 
     if user_allergies != nil
       user_allergies.each do |allergy|
-        allergy_id = allergy.allergy_id
+        allergy_id = allergy.allergy.id
         yummly_allergies << Allergy.find(allergy_id).yummly_allergy_id
       end
     yummly_allergies
@@ -131,6 +136,45 @@ class User < ActiveRecord::Base
       yummly_excluded_ingredients
     else
       yummly_excluded_ingredients = nil
+    end
+  end
+
+  def compile_diets
+    all_diets = self.find_user_diets
+
+    if self.friends != nil
+      self.friends.each do |friend|
+        all_diets += friend.find_user_diets
+      end
+      all_diets
+    else
+      all_diets
+    end
+  end
+
+  def compile_allergies
+    all_allergies = self.find_user_allergies
+
+    if self.friends != nil
+      self.friends.each do |friend|
+        all_allergies += friend.find_user_allergies
+      end
+      all_allergies
+    else
+      all_allergies
+    end
+  end
+
+  def compile_excluded_ingredients
+    all_excluded_ingredients = self.find_user_excluded_ingredients
+
+    if self.friends != nil
+      self.friends.each do |friend|
+        all_excluded_ingredients += friend.find_user_excluded_ingredients
+      end
+      all_excluded_ingredients
+    else
+      all_excluded_ingredients
     end
   end
 
