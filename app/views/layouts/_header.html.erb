@@ -9,22 +9,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand topnav" href="/">Farm/Shop/Table.</a>
+            <a class="navbar-brand topnav" href="/">Pick/nic</a>
 
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 
-                <li>
+<!--                 <li>
                     <%= link_to "Seasonal Ingredients",  ingredient_availabilities_path %>
-                </li>
+                </li> -->
                 <li>
-                    <%= link_to "Local Markets",  shops_path %>
+                    <%= link_to "Find Friends",  friends_path %>
                 </li> 
   
                 <li>
-                    <%= link_to "Recipes",  recipes_path %>
+                    <%= link_to "Search Recipes",  recipes_path %>
                 </li>
 
             </ul>
@@ -48,9 +48,7 @@
                                   <li><%= link_to 'Edit Profile', edit_profile_path(current_user.profile.id) %></li>
                                   <li><%= link_to 'Edit Dietary Preferences', preferences_path %></li>
                                   <li><%= link_to 'Favourite Recipes', user_favourite_recipes_path %></li>
-                                  <li><%= link_to 'Favourite Shops', user_favourite_shops_path %></li>
                                   <li><%= link_to "Shopping Lists",  shopping_lists_path %></li>
-                                  <li> <%= link_to "Friends",  friends_path %></li>
                                 </ul>
 
                         <% else %>
@@ -77,18 +75,4 @@
     </div>
     <!-- /.container -->
 </nav>
-
-<!-- <div class="container user_authentication">
-    <div class="user_info">
-    <% if user_signed_in? then %>
-    	<p>Hi, <%= current_user.email %>! You are a <%= current_user.user_category %> user for Farm. Shop. Table.</p>
-    <% end %>
-    </div>
-    <div class="notice">
-    <%= notice %>
-    </div>
-    <div class="alert">
-    <%= alert %>
-    </div>
-</div> -->
 

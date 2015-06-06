@@ -13,20 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150518151144) do
 
-  create_table "addresses", force: :cascade do |t|
-    t.string   "address_line1"
-    t.string   "address_line2"
-    t.string   "city"
-    t.string   "province"
-    t.string   "country"
-    t.string   "postal_code"
-    t.integer  "shop_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "addresses", ["shop_id"], name: "index_addresses_on_shop_id"
-
   create_table "allergies", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",        null: false
@@ -105,6 +91,8 @@ ActiveRecord::Schema.define(version: 20150518151144) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
+    t.decimal  "quantity"
+    t.string   "quantity_unit"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "ingredient_type_id"
@@ -117,18 +105,6 @@ ActiveRecord::Schema.define(version: 20150518151144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "operating_hours", force: :cascade do |t|
-    t.string   "day_of_week"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.boolean  "is_weekend_hours"
-    t.integer  "shop_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "operating_hours", ["shop_id"], name: "index_operating_hours_on_shop_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
@@ -163,16 +139,6 @@ ActiveRecord::Schema.define(version: 20150518151144) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "shop_ingredients", force: :cascade do |t|
-    t.integer  "shop_id"
-    t.integer  "ingredient_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "shop_ingredients", ["ingredient_id"], name: "index_shop_ingredients_on_ingredient_id"
-  add_index "shop_ingredients", ["shop_id"], name: "index_shop_ingredients_on_shop_id"
-
   create_table "shopping_list_items", force: :cascade do |t|
     t.boolean  "done"
     t.integer  "shopping_list_id"
@@ -195,15 +161,6 @@ ActiveRecord::Schema.define(version: 20150518151144) do
 
   add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
 
-  create_table "shops", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "name"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "operating_hours"
-  end
-
   create_table "user_allergies", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "allergy_id"
@@ -225,16 +182,6 @@ ActiveRecord::Schema.define(version: 20150518151144) do
   add_index "user_favourite_recipes", ["recipe_id"], name: "index_user_favourite_recipes_on_recipe_id"
   add_index "user_favourite_recipes", ["user_id"], name: "index_user_favourite_recipes_on_user_id"
 
-  create_table "user_favourite_shops", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "shop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "user_favourite_shops", ["shop_id"], name: "index_user_favourite_shops_on_shop_id"
-  add_index "user_favourite_shops", ["user_id"], name: "index_user_favourite_shops_on_user_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -254,17 +201,5 @@ ActiveRecord::Schema.define(version: 20150518151144) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "web_infos", force: :cascade do |t|
-    t.string   "email"
-    t.string   "website"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.integer  "shop_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "web_infos", ["shop_id"], name: "index_web_infos_on_shop_id"
 
 end
