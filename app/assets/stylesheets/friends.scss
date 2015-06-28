@@ -2,10 +2,188 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.yes_guest {
-	background-color: lightgreen;
+.user-index {
+
 }
 
-.not_guest {
+.tabs {
+	position: relative;   
+	min-height: 1000px;
+	clear: both;
+	width: 60em;
+	margin: 1em auto;
 
+}
+
+.tab {
+	float: left;
+}
+
+.tab label {
+	font-size: 1.5em;
+	font-family: 'Amatic SC', sans-serif;
+	background: #eee; 
+	border: 1px solid #ccc; 
+	position: relative;
+	cursor: pointer;
+	width: 270px;
+	height: 50px;
+	text-align: center;
+	padding-top: 0.4em;
+
+}
+
+.tab [type=radio] {
+	display: none;   
+}
+
+.tab [type=radio]:hover {
+
+}
+
+.tab-content {
+	position: absolute;
+	top: 48px;
+	left: 0;
+	background: white;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
+	border: 1px solid #ccc; 
+}
+
+[type=radio]:checked ~ label {
+	background: white;
+	border-bottom: 1px solid white;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tab-content {
+		z-index: 1;	
+}
+
+.friend-list {
+	padding: 0;
+}
+
+.friend-list img {
+	height: 60px;
+	margin: 1em;
+}
+
+.friend {
+	display: block;
+	border: solid 1px #ccc;
+	margin-bottom: 0.5em;
+	-webkit-transition-property: height;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-timing-function: linear;
+
+}
+
+.friend-active {
+	height: 15em;
+}
+
+.friend-info {
+	display: inline-block;
+	position: absolute;
+	width: 75%;
+	
+}
+
+.friend-info h3 {
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 0.2em;
+	margin-bottom: 0;
+}
+
+/*Button to include friend and see their preferences*/
+
+#view-prefs {
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+	position: relative;
+}
+
+#view-prefs label {
+	color: red;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:12px;
+    height:12px;
+    background:white;
+    border-radius:50%;
+    border:1px solid #555;
+}
+
+input[type='checkbox']:checked {
+	background: #abd;
+}
+
+.friend-info p {
+	margin: 0;
+}
+
+.friend-info p span {
+	color: maroon;
+}
+
+
+
+.friend-food-pref {
+	border: solid 1px #ccc;
+	margin-top: 1em;
+	border-radius: 5px;
+	display: none;
+}
+
+.friend-food-pref ul {
+	list-style: none;
+	font-size: 1.2em;
+	padding: 0.2em;
+}
+
+.friend-food-pref ul li {
+	background-color: rgba(255,99,71,0.6);
+	margin-bottom: 0.2em;
+	border-radius: 5px;
+	display: block;
+	box-sizing: content-block;
+
+}
+
+.friend-food-pref-total ul {
+	list-style: none;
+	font-size: 1.6em;
+	padding: 0.2em;
+	width: 70%;
+	margin: 1em auto;
+}
+
+
+.friend-food-pref-total ul li {
+	background-color: rgba(255,99,71,0.6);
+	margin-bottom: 0.2em;
+	border-radius: 5px;
+	display: block;
+	box-sizing: content-block;
+	padding: 0.5em;
+
+}
+
+#picknic-button {
+	text-align: center;
+	display: inline-block;
+	font-size: 1.7em;
+	text-decoration: none;
+	color: black;
+	background-color: #eee;
+	width: 5em;
+	margin-left: 44%;
+	border-radius: 5px;
+	border: solid 1px #ccc;
 }

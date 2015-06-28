@@ -8,7 +8,8 @@
         <h4 class="title"><%= f.label :diet_id %></h4>
 
         <% Diet.all.each do |diet| %>
-          <%= check_box_tag 'diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id) %> <%= diet.name %><br>
+          <%= check_box_tag('diet_ids[]', diet.id, checked = current_user.diet_ids.include?(diet.id), options = {:id => "diet_#{diet.id}"}) %>
+          <%= label_tag "diet_#{diet.id}", diet.name %><br>
         <% end %>
       </div>
      
@@ -20,7 +21,8 @@
         <h4 class="title"><%= f.label :allergy_id %></h4>
 
         <% Allergy.all.each do |allergy| %>
-          <%= check_box_tag 'allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id) %> <%= allergy.name %><br>
+          <%= check_box_tag('allergy_ids[]', allergy.id, checked = current_user.allergy_ids.include?(allergy.id), options = {:id => "allergy_#{allergy.id}"} ) %>
+          <%= label_tag "allergy_#{allergy.id}", allergy.name %><br>
         <% end %>
       </div>
      

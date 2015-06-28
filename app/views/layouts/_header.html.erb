@@ -19,9 +19,11 @@
 <!--                 <li>
                     <%= link_to "Seasonal Ingredients",  ingredient_availabilities_path %>
                 </li> -->
+                <% if user_signed_in? %>
                 <li>
                     <%= link_to "Find Friends",  friends_path %>
                 </li> 
+                <% end %>
   
                 <li>
                     <%= link_to "Search Recipes",  recipes_path %>

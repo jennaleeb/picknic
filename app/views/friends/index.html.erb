@@ -1,8 +1,12 @@
 <div class="container-fluid">
 
-	<h3>Friends</h3>
+	<%= form_tag '', method: :get, :class => 'search-section' do %>
+		<div class="col-md-4 col-md-offset-4">
+		  <%= text_field_tag 'search_by_all', nil, placeholder: 'Find Friends', class: "form-control" %>
+		</div>
+	<% end %>
 
-	<table class="table">
+	<!-- <table class="table table-hover user-index">
 		<tr>
 			<th>Name</th>
 			<th>Diets</th>
@@ -40,8 +44,8 @@
 
 
 			<% if current_user.friends.include?(user) %>
-			<% @friendship = current_user.friendships.find_by(friend_id: user) %>
-				<td><%= link_to "Remove Guest", @friendship, :method => :delete %></td>
+				<% @friendship = current_user.friendships.find_by(friend_id: user) %>
+					<td><%= link_to "Remove Guest", @friendship, :method => :delete %></td>
 			<% else %>
 				<td><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></td>
 			<% end %>
@@ -52,27 +56,133 @@
 		</tr>
 			
 		<% end %>
-	</table>
+	</table> -->
 </div>
 
-<table class="table">
-	<tr>
-		<th>Friend</th>
-		<th>Diets</th>
-	</tr>
+ <div class="tabs">
+ 
+    <div class="tab">
+        <input type="radio" id="tab-1" name="tab-group-1" checked>
+        <label for="tab-1">ALL USERS</label>
+        
+        <div class="tab-content">
+         <ul class="friend-list">
 
-	
-		<% current_user.friends.each do |friend| %>
-			<tr>
-				<td><%= friend.profile.first_name %></td>
-					<% friend.diets.each do |diet| %>
-						<td> <%= diet.name %> </td>
-					<% end %>
-			</tr>
-		<% end %>
-	
+         	<% User.all.each do |user| %>
+
+	           <li class="friend list-unstyled">
+	             <%= image_tag("woman1.png", :alt => "") %>
+	             
+	             <div class="friend-info">
+	               
+
+	               <h5><%= user.profile.first_name%> <%= user.profile.last_name%></h5>
+	               <p><%= link_to "View Profile"%> </p>
+
+	               <div class="friend-food-pref">
+	                 <ul>
+	                   
+	                   	<% user.diets.each do |diet| %>
+	                   		<li><%= diet.name %><br></li>
+	                   	<% end %>
+
+	                   	<% user.allergies.each do |allergy| %>
+	                   		<li><%= allergy.name %><br></li>
+	                   	<% end %>
+
+	                   	<% user.excluded_ingredients.each do |ingredient| %>
+	                   		<li><%= ingredient.name %><br></li>
+	                   	<% end %>
+              
+	                 </ul>
+
+	               </div>
+
+	               <% if current_user.friends.include?(user) %>
+	               	<% @friendship = current_user.friendships.find_by(friend_id: user) %>
+	               		<p><%= link_to "Remove Guest", @friendship, :method => :delete %></p>
+	               <% else %>
+	               	<p><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></p>
+	               <% end %>
+
+	             </div>
 
 
 
-</table>
+	           </li>
 
+
+
+	        <% end %>
+
+           
+ 
+
+         </ul>
+        </div> 
+    </div>
+
+     <div class="tab">
+        <input type="radio" id="tab-2" name="tab-group-1" >
+        <label for="tab-2" class="main-user-tab" >MY GUESTS</label>
+        
+        <div class="tab-content">
+         <div class="friend-food-pref-total">
+         	<ul>
+         		<% current_user.friends.each do |friend| %>
+         			<li><%= friend.profile.first_name %> <%= friend.profile.last_name %>
+         				<%= link_to "Remove Guest", @friendship, :method => :delete %>
+         			</li>
+
+         		<% end %>
+
+         	</ul>
+
+         </div>
+         
+        </div> 
+
+       </div>
+
+        <div class="tab">
+        	<input type="radio" id="tab-3" name="tab-group-1" >
+        	<label for="tab-3" class="main-user-tab" >MENU LIMITATIONS</label>
+
+        	<div class="tab-content">
+
+        	 <div class="friend-food-pref-total">
+
+    	 		<h1>Diets</h1>
+    	 		<ul>
+	    	 		<% current_user.friends.each do |friend| %>
+	    	 			<% friend.diets.each do |diet| %>
+	    	 				<li><%= diet.name%></li>
+	    	 			<% end %>
+	    	 		<% end %>
+    	 		</ul>
+
+    	 		<h1>Allergies</h1>
+    	 		<ul>
+	    	 		<% current_user.friends.each do |friend| %>
+	        	 		<% friend.allergies.each do |allergy| %>
+	        	 			<li><%= allergy.name%></li>
+	        	 		<% end %>
+	    	 		<% end %>
+    	 		</ul>
+
+    	 		<h1>Excluded Ingredients</h1>
+    	 		<ul>
+	    	 		<% current_user.friends.each do |friend| %>
+	        	 		<% friend.excluded_ingredients.each do |excluded_ingredient| %>
+	        	 			<li><%= excluded_ingredient.name%></li>
+	        	 		<% end %>
+	    	 		<% end %>
+        	 	</ul>
+
+        	 </div>
+
+        	 <p id="picknic-button" ><%= link_to "Search for Recipes", recipes_path %></p>
+        	 
+        	</div> 
+        </div>
+    </div>

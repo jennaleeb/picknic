@@ -37,4 +37,9 @@ $(function() {
   $('body').bind('beforeunload',function(){
      $("#update-location").removeClass("btn-success");
   });
+
+  $('.view-prefs').on('click', function() {
+      $(this).closest(".friend").toggleClass("friend-active");
+      $(this).siblings('.friend-food-pref').fadeToggle(200);
+  });
 })
