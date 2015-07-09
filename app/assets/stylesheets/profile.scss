@@ -1,0 +1,126 @@
+
+.profile-parent {
+	position: relative;
+}
+.profile-card {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px #e7e7e7 solid;
+	margin-top: 5em;
+	height: 80em;
+}
+
+.profile-header {
+	height: 6em;
+
+/*Regular 90 degree picnic pattern*/
+/*	background-color: white;
+	background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-size: 30px 30px;*/
+
+/*Diagonal checked pattern wrong colours*/
+/*	background-color: hsl(34, 53%, 82%);
+	background-image: repeating-linear-gradient(45deg, transparent 5px, rgba(200,0,0,.5) 5px, rgba(200,0,0,.5) 10px,                  
+	  hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+	  rgba(200,0,0,.5) 40px, rgba(200,0,0,.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
+	  hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px,  70px,  80px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+	  hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, rgba(200,0,0,.5) 120px, rgba(200,0,0,.5) 140px       
+	  ),
+	repeating-linear-gradient(135deg, transparent 5px, rgba(200,0,0,.5) 5px, rgba(200,0,0,.5) 10px, 
+	  hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px,
+	  rgba(200,0,0,.5) 40px, rgba(200,0,0,.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
+	  hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px,  70px,  80px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px,
+	  hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, rgba(200,0,0,.5) 140px, rgba(200,0,0,.5) 160px       
+	);*/
+
+	/*background-color: white;
+	background-image: repeating-linear-gradient(
+			45deg, transparent 5px,
+			rgba(200,0,0,.5) 5px,
+			rgba(200,0,0,.7) 10px,
+			rgba(200,0,0,.5) 10px,
+			hsla(5, 53%, 63%, 0) 10px,
+			hsla(5, 53%, 63%, 0) 35px,
+			hsla(5, 53%, 63%, 0.5) 35px,
+			hsla(5, 53%, 63%, 0.5) 40px,
+			rgba(200,0,0,.5) 40px,
+			rgba(200,0,0,.5) 50px,
+			hsla(197, 62%, 11%, 0) 50px,
+			hsla(197, 62%, 11%, 0) 60px,
+			hsla(5, 53%, 63%, 0.5) 60px,
+			hsla(5, 53%, 63%, 0.5) 70px,
+			hsla(5, 53%, 63%, 0.5) 90px,
+			hsla(5, 53%, 63%, 0.5) 110px,
+			hsla(5, 53%, 63%, 0) 110px,
+			hsla(5, 53%, 63%, 0) 120px,
+			rgba(200,0,0,.5) 120px,
+			rgba(200,0,0,.5) 140px       
+	  ),
+	repeating-linear-gradient(135deg, transparent 5px,
+		rgba(200,0,0,.5) 5px,
+		rgba(200,0,0,.5) 10px,
+		hsla(5, 53%, 63%, 0) 10px,
+		hsla(5, 53%, 63%, 0) 35px,
+		hsla(5, 53%, 63%, 0.5) 35px,
+		hsla(5, 53%, 63%, 0.5) 40px,
+		rgba(200,0,0,.5) 40px,
+		rgba(200,0,0,.5) 50px,
+		hsla(197, 62%, 11%, 0) 50px,
+		hsla(197, 62%, 11%, 0) 60px,
+		hsla(5, 53%, 63%, 0.5) 60px,
+		hsla(5, 53%, 63%, 0.5) 60px,
+		hsla(5, 53%, 63%, 0.5) 70px,
+		hsla(5, 53%, 63%, 0.5) 90px,
+		hsla(5, 53%, 63%, 0.5) 110px,
+		hsla(5, 53%, 63%, 0) 110px,
+		hsla(5, 53%, 63%, 0) 140px,
+		rgba(200,0,0,.5) 140px,
+		rgba(200,0,0,.5) 160px       
+	);*/
+
+	background-image: repeating-linear-gradient(45deg, transparent 5px, rgba(200, 0, 0, 0.13) 5px, rgba(200, 0, 0, 0.13) 10px, rgba(200, 0, 0, 0.26) 10px, rgba(211, 119, 111, 0) 10px, rgba(211, 119, 111, 0) 35px, rgba(211, 119, 111, 0.14) 35px, rgba(211, 119, 111, 0.5) 40px, rgba(200, 0, 0, 0.17) 40px, rgba(200, 0, 0, 0.08) 50px, rgba(11, 36, 45, 0) 50px, rgba(11, 36, 45, 0) 60px, rgba(211, 119, 111, 0.19) 60px, rgba(211, 119, 111, 0.09) 70px, rgba(211, 119, 111, 0.11) 90px, rgba(211, 119, 111, 0.19) 110px, rgba(211, 119, 111, 0) 110px, rgba(211, 119, 111, 0) 120px, rgba(200, 0, 0, 0.11) 120px, rgba(200, 0, 0, 0.1) 140px), repeating-linear-gradient(135deg, transparent 5px, rgba(200, 0, 0, 0.11) 5px, rgba(200, 0, 0, 0.09) 10px, rgba(211, 119, 111, 0) 10px, rgba(211, 119, 111, 0) 35px, rgba(211, 119, 111, 0.11) 35px, rgba(211, 119, 111, 0.07) 40px, rgba(200, 0, 0, 0.09) 40px, rgba(200, 0, 0, 0.11) 50px, rgba(11, 36, 45, 0) 50px, rgba(11, 36, 45, 0) 60px, rgba(211, 119, 111, 0.12) 60px, rgba(211, 119, 111, 0.08) 60px, rgba(211, 119, 111, 0.09) 70px, rgba(211, 119, 111, 0.13) 90px, rgba(211, 119, 111, 0.11) 110px, rgba(211, 119, 111, 0) 110px, rgba(211, 119, 111, 0) 140px, rgba(200, 0, 0, 0.09) 140px, rgba(200, 0, 0, 0.1) 160px);
+
+	.profile-info h1 {
+		top: -4.8em;
+		position: relative;
+		left: 6.5em;
+		color: #5e5e5e;
+		font-family: 'Amatic SC';
+		font-size: 2em
+
+	}
+
+	.profile-info p {
+		position: relative;
+		top: -10.3em;
+		left: 13em;
+	}
+}
+
+.profile-picture {
+	position: relative;
+	height: 10em;
+	width: 10em;
+	top: 1em;
+	left: 2em;
+
+}
+
+.profile-nav {
+	width: 21%;
+	position: relative;
+	top: 6em;
+
+	table tr td {
+		padding: 5px;
+	}
+
+	table tr td:last-child {
+		border-bottom: 1px solid #ddd;
+	}
+
+	.glyphicon {
+		margin-right: 5px;
+	}
+}

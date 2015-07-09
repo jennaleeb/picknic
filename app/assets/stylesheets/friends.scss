@@ -50,6 +50,7 @@
 	bottom: 0;
 	padding: 10px;
 	border: 1px solid #ccc; 
+	overflow: auto;
 }
 
 [type=radio]:checked ~ label {

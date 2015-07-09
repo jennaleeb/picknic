@@ -6,9 +6,9 @@
 		<%= link_to '', "/make_shopping_list/#{recipe.id}", class: "glyphicon glyphicon-list-alt" %>
 	<% end %>
 	<% if current_user.has_favourite_recipe?(current_user.id, recipe.id) then %>
-		<%= link_to '', "remove_from_favourites/#{recipe.id}", class: "glyphicon glyphicon-star" %>
+		<%= link_to '', "remove_from_favourites/#{recipe.id}", class: "glyphicon glyphicon-heart" %>
 	<% else %>
-		<%= link_to '', "add_to_favourites/#{recipe.id}", class: "glyphicon glyphicon-star-empty" %>
+		<%= link_to '', "add_to_favourites/#{recipe.id}", class: "glyphicon glyphicon-heart-empty" %>
 
 	<% end %>
 </p>
