@@ -77,12 +77,14 @@
 	               
 
 	               <h5><%= user.profile.first_name%> <%= user.profile.last_name%></h5>
-	               <p><%= link_to "View Profile", profile_path(@profile) %> </p>
+
+
+	               <p><%= link_to "View Profile", "profiles/#{user.id}" %> </p>
 
 	               <div class="friend-food-pref">
 	                 <ul>
 	                   
-	                   	<% user.diets.each do |diet| %>
+ 	                   	<% user.diets.each do |diet| %>
 	                   		<li><%= diet.name %><br></li>
 	                   	<% end %>
 
@@ -92,18 +94,18 @@
 
 	                   	<% user.excluded_ingredients.each do |ingredient| %>
 	                   		<li><%= ingredient.name %><br></li>
-	                   	<% end %>
+	                   	<% end %> 
               
 	                 </ul>
 
 	               </div>
 
-	               <% if current_user.friends.include?(user) %>
-	               	<% @friendship = current_user.friendships.find_by(friend_id: user) %>
-	               		<p><%= link_to "Remove Guest", @friendship, :method => :delete %></p>
-	               <% else %>
-	               	<p><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></p>
-	               <% end %>
+	               	<% if current_user.friends.include?(user) %>
+		               	<% @friendship = current_user.friendships.find_by(friend_id: user) %>
+		               		<p><%= link_to "Remove Guest", @friendship, :method => :delete %></p>
+	               	<% else %>
+	               		<p><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></p>
+	            	<% end %>
 
 	             </div>
 

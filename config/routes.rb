@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   get 'remove_excluded_ingredient/:ingredient_id' => 'preferences#remove_excluded_ingredient'
 
-  get '/profiles/:id', to: 'profiles#show'
+  get '/:id', :to => "users#show", :as => :user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
