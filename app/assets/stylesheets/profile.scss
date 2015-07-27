@@ -92,3 +92,21 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+
+	.profile-nav td {
+		text-align: right;
+	}
+
+}
+
+@media (max-width: 768px) {
+	.profile-nav td {
+		text-align: left;
+	}
+
+	.profile-main-content {
+		margin-top: 6em;
+	}
+}
