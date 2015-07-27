@@ -18,32 +18,103 @@
 
 				<div class="profile-info">
 					<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
-					<p><i class="fa fa-globe"></i> <%= @profile.city %></p>
+					<p>
+						<i class="fa fa-globe"></i> <%= @profile.city %>
+
+					</p>
+
+					<p>
+						<% if current_user.friends.include?(@user) %>
+							<i class="fa fa-check-square-o"></i> Guest
+						<% else %>
+							<%= link_to "Add Guest", friendships_path(:friend_id => @user), :method => :post %>
+						<% end %>
+					</p>
+
 				</div>
 
 
 
 			</div>
 
-			<div class="profile-nav">
-				<table class="table table-condensed">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="profile-nav">
+						<table class="table table-condensed">
 
-					<tr>
-						<td><div class="glyphicon glyphicon-grain"></div>Dietary Preferences</td>
+							<tr>
+								<td><div class="glyphicon glyphicon-grain"></div>Dietary Preferences</td>
 
-					</tr>
+							</tr>
 
-					<tr>
-						<td><div class="glyphicon glyphicon-heart"></div>Favorite Recipes</td>
+							<tr>
+								<td><div class="glyphicon glyphicon-heart"></div>Favorite Recipes</td>
 
-					</tr>
+							</tr>
 
-				</table>
+						</table>
 
+					</div>
+				</div>
+					
+				<div class="col-md-9">
+					<div class="profile-main-content">
+
+							<table class="table table-condensed dietary-prefs">
+
+								<tr>
+									<td valign="top" align="right" class="col1"><h3>diets</h3></td>
+
+									<td>
+										<% @user.diets.each do |diet| %>
+											<ul>
+												<li type="circle"><%= diet.name %></li>
+											</ul>
+										<% end %>
+									</td>
+
+								</tr>
+
+								<tr>
+									<td align="right" valign="top" class="col1"><h3>allergies</h3></td>
+
+									<td>
+										<% @user.allergies.each do |allergy| %>
+											<ul>
+												<li type="circle"><%= allergy.name %></li>
+											</ul>
+										<% end %>
+									</td>
+
+								</tr>
+
+								<tr>
+									<td align="right" valign="top" class="col1"><h3>excluded ingredients</h3></td>
+
+									<td>
+										<% @user.excluded_ingredients.each do |excluded_ingredient| %>
+											<ul>
+												<li type="circle"><%= excluded_ingredient.name %></li>
+											</ul>
+										<% end %>
+
+									</td>
+
+								</tr>
+
+							</table>
+
+
+						<div class="fav-recipes">
+							<% @user.user_favourite_recipes.each do |user_recipe_id| %>
+								<%= Recipe.find(user_recipe_id.recipe_id).name %><br>
+							<% end %>
+						</div>
+					</div>
+			
+				</div>
 			</div>
-
-
-		</div>
+		</div>		
 
 	</div>
 

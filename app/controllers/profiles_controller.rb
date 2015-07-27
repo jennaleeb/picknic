@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    # Find the user through the profile page because profile does not have dietary prefs
+    @user = User.find(@profile.user_id)
   end
 
   # GET /profiles/new
