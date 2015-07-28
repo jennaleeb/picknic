@@ -1,0 +1,12 @@
+.recipe-well {
+
+	.action-button.btn {
+		padding: 4px 10px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+
+	:nth-child(3).action-button {
+		margin-left: 10px;
+	}
+}

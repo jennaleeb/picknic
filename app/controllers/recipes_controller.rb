@@ -141,7 +141,7 @@ class RecipesController < ApplicationController
     recipe = Yummly.find(yummly_id)
 
     # make new instance of that recipe
-    r = Recipe.find_or_create_by(name: recipe.name)
+    r = Recipe.find_or_create_by(name: recipe.name, thumbnail: recipe.thumbnail)
 
     UserFavouriteRecipe.create(recipe_id: r.id, user_id: current_user.id, yummly_id: yummly_id)
 
