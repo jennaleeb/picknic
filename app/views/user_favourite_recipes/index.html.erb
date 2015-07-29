@@ -1,5 +1,5 @@
-<div class="container">
-  <h1><%= current_user.profile.first_name %>'s Favourite Recipes</h1>
+<div class="container fav-recipe-page">
+  <h1><%= current_user.profile.first_name %>'s Favourite Recipes | <span class="number_of_favs"><%= current_user.user_favourite_recipes.count %> Results</span></h1>
 
     <div class="recipe-tile-row">
 
