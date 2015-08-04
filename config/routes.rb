@@ -40,7 +40,6 @@ Rails.application.routes.draw do
   resources :ingredient_types
   resources :ingredients
   resources :recipes
-
   resources :ingredient_availabilities
   resources :user_favourite_recipes
   resources :diet_ingredient_types

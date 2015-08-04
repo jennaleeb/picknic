@@ -93,6 +93,19 @@
 	}
 }
 
+.show-users-fav-recipes {
+	padding: 0;
+
+	img {
+		width: 98%;
+		padding-bottom: 5px;
+	}
+}
+
+.fav-recipes-collage {
+	display: none;
+}
+
 @media (max-width: 1200px) {
 
 	.profile-nav td {

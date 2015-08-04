@@ -42,4 +42,18 @@ $(function() {
       $(this).closest(".friend").toggleClass("friend-active");
       $(this).siblings('.friend-food-pref').fadeToggle(200);
   });
+
+  $(".fav-recipe-button").on('click', function() {
+      $(".fav-recipes-collage").toggle();
+
+      $(".dietary-prefs").hide();
+  });
+
+  $(".diet-button").on('click', function() {
+      $(".dietary-prefs").show();
+
+      $(".fav-recipes-collage").hide();
+  });
+
 })
+

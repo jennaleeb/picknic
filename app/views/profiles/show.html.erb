@@ -1,10 +1,3 @@
-<!-- <div class="container">
-<%= render 'profile', profile: @profile %>
-
-<%= link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-default" %> 
-<%= link_to 'Set Dietary Preferences', preferences_path, class: "btn btn-default" %>
-</div> -->
-
 <div class="container profile-parent">
 
 	<div class="row">
@@ -32,9 +25,6 @@
 					</p>
 
 				</div>
-
-
-
 			</div>
 
 			<div class="row">
@@ -43,12 +33,12 @@
 						<table class="table table-condensed">
 
 							<tr>
-								<td><div class="glyphicon glyphicon-grain"></div>Dietary Preferences</td>
+								<td><a href="#" class="diet-button" ><div class="glyphicon glyphicon-grain"></div>Dietary Preferences</a></td>
 
 							</tr>
 
 							<tr>
-								<td><div class="glyphicon glyphicon-heart"></div>Favorite Recipes</td>
+								<td><a href="#" class="fav-recipe-button"><div class="glyphicon glyphicon-heart"></div>Favorite Recipes</a></td>
 
 							</tr>
 
@@ -101,21 +91,26 @@
 									</td>
 
 								</tr>
-
-							</table>
-
-
-						<div class="fav-recipes">
-							<% @user.user_favourite_recipes.each do |user_recipe_id| %>
-								<%= Recipe.find(user_recipe_id.recipe_id).name %><br>
-							<% end %>
-						</div>
+							</table>			
 					</div>
-			
+
+					<div class="fav-recipes-collage">
+
+						<% @user.user_favourite_recipes.each do |user_recipe_id| %>
+
+								<div class="col-md-6 col-sm-6 col-xs-12 show-users-fav-recipes">
+
+									<%= link_to image_tag(user_recipe_id.find_recipe_thumbnail.sub("=s90", "=s300"), :alt => ""), 
+										  "http://www.yummly.com/recipe/#{user_recipe_id.yummly_id}" %>
+
+				<!-- 				    <h3><%= user_recipe_id.find_recipe_name %></h3> -->
+								</div>
+
+						<% end %>
+
+					</div>
 				</div>
-			</div>
-		</div>		
-
+			</div>		
+		</div>
 	</div>
-
 </div>

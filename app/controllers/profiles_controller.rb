@@ -13,6 +13,9 @@ class ProfilesController < ApplicationController
   def show
     # Find the user through the profile page because profile does not have dietary prefs
     @user = User.find(@profile.user_id)
+
+    @user_favourite_recipes = UserFavouriteRecipe.where(user_id: @user.id)
+
   end
 
   # GET /profiles/new
