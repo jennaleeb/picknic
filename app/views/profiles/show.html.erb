@@ -100,12 +100,12 @@
 
 									<li class="col-md-6 col-sm-6 col-xs-12" id="show-users-fav-recipes">
 
-					<!-- 				    <h3><%= user_recipe_id.find_recipe_name %></h3> -->
+										<!-- Using link_to "do" is so that you can insert the span -->
 
 										<%= link_to("http://www.yummly.com/recipe/#{user_recipe_id.yummly_id}") do %>
 
 											<%= image_tag(user_recipe_id.find_recipe_thumbnail.sub("=s90", "=s300"), :alt => "") %>
-
+											<!-- When hovering over the image of the recipes the name appears -->
 											<span class="text-content"><span><%= user_recipe_id.find_recipe_name %></span></span>
 
 										<% end %>
