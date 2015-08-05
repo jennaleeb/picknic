@@ -16,18 +16,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
                 
-<!--                 <li>
-                    <%= link_to "Seasonal Ingredients",  ingredient_availabilities_path %>
-                </li> -->
-                <% if user_signed_in? %>
+            <% if user_signed_in? and current_user.profile.present? then %>
                 <li>
                     <%= link_to "Find Friends",  friends_path %>
                 </li> 
-                <% end %>
   
                 <li>
                     <%= link_to "Search Recipes",  recipes_path %>
                 </li>
+
+            <% end %>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
