@@ -56,6 +56,28 @@
 		border-bottom: 1px solid #ddd;
 	}
 
+	table tr td {
+		a {
+			color: #777;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:active {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:visited {
+			text-decoration: none;
+		}
+		
+	}
+
 	.glyphicon {
 		margin-right: 5px;
 	}
@@ -93,17 +115,58 @@
 	}
 }
 
-.show-users-fav-recipes {
+#show-users-fav-recipes {
 	padding: 0;
 
 	img {
 		width: 98%;
 		padding-bottom: 5px;
 	}
+
+	img:hover {
+		
+	}
 }
+
 
 .fav-recipes-collage {
 	display: none;
+
+	ul {
+		padding: 0;
+		list-style-type: none;
+	}
+
+	li {
+		list-style: none;
+	}
+}
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 98%;
+  height: 181px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul.img-list li:hover span.text-content {
+  opacity: 1;
 }
 
 @media (max-width: 1200px) {

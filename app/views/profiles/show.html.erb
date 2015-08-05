@@ -95,19 +95,25 @@
 					</div>
 
 					<div class="fav-recipes-collage">
+						<ul class="img-list">
+							<% @user.user_favourite_recipes.each do |user_recipe_id| %>
 
-						<% @user.user_favourite_recipes.each do |user_recipe_id| %>
+									<li class="col-md-6 col-sm-6 col-xs-12" id="show-users-fav-recipes">
 
-								<div class="col-md-6 col-sm-6 col-xs-12 show-users-fav-recipes">
+					<!-- 				    <h3><%= user_recipe_id.find_recipe_name %></h3> -->
 
-									<%= link_to image_tag(user_recipe_id.find_recipe_thumbnail.sub("=s90", "=s300"), :alt => ""), 
-										  "http://www.yummly.com/recipe/#{user_recipe_id.yummly_id}" %>
+										<%= link_to("http://www.yummly.com/recipe/#{user_recipe_id.yummly_id}") do %>
 
-				<!-- 				    <h3><%= user_recipe_id.find_recipe_name %></h3> -->
-								</div>
+											<%= image_tag(user_recipe_id.find_recipe_thumbnail.sub("=s90", "=s300"), :alt => "") %>
 
-						<% end %>
+											<span class="text-content"><span><%= user_recipe_id.find_recipe_name %></span></span>
 
+										<% end %>
+
+									</li>
+
+							<% end %>
+						</ul>
 					</div>
 				</div>
 			</div>		
