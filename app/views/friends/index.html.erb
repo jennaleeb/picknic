@@ -102,38 +102,59 @@
 
         	<div class="tab-content">
 
-        	 <div class="friend-food-pref-total">
+        	 <div class="profile-main-content">
 
-    	 		<h1>Diets</h1>
-    	 		<ul>
-	    	 		<% current_user.friends.each do |friend| %>
-	    	 			<% friend.diets.each do |diet| %>
-	    	 				<li><%= diet.name%></li>
-	    	 			<% end %>
-	    	 		<% end %>
-    	 		</ul>
 
-    	 		<h1>Allergies</h1>
-    	 		<ul>
-	    	 		<% current_user.friends.each do |friend| %>
-	        	 		<% friend.allergies.each do |allergy| %>
-	        	 			<li><%= allergy.name%></li>
-	        	 		<% end %>
-	    	 		<% end %>
-    	 		</ul>
+        	 	<table class="table table-condensed dietary-prefs">
 
-    	 		<h1>Excluded Ingredients</h1>
-    	 		<ul>
-	    	 		<% current_user.friends.each do |friend| %>
-	        	 		<% friend.excluded_ingredients.each do |excluded_ingredient| %>
-	        	 			<li><%= excluded_ingredient.name%></li>
-	        	 		<% end %>
-	    	 		<% end %>
-        	 	</ul>
+        	 		<tr>
+        	 			<td valign="top" align="right" class="col1"><h3>diets</h3></td>
+
+        	 			<td>
+					 		<% current_user.friends.each do |friend| %>
+				    	 		<% friend.diets.each do |diet| %>
+					    	 		<ul>
+					    	 			<li type="circle"><%= diet.name%></li>
+					    	 		</ul>			    	 			
+				    	 		<% end %>
+					 		<% end %>
+        	 			</td>
+
+        	 		</tr>
+
+        	 		<tr>
+        	 			<td align="right" valign="top" class="col1"><h3>allergies</h3></td>
+
+        	 			<td>
+					 		<% current_user.friends.each do |friend| %>
+				    	 		<% friend.allergies.each do |allergy| %>
+					    	 		<ul>
+					    	 			<li type="circle"><%= allergy.name%></li>
+					    	 		</ul>
+				    	 		<% end %>
+					 		<% end %>
+        	 			</td>
+
+        	 		</tr>
+
+        	 		<tr>
+        	 			<td align="right" valign="top" class="col1"><h3>excluded ingredients</h3></td>
+
+        	 			<td>
+ 					 		<% current_user.friends.each do |friend| %>
+			        	 		<% friend.excluded_ingredients.each do |excluded_ingredient| %>
+				        	 		<ul>
+				        	 			<li type="circle"><%= excluded_ingredient.name%></li>
+				        	 		</ul>			        	 			
+			        	 		<% end %>
+			    	 		<% end %>
+
+        	 			</td>
+
+        	 		</tr>
+        	 	</table>			
 
         	 </div>
-
-        	 <p id="picknic-button" ><%= link_to "Search for Recipes", recipes_path %></p>
         	 
         	</div> 
         </div>
