@@ -5,23 +5,31 @@
 	}
 
 	position: relative;
-	left: 2%;
 }
 
 .recipe-filter {
 	border: 2.5px solid rgb(183, 228, 183);
 	border-radius: 0;
 	font-size: 1.2em;
+	height: 40px;
+	margin-bottom: 0.5em;
+}
+
+#keyword-search {
+	width: 18em;
 }
 
 #search-button {
-	padding-left: 3em;
-	padding-right: 3em;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: .1em;
+	padding-bottom: .1em;
 	border-radius: 0px;
-	margin-left: -4em;
-	background-color: #f39b5c;
+	background-color: rgba(243,155,92,0.7);
 	border: 0px;
-	color: white;
+	color: #5e5e5e;
+	font-size: 1.8em;
+	font-family: 'Amatic SC'
 }
 
 /*Styles for Recipe Tiles*/
