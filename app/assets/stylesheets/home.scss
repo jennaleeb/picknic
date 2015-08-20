@@ -38,7 +38,6 @@
         margin-bottom: 10px;
         position: relative;
         color: wheat;
-        left: 23px;
 
     }
 
@@ -53,13 +52,19 @@
     }
 }
 
+@media (min-width: 990px){
+
+    .intro-message h1 {
+        left: 23px;
+    }
+}
 .home-search {
     top: 15em;
     position: relative;
 }
 
 .home-text-input {
-    width: 75%;
+    width: 70%;
     display: inline-block;
 }
 
