@@ -10,9 +10,14 @@
 	position: relative;   
 	min-height: 500px;
 	clear: both;
-	width: 60em;
 	margin: 1em auto;
 
+}
+
+@media (min-width: 768px) {
+	.tabs {
+		width: 70%;
+	}
 }
 
 .tab {
@@ -26,10 +31,11 @@
 	border: 1px solid #ccc; 
 	position: relative;
 	cursor: pointer;
-	width: 270px;
 	height: 50px;
 	text-align: center;
 	padding-top: 0.4em;
+	padding-left: 1em;
+	padding-right: 1em;
 
 }
 
@@ -157,20 +163,25 @@ input[type='checkbox']:checked {
 
 }
 
-.friend-food-pref-total h4 {
+.friend-guest h4 {
 	text-align: center;
 }
 
-.friend-food-pref-total ul {
+.friend-guest ul {
 	list-style: none;
-	font-size: 1.6em;
+	font-size: 1.2em;
 	padding: 0.2em;
-	width: 70%;
 	margin: 1em auto;
 }
 
+@media (min-width: 768px){
+	.friend-guest ul {
+		width: 50%;
+	}
+}
 
-.friend-food-pref-total ul li {
+
+.friend-guest ul li {
 	background-color: rgba(255,99,71,0.6);
 	margin-bottom: 0.2em;
 	border-radius: 5px;
@@ -178,4 +189,11 @@ input[type='checkbox']:checked {
 	box-sizing: content-block;
 	padding: 0.5em;
 
+}
+
+.friend-guest .fa-trash-o {
+	float: right;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	color: black;
 }
