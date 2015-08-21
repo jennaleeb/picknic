@@ -16,9 +16,7 @@ class PreferencesController < ApplicationController
       ExcludedIngredient.create(name: ingredient, user_id: current_user.id)
     end
       
-
-
-    redirect_to preferences_path
+    redirect_to recipes_path
 
   end
 
