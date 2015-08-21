@@ -115,17 +115,17 @@
 	}
 }
 
-#show-users-fav-recipes {
+.show-users-fav-recipes {
 	padding: 0;
+	position: relative;
+	display: inline-block;
+
 
 	img {
-		width: 98%;
-		padding-bottom: 5px;
+		width: 100%;
+		height: 100%;
 	}
 
-	img:hover {
-		
-	}
 }
 
 
@@ -139,35 +139,49 @@
 
 	li {
 		list-style: none;
+		margin-bottom: 5px;
 	}
+
 }
 
+/*Dark overlay fixed on mobile. Hover for dark overlay on desktop*/
+
 span.text-content {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 98%;
-  height: 181px;
-  opacity: 0;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;
+	background: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	display: table;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	display: inline-block;
+
 }
 
 span.text-content span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-ul.img-list li:hover span.text-content {
-  opacity: 1;
+@media (min-width: 768px) {
+	span.text-content {
+	  opacity: 0;
+	}
+
+	ul.img-list li:hover span.text-content {
+	  opacity: 1;
+	}
 }
+
 
 @media (max-width: 1200px) {
 
