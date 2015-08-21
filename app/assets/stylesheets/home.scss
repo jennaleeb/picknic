@@ -70,7 +70,7 @@
 
 .section-half ul {
     list-style: none;
-    margin-left: -5em;
+    padding: 0;
 }
 
 li:nth-child(3).intro-descriptions {
@@ -80,7 +80,7 @@ li:nth-child(3).intro-descriptions {
 .intro-descriptions {
     margin-top: 2em;
     margin-bottom: 2em;
-    height: 10em;
+    height: 12em;
     border-right: 1px solid lightgrey;
     text-align: center;
 
@@ -92,9 +92,8 @@ li:nth-child(3).intro-descriptions {
     
 
     p {
-        margin-left: 2em;
-        margin-right: 2em;
-        font-family: 'Open Sans';
+        margin-left: 1em;
+        margin-right: 1em;
     }
 
 
@@ -130,8 +129,8 @@ footer {
         top: 15%;
     }
 
-    .heart {
-        color: rgb(236, 83, 109);
+    .fa-heart {
+        color: rgb(231, 76, 60)
     }
 
 }
