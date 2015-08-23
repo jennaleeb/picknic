@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20150823163530) do
     t.string   "yummly_allergy_id"
   end
 
-  add_index "contact_infos", ["shop_id"], name: "index_contact_infos_on_shop_id"
-
   create_table "diet_ingredient_types", force: :cascade do |t|
     t.integer  "diet_id"
     t.integer  "ingredient_type_id"
