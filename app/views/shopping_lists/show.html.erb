@@ -1,13 +1,40 @@
-<div class="container">
-	<h3>Items for: <%= @shopping_list.name %></h3>
-			<% @shopping_list.shopping_list_items.each do |shopping_list_item| %>
-			<div class="row well">
-				<div class="col-md-6 col-sm-12"><%= shopping_list_item.ingredient_name %></div>
-				<div class="col-md-3 col-sm-12">Item complete? <%= ( shopping_list_item.done ) ? "Yes" : "No" %></div>
-				<div class="col-md-3 col-sm-12"><%= link_to 'Mark Complete', "mark_shopping_list_item_done/#{shopping_list_item.id}" %></div>
-			</div>
-			<% end %>
 
-<%= link_to 'Back to Shopping Lists', shopping_lists_path, class: 'btn btn-default' %>
+<div class="recipe-card">
+	<div class="shopping-list-image">
+		<h1><i class="fa fa-list-ol"></i><%= @shopping_list.name %></h1>
+		<%= link_to image_tag(@shopping_list.find_recipe_thumbnail.sub("=s90", "=s500"), :alt => ""), 
+		  "http://www.yummly.com/recipe/#{@shopping_list.yummly_id}" %>
+
+	</div>
+
+	
+
+	<table class="table">
+		<% @shopping_list.shopping_list_items.each do |shopping_list_item| %>
+			<tr>
+				<td>
+					<% if shopping_list_item.done %>
+						<span class="shopping-list-item-done">
+					<% else %>
+						<span class="shopping-list-item">
+					<% end %>
+
+						<%= shopping_list_item.ingredient_name %>
+					</span>
+
+				</td>
+
+				<td>
+					<span class="check-item-done"><%= link_to '<i class="fa fa-check"></i>'.html_safe, "mark_shopping_list_item_done/#{shopping_list_item.id}" %></span>
+				</td>
+
+			</tr>
+		<% end %>
+
+	</table>
+	
+
 </div>
+
+
 

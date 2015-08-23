@@ -107,14 +107,18 @@ class RecipesController < ApplicationController
     #pull out whichever recipe you are clicking on
     recipe = Yummly.find(params[:yummly_id])
 
+    # create a recipe for the database for future use
+    r = Recipe.find_or_create_by(name: recipe.name, thumbnail: recipe.thumbnail)
+
     #create new shopping list for each recipe
-    s = ShoppingList.create(name: recipe.name, 
+    s = ShoppingList.create(
+      name: recipe.name, 
       yummly_id: params[:yummly_id],
-      user_id: current_user.id)
+      user_id: current_user.id,
+      recipe_id: r.id)
 
     #find recipe and ingredient name from yummly
     recipe.ingredients.each do |ingredient|
-      r = Recipe.find_or_create_by(name: recipe.name)
       ShoppingListItem.create(done: nil, shopping_list_id: s.id, ingredient_name: ingredient, ingredient_quantity: nil, ingredient_quantity_unit: nil)
     end
 

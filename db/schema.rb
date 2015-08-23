@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728143806) do
+ActiveRecord::Schema.define(version: 20150823163530) do
 
   create_table "allergies", force: :cascade do |t|
     t.string   "name"
@@ -158,8 +158,10 @@ ActiveRecord::Schema.define(version: 20150728143806) do
     t.string   "name"
     t.string   "yummly_id"
     t.integer  "user_id"
+    t.integer  "recipe_id"
   end
 
+  add_index "shopping_lists", ["recipe_id"], name: "index_shopping_lists_on_recipe_id"
   add_index "shopping_lists", ["user_id"], name: "index_shopping_lists_on_user_id"
 
   create_table "user_allergies", force: :cascade do |t|
