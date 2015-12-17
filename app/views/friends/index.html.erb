@@ -24,8 +24,8 @@
 	             
 	             <div class="friend-info">
 	               
-
-	               <h5><%= user.profile.first_name%> <%= user.profile.last_name%></h5>
+	             	<% if user.has_profile? %>
+	               		<h5><%= user.profile.first_name%> <%= user.profile.last_name%></h5>
 
 
 	               <p><%= link_to "View Profile", "profiles/#{user.profile.id}" %> </p>
@@ -63,7 +63,7 @@
 	           </li>	
 
 
-
+	           <% end %>
 	        <% end %>
 
            
