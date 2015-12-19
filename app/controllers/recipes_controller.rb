@@ -11,32 +11,14 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
-    # Grab user's diets as saved in profile and pass it into the search
-    user_diets = current_user.compile_diets
-
-    if params[:search_by_diet].present?
-      allowed_diets_in_search = (user_diets << params[:search_by_diet]).flatten!
-    else
-      allowed_diets_in_search = user_diets
-    end
-
-    # Grab user's allergies as saved in profile and pass it into the search
-    user_allergies = current_user.compile_allergies
-
-    if params[:search_by_allergy].present?
-      allowed_allergies_in_search = (user_allergies << params[:search_by_allergy]).flatten!
-    else
-      allowed_allergies_in_search = user_allergies
-    end
-
     user_excluded_ingredients = current_user.compile_excluded_ingredients
 
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
-      "allowedAllergy[]" => allowed_allergies_in_search,
-      "allowedDiet[]" => allowed_diets_in_search,
+      "allowedAllergy[]" => params[:search_by_allergy],
+      "allowedDiet[]" => params[:search_by_diet],
       "excludedIngredient[]" => user_excluded_ingredients,
       maxResult: 50);
       

@@ -34,6 +34,11 @@ gem 'dotenv-rails'
 
 gem 'sprockets'
 
+gem 'twitter-bootstrap-rails'
+
+# Tokenfieled
+gem 'bootstrap_tokenfield_rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

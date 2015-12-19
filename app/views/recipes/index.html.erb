@@ -11,40 +11,8 @@
 
     <div class="recipe-search">
 
-        <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
+      <%= render 'form' %>
 
-
-            <div class="col-md-2">
-              <%= select_tag 'search_by_time', "<option value='' selected=\"selected\">All Time</option><option value='900'>15 minutes</option><option value='1800'>30 minutes</option><option value='3600'>1 hour</option><option value='7200'>2 hours</option>".html_safe, class: "form-control recipe-filter" %>
-            </div>
-
-            <div class="col-md-2">
-              <%= select_tag 'search_by_course', "<option value='' selected=\"selected\">All Courses</option><option value='course^course-Appetizers'>Appetizers</option><option value='course^course-Main Dishes'>Main Dishes</option><option value='course^course-Salads'>Salads</option><option value='course^course-Side Dishes'>Side Dishes</option><option value='course^course-Lunch and Snacks'>Lunch and Snacks</option><option value='course^course-Soups and Snacks'>Soups</option><option value='course^course-Desserts'>Desserts</option><option value='course^course-Condiments and Sauces'>Condiments and Sauces</option><option value='course^course-Cocktails'>Cocktails</option><option value='course^course-Breakfast and Brunch'>Breakfast and Brunch</option><option value='course^course-Beverages'>Beverages</option>".html_safe, class: "form-control recipe-filter" %>
-            </div>
-
-            <div class="col-md-2">
-
-              <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name'), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Allergies' %>
-
-
-            </div>
-
-            <div class="col-md-2">
-
-              <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name'), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
-
-            </div>
-
-
-            <div class="col-md-2" id="keyword-search">
-              <%= text_field_tag 'search_by_all', nil, placeholder: 'Keyword', class: "form-control recipe-filter" %>
-            </div>
-
-
-            <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
-
-        
-      <% end %>
     </div>
 
   
