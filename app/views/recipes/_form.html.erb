@@ -1,7 +1,6 @@
 
   <%= form_tag 'recipes', method: :get, :class => 'search-section' do %>
 
-
       <div class="col-md-2">
         <%= select_tag 'search_by_time', "<option value='' selected=\"selected\">All Time</option><option value='900'>15 minutes</option><option value='1800'>30 minutes</option><option value='3600'>1 hour</option><option value='7200'>2 hours</option>".html_safe, class: "form-control recipe-filter" %>
 
@@ -16,7 +15,7 @@
 
       <div class="col-md-2">
 
-        <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name', current_user.compile_diets), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
+        <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name', @user_diet), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
 
       </div>
 
@@ -29,8 +28,8 @@
         <%= text_field_tag 'search_by_all', nil, placeholder: 'Keyword', class: "form-control recipe-filter" %>
       </div>
 
-
-      <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
-
+      <div class="col-md-2">
+        <%= submit_tag 'Search' , class: "btn btn-default", id: "search-button" %>
+      </div>
   
 <% end %>

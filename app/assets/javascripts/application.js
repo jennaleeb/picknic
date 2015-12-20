@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require bootstrap-sprockets
+//= require bootstrap-tokenfield
 //= require_tree .
 
 // function getGeoLocation() {
@@ -60,7 +60,7 @@
 
 // })
 
-(document).ready(function() {
+$(function() {
 
   $("input.tokenize").tokenfield();
 

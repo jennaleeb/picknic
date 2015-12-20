@@ -12,15 +12,28 @@ class RecipesController < ApplicationController
   def index
 
     user_excluded_ingredients = current_user.compile_excluded_ingredients
+    @user_diet = current_user.compile_diets
+    # @user_diet = params[:search_by_diet]
 
+    # On page load, diet prefs are user's prefs
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
-      "allowedAllergy[]" => params[:search_by_allergy],
-      "allowedDiet[]" => params[:search_by_diet],
+      "allowedDiet[]" => current_user.compile_allergies,
+      "allowedDiet[]" => current_user.compile_diets,
       "excludedIngredient[]" => user_excluded_ingredients,
       maxResult: 50);
+
+    # @results = Yummly.search(
+    #   params[:search_by_all],
+    #   "maxTotalTimeInSeconds" => params[:search_by_time],
+    #   "allowedCourse[]" => params[:search_by_course],
+    #   "allowedAllergy[]" => params[:search_by_allergy],
+    #   # "allowedDiet[]" => params[:search_by_diet],
+    #   "allowedDiet[]" => current_user.compile_diets,
+    #   "excludedIngredient[]" => user_excluded_ingredients,
+    #   maxResult: 50);
       
 
   end

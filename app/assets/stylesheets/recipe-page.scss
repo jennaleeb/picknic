@@ -5,10 +5,13 @@
 	}
 
 	position: relative;
+	display: inline-block;
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 .recipe-filter {
-	border: 2.5px solid rgb(183, 228, 183);
+	border: 1.5px solid rgb(183, 228, 183);
 	border-radius: 0;
 	font-size: 1.2em;
 	height: 40px;
@@ -18,9 +21,14 @@
 
 @media (min-width: 1000px) {
 	#keyword-search {
-		width: 22vw;
+
+	}
+
+	#search-by-all {
+		
 	}
 }
+
 
 #search-button {
 	padding-left: 1em;
@@ -32,7 +40,9 @@
 	border: 0px;
 	color: #5e5e5e;
 	font-size: 1.8em;
-	font-family: 'Amatic SC'
+	font-family: 'Amatic SC';
+	width: 100%;
+
 }
 
 /*Styles for Recipe Tiles*/
@@ -42,6 +52,8 @@
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
  -webkit-column-gap:1em; 
+ width: 100%;
+ margin-top: 1em;
   
 }
 
