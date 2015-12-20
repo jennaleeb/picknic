@@ -9,18 +9,18 @@
 
       <div class="col-md-2">
 
-        <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name', current_user.compile_allergies), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Allergies' %>
+        <%= select_tag 'search_by_allergy', options_from_collection_for_select(Allergy.all, 'yummly_allergy_id', 'name', @selected_allergy), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Allergies' %>
 
       </div>
 
       <div class="col-md-2">
 
-        <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name', @user_diet), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
+        <%= select_tag 'search_by_diet', options_from_collection_for_select(Diet.all, 'yummly_diet_id', 'name', @selected_diet), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Diets'  %>
 
       </div>
 
       <div class="col-md-2">
-        <%= select_tag 'search_by_ingredient', options_for_select(current_user.compile_excluded_ingredients, current_user.compile_excluded_ingredients), multiple: true, class: "form-control recipe-filter", :include_blank => 'No Excluded Ingredients'  %>
+        <%= select_tag 'search_by_ingredient', options_for_select(current_user.compile_excluded_ingredients, @selected_ingredient), multiple: true, class: "form-control recipe-filter"%>
       </div>
 
 

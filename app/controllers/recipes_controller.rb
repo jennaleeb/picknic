@@ -11,27 +11,49 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
 
-    user_excluded_ingredients = current_user.compile_excluded_ingredients
-    @user_diet = current_user.compile_diets
-    # @user_diet = params[:search_by_diet]
+    
+    @selected_diet = current_user.compile_diets
+    @selected_allergy = current_user.compile_allergies
+    @selected_ingredient = current_user.compile_excluded_ingredients
+
+    if params[:search_by_diet].present?
+      allowed_diets_in_search = params[:search_by_diet]
+      @selected_diet = params[:search_by_diet]
+    else
+      allowed_diets_in_search = current_user.compile_diets
+    end
+
+    if params[:search_by_allergy].present?
+      allowed_allergies_in_search = params[:search_by_allergy]
+      @selected_allergy = params[:search_by_allergy]
+    else
+      allowed_allergies_in_search = current_user.compile_allergies
+    end
+
+    if params[:search_by_ingredient].present?
+      excluded_ingredients_in_search = params[:search_by_ingredient]
+      @selected_ingredient = params[:search_by_ingredient]
+    else
+      excluded_ingredients_in_search = current_user.compile_excluded_ingredients
+    end
 
     # On page load, diet prefs are user's prefs
     @results = Yummly.search(
       params[:search_by_all],
       "maxTotalTimeInSeconds" => params[:search_by_time],
       "allowedCourse[]" => params[:search_by_course],
-      "allowedDiet[]" => current_user.compile_allergies,
-      "allowedDiet[]" => current_user.compile_diets,
-      "excludedIngredient[]" => user_excluded_ingredients,
+      "allowedDiet[]" => allowed_diets_in_search,
+      "allowedAllergy[]" => allowed_allergies_in_search,
+      "excludedIngredient[]" => excluded_ingredients_in_search,
       maxResult: 50);
 
+    # On page load, diet prefs are whatever is in the searchbar
     # @results = Yummly.search(
     #   params[:search_by_all],
     #   "maxTotalTimeInSeconds" => params[:search_by_time],
     #   "allowedCourse[]" => params[:search_by_course],
     #   "allowedAllergy[]" => params[:search_by_allergy],
-    #   # "allowedDiet[]" => params[:search_by_diet],
-    #   "allowedDiet[]" => current_user.compile_diets,
+    #   "allowedDiet[]" => params[:search_by_diet],
     #   "excludedIngredient[]" => user_excluded_ingredients,
     #   maxResult: 50);
       

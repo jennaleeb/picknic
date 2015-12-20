@@ -48,13 +48,14 @@
 	                 </ul>
 
 	               </div>
-
-	               	<% if current_user.friends.include?(user) %>
-		               	<% @friendship = current_user.friendships.find_by(friend_id: user) %>
-		               		<p><%= link_to "Remove Guest", @friendship, :method => :delete %></p>
-	               	<% else %>
-	               		<p><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></p>
-	            	<% end %>
+	               	<% if user != current_user %>
+		               	<% if current_user.friends.include?(user) %>
+			               	<% @friendship = current_user.friendships.find_by(friend_id: user) %>
+			               		<p><%= link_to "Remove Guest", @friendship, :method => :delete %></p>
+		               	<% else %>
+		               		<p><%= link_to "Add Guest", friendships_path(:friend_id => user), :method => :post %></p>
+		            	<% end %>
+		            <% end %>
 
 	             </div>
 
