@@ -18,17 +18,17 @@
          <ul class="friend-list">
 
          	<% User.all.each do |user| %>
-
+         	<% if user.has_profile? %>
 	           <li class="friend list-unstyled">
 	             <%= image_tag("woman1.png", :alt => "") %>
 	             
 	             <div class="friend-info">
-	               
-	             	<% if user.has_profile? %>
-	               		<h5><%= user.profile.first_name%> <%= user.profile.last_name%></h5>
-	               	<% if current_user.admin_user? %>
-	               		<%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
-	               	<% end %>
+	             	
+	               	<h5><%= user.profile.first_name%> <%= user.profile.last_name%>
+		               	<% if current_user.admin_user? %>
+		               		<%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+		               	<% end %>
+	               	</h5>
 
 	               <p><%= link_to "View Profile", "profiles/#{user.profile.id}" %> </p>
 
