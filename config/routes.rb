@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
+
   get 'friendships/create'
 
   get 'friendships/destroy'
@@ -21,7 +23,13 @@ Rails.application.routes.draw do
   resources :shops
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+
   root to: "home#index"
+
+  devise_scope :user do
+    match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  end
+
   get 'home/index'
 
   get 'make_shopping_list/:yummly_id' => 'recipes#generate_shopping_list'
@@ -54,7 +62,7 @@ Rails.application.routes.draw do
 
   get 'remove_excluded_ingredient/:ingredient_id' => 'preferences#remove_excluded_ingredient'
 
-  get '/:id', :to => "users#show", :as => :user
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

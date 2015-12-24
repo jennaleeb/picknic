@@ -23,10 +23,6 @@ class User < ActiveRecord::Base
   has_many :user_favourite_recipes, dependent: :destroy
   has_many :recipes, through: :user_favourite_recipes
 
-  # A user has many favourite shops
-  has_many :user_favourite_shops, dependent: :destroy
-  has_many :shops, through: :user_favourite_shops
-
   # A user has many shopping lists
   has_many :shopping_lists
 
@@ -60,12 +56,6 @@ class User < ActiveRecord::Base
   def has_favourite_recipe?(user_id, yummly_id)
     return self.user_favourite_recipes.has_user_favourites_for_recipe?(user_id, yummly_id)
   end
-
-  # Check if a specific shop (by ID) is in the user's favourite shops
-  def has_favourite_shop?(shop_id)
-    return self.user_favourite_shops.find_by(shop_id: shop_id)
-  end
-
 
 
   # Check if a user can modify a shop.
