@@ -25,40 +25,41 @@
 //   document.cookie = "lat_lng=" + escape(cookie_val);
 // }
 
-// $(function() {
-//   $("#close-cookies").click(function() {
-//   	$("#cookie-notice").css("display", "none")
-//   });
+$(function() {
+	
+  $("#close-cookies").click(function() {
+  	$("#cookie-notice").css("display", "none")
+  });
 
-//   $("#update-location").click(function() {
-//     getGeoLocation();
-//     $(this).addClass("btn-success");
-//   });
+  $("#update-location").click(function() {
+    getGeoLocation();
+    $(this).addClass("btn-success");
+  });
 
-//   $('body').bind('beforeunload',function(){
-//      $("#update-location").removeClass("btn-success");
-//   });
+  $('body').bind('beforeunload',function(){
+     $("#update-location").removeClass("btn-success");
+  });
 
-//   $('.view-prefs').on('click', function() {
-//       $(this).closest(".friend").toggleClass("friend-active");
-//       $(this).siblings('.friend-food-pref').fadeToggle(200);
-//   });
+  $('.view-prefs').on('click', function() {
+      $(this).closest(".friend").toggleClass("friend-active");
+      $(this).siblings('.friend-food-pref').fadeToggle(200);
+  });
 
-//   $(".fav-recipe-button").on('click', function() {
-//       $(".fav-recipes-collage").toggle();
+  $(".fav-recipe-button").on('click', function() {
+      $(".fav-recipes-collage").toggle();
 
-//       $(".dietary-prefs").hide();
-//   });
+      $(".dietary-prefs").hide();
+  });
 
-//   $(".diet-button").on('click', function() {
-//       $(".dietary-prefs").show();
+  $(".diet-button").on('click', function() {
+      $(".dietary-prefs").show();
 
-//       $(".fav-recipes-collage").hide();
-//   });
+      $(".fav-recipes-collage").hide();
+  });
 
-//   $('#tokenfield').tokenfield();
+  $('#tokenfield').tokenfield();
 
-// })
+})
 
 $(function() {
 
